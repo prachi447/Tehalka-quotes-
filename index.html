@@ -1,817 +1,1256 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tehalka Quotes | Hindi Quotes & Shayari</title>
 
-  <title>Tehalka Quotes | Hindi Quotes, Shayari & Thoughts</title>
+<meta name="description" content="Tehalka Quotes पर पढ़ें खूबसूरत Hindi Love, Life, Sad, Attitude, Motivational Quotes और Shayari.">
+<meta name="keywords" content="Hindi Quotes, Shayari, Love Quotes, Sad Quotes, Motivational Quotes, Attitude Quotes, Life Quotes">
+<meta name="author" content="Tehalka Quotes">
 
-  <meta name="description"
-        content="Tehalka Quotes पर पढ़ें Love, Life, Sad, Motivational, Attitude और Friendship Quotes एवं Shayari.">
+<style>
 
-  <meta name="keywords"
-        content="Hindi Quotes, Shayari, Love Quotes, Sad Quotes, Motivational Quotes, Attitude Quotes, Life Quotes">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-  <meta name="author" content="Tehalka Quotes">
+html{
+    scroll-behavior:smooth;
+}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f6fa;
+    color:#202124;
+    transition:0.3s;
+}
+
+/* DARK MODE */
+
+body.dark{
+    background:#111318;
+    color:#f1f1f1;
+}
+
+body.dark .quote-card,
+body.dark .about-box,
+body.dark .category-card{
+    background:#1d2027;
+    color:#f1f1f1;
+}
+
+body.dark .search-box input{
+    background:#1d2027;
+    color:white;
+}
+
+body.dark .search-box input::placeholder{
+    color:#aaa;
+}
+
+body.dark .section-subtitle{
+    color:#aaa;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(20,20,30,0.96);
+    backdrop-filter:blur(10px);
+    color:white;
+    box-shadow:0 3px 15px rgba(0,0,0,0.15);
+}
+
+.header-inner{
+    max-width:1150px;
+    margin:auto;
+    padding:15px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#ffd54a;
+}
+
+.nav{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.nav a:hover{
+    color:#ffd54a;
+}
+
+.theme-btn{
+    border:none;
+    background:#333744;
+    color:white;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    color:white;
+    text-align:center;
+    padding:70px 20px 90px;
+}
+
+.hero h1{
+    font-size:46px;
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    color:#ffe66d;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:6px;
+}
+
+.hero-small{
+    opacity:.85;
+    font-size:14px !important;
+}
+
+/* SEARCH */
+
+.search-wrapper{
+    max-width:700px;
+    margin:-35px auto 35px;
+    padding:0 18px;
+    position:relative;
+}
+
+.search-box{
+    display:flex;
+    background:white;
+    border-radius:35px;
+    padding:6px;
+    box-shadow:0 8px 30px rgba(0,0,0,.18);
+}
+
+.search-box input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:15px 18px;
+    font-size:16px;
+    border-radius:30px;
+}
+
+.search-btn{
+    border:0;
+    background:#6a11cb;
+    color:white;
+    border-radius:30px;
+    padding:0 22px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:10px 18px 60px;
+}
+
+.section-title{
+    text-align:center;
+    margin:35px 0 25px;
+}
+
+.section-title h2{
+    font-size:29px;
+    margin-bottom:6px;
+}
+
+.section-subtitle{
+    color:#777;
+    font-size:15px;
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.category-card{
+    background:white;
+    border-radius:18px;
+    padding:22px 10px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.category-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.13);
+}
+
+.category-icon{
+    font-size:34px;
+    display:block;
+    margin-bottom:8px;
+}
+
+.category-card strong{
+    font-size:15px;
+}
+
+/* QUOTES */
+
+.quotes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.quote-card{
+    background:white;
+    border-radius:20px;
+    padding:25px 20px;
+    min-height:275px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    transition:.25s;
+}
+
+.quote-card:hover{
+    transform:translateY(-4px);
+}
+
+.quote-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.badge{
+    font-size:12px;
+    font-weight:bold;
+    background:#eee9ff;
+    color:#6a11cb;
+    padding:6px 10px;
+    border-radius:20px;
+}
+
+.quote-symbol{
+    font-size:28px;
+    opacity:.25;
+}
+
+.quote-text{
+    font-size:20px;
+    line-height:1.7;
+    text-align:center;
+    font-weight:600;
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.quote-actions{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:18px;
+}
+
+.quote-actions button{
+    border:0;
+    padding:9px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    background:#f0f1f5;
+    color:#222;
+    font-size:12px;
+    transition:.2s;
+}
+
+.quote-actions button:hover{
+    background:#6a11cb;
+    color:white;
+}
+
+/* NO RESULTS */
+
+.no-results{
+    display:none;
+    text-align:center;
+    padding:40px;
+    color:#777;
+}
+
+/* ABOUT */
+
+.about-box{
+    background:white;
+    border-radius:20px;
+    padding:35px 25px;
+    margin-top:55px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.about-box h2{
+    margin-bottom:12px;
+}
+
+.about-box p{
+    color:#666;
+    max-width:750px;
+    margin:8px auto;
+}
+
+body.dark .about-box p{
+    color:#bbb;
+}
+
+/* FOOTER */
+
+footer{
+    background:#17181d;
+    color:#ccc;
+    text-align:center;
+    padding:35px 15px;
+}
+
+footer h3{
+    color:white;
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.footer-links{
+    margin-top:15px;
+}
+
+.footer-links a{
+    color:#bbb;
+    text-decoration:none;
+    margin:0 8px;
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:#ffd54a;
+}
+
+.copyright{
+    margin-top:20px;
+    font-size:12px;
+    color:#888;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%) translateY(100px);
+    background:#222;
+    color:white;
+    padding:12px 20px;
+    border-radius:25px;
+    font-size:14px;
+    z-index:2000;
+    opacity:0;
+    transition:.3s;
+}
+
+.toast.show{
+    transform:translateX(-50%) translateY(0);
+    opacity:1;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav{
+        display:none;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f6fa;
-      color: #222;
-      line-height: 1.6;
+    .hero h1{
+        font-size:38px;
     }
 
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      padding: 18px 15px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    .categories{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .header-box {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
+    .quotes{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    .header-inner{
+        padding:13px 15px;
     }
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      white-space: nowrap;
+    .logo{
+        font-size:22px;
     }
 
-    .logo span {
-      color: #ffd700;
+    .hero{
+        padding:55px 15px 75px;
     }
 
-    nav {
-      display: flex;
-      gap: 15px;
+    .hero h1{
+        font-size:32px;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: bold;
+    .hero p{
+        font-size:16px;
     }
 
-    nav a:hover {
-      color: #ffd700;
+    .search-box{
+        padding:5px;
     }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #2575fc, #6a11cb);
-      color: white;
-      text-align: center;
-      padding: 55px 20px 70px;
+    .search-btn{
+        padding:0 16px;
     }
 
-    .hero h1 {
-      font-size: 38px;
-      margin-bottom: 10px;
+    .quotes{
+        grid-template-columns:1fr;
     }
 
-    .hero p {
-      font-size: 17px;
-      opacity: 0.95;
+    .quote-card{
+        min-height:250px;
     }
 
-    /* SEARCH */
-    .search-box {
-      max-width: 650px;
-      margin: -28px auto 30px;
-      padding: 0 15px;
-      position: relative;
-      z-index: 10;
-    }
+}
 
-    .search-box input {
-      width: 100%;
-      padding: 16px 20px;
-      border: none;
-      border-radius: 30px;
-      font-size: 16px;
-      outline: none;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    }
-
-    /* CONTAINER */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px 15px 50px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin: 25px 0;
-    }
-
-    .section-title h2 {
-      font-size: 28px;
-    }
-
-    .section-title p {
-      color: #777;
-    }
-
-    /* CATEGORIES */
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-bottom: 45px;
-    }
-
-    .category {
-      background: white;
-      padding: 20px 10px;
-      border-radius: 15px;
-      text-align: center;
-      text-decoration: none;
-      color: #222;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .category:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.13);
-    }
-
-    .category .icon {
-      font-size: 32px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .category strong {
-      font-size: 15px;
-    }
-
-    /* QUOTES */
-    .quotes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .quote-card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 230px;
-      transition: 0.3s;
-    }
-
-    .quote-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .quote-text {
-      font-size: 19px;
-      font-weight: 600;
-      text-align: center;
-      margin: auto 0;
-    }
-
-    .quote-category {
-      text-align: center;
-      color: #6a11cb;
-      font-size: 13px;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-
-    .buttons button {
-      border: none;
-      padding: 9px 13px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 13px;
-      background: #f0f0f0;
-    }
-
-    .buttons button:hover {
-      background: #6a11cb;
-      color: white;
-    }
-
-    /* ABOUT */
-    .about {
-      background: white;
-      border-radius: 18px;
-      padding: 30px 20px;
-      margin-top: 50px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-      text-align: center;
-    }
-
-    .about h2 {
-      margin-bottom: 12px;
-    }
-
-    .about p {
-      color: #555;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #171717;
-      color: #ddd;
-      text-align: center;
-      padding: 30px 15px;
-      margin-top: 40px;
-    }
-
-    footer h3 {
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    footer a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 0 8px;
-      font-size: 14px;
-    }
-
-    footer a:hover {
-      color: #ffd700;
-    }
-
-    .copyright {
-      margin-top: 15px;
-      font-size: 13px;
-      color: #999;
-    }
-
-    /* MOBILE */
-    @media (max-width: 800px) {
-
-      .header-box {
-        flex-direction: column;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .hero h1 {
-        font-size: 30px;
-      }
-
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .quotes {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 400px) {
-
-      .logo {
-        font-size: 22px;
-      }
-
-      .hero {
-        padding: 40px 15px 60px;
-      }
-
-      .hero h1 {
-        font-size: 27px;
-      }
-
-      .quote-text {
-        font-size: 18px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-box">
+<!-- HEADER -->
 
-      <div class="logo">
-        Tehalka <span>Quotes</span>
-      </div>
+<header>
 
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#categories">Categories</a>
-        <a href="#quotes">Quotes</a>
-        <a href="#about">About</a>
-      </nav>
+<div class="header-inner">
 
-    </div>
-  </header>
+<div class="logo">
+Tehalka <span>Quotes</span>
+</div>
 
+<nav class="nav">
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#quotes">Quotes</a>
+<a href="#about">About</a>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
+<button class="theme-btn" onclick="toggleDarkMode()" id="themeButton">
+🌙
+</button>
 
-    <h1>Tehalka Quotes</h1>
+</div>
 
-    <p>
-      शब्द जो दिल को छू जाएँ ❤️
-    </p>
+</header>
 
-    <p>
-      Love • Life • Motivation • Attitude • Shayari
-    </p>
 
-  </section>
+<!-- HERO -->
 
+<section class="hero" id="home">
 
-  <!-- SEARCH -->
-  <div class="search-box">
+<h1>Tehalka <span>Quotes</span></h1>
 
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="🔍 Quote या category खोजें..."
-      onkeyup="searchQuotes()"
-    >
+<p>शब्द जो दिल को छू जाएँ ❤️</p>
 
-  </div>
+<p class="hero-small">
+Love • Life • Motivation • Attitude • Shayari
+</p>
 
+</section>
 
-  <main class="container">
 
+<!-- SEARCH -->
 
-    <!-- CATEGORIES -->
-    <section id="categories">
+<div class="search-wrapper">
 
-      <div class="section-title">
-        <h2>📚 Categories</h2>
-        <p>अपनी पसंद की category चुनें</p>
-      </div>
+<div class="search-box">
 
-      <div class="categories">
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Quote खोजें..."
+onkeyup="searchQuotes()"
+>
 
-        <div class="category" onclick="filterQuotes('Love')">
-          <span class="icon">❤️</span>
-          <strong>Love Quotes</strong>
-        </div>
+<button class="search-btn" onclick="searchQuotes()">
+Search
+</button>
 
-        <div class="category" onclick="filterQuotes('Sad')">
-          <span class="icon">😔</span>
-          <strong>Sad Quotes</strong>
-        </div>
+</div>
 
-        <div class="category" onclick="filterQuotes('Motivational')">
-          <span class="icon">💪</span>
-          <strong>Motivational</strong>
-        </div>
+</div>
 
-        <div class="category" onclick="filterQuotes('Attitude')">
-          <span class="icon">🔥</span>
-          <strong>Attitude</strong>
-        </div>
 
-        <div class="category" onclick="filterQuotes('Life')">
-          <span class="icon">🌿</span>
-          <strong>Life Quotes</strong>
-        </div>
+<main class="container">
 
-        <div class="category" onclick="filterQuotes('Friendship')">
-          <span class="icon">🤝</span>
-          <strong>Friendship</strong>
-        </div>
 
-        <div class="category" onclick="filterQuotes('Shayari')">
-          <span class="icon">📝</span>
-          <strong>Shayari</strong>
-        </div>
+<!-- CATEGORIES -->
 
-        <div class="category" onclick="showAllQuotes()">
-          <span class="icon">✨</span>
-          <strong>All Quotes</strong>
-        </div>
+<section id="categories">
 
-      </div>
+<div class="section-title">
 
-    </section>
+<h2>📚 Categories</h2>
 
+<p class="section-subtitle">
+अपनी पसंद की category चुनें
+</p>
 
-    <!-- QUOTES -->
-    <section id="quotes">
+</div>
 
-      <div class="section-title">
-        <h2>✨ Latest Quotes</h2>
-        <p>दिल से पढ़िए और अपनों के साथ शेयर कीजिए</p>
-      </div>
 
-      <div class="quotes" id="quotesContainer">
+<div class="categories">
 
+<div class="category-card" onclick="filterQuotes('Love')">
+<span class="category-icon">❤️</span>
+<strong>Love Quotes</strong>
+</div>
 
-        <!-- QUOTE 1 -->
-        <div class="quote-card" data-category="Love">
+<div class="category-card" onclick="filterQuotes('Sad')">
+<span class="category-icon">😔</span>
+<strong>Sad Quotes</strong>
+</div>
 
-          <div class="quote-text">
-            "सच्चा प्यार वही है,
-            जो वक्त के साथ और भी गहरा हो जाए।"
-          </div>
+<div class="category-card" onclick="filterQuotes('Motivational')">
+<span class="category-icon">💪</span>
+<strong>Motivational</strong>
+</div>
 
-          <div class="quote-category">
-            ❤️ Love Quotes
-          </div>
+<div class="category-card" onclick="filterQuotes('Attitude')">
+<span class="category-icon">🔥</span>
+<strong>Attitude</strong>
+</div>
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
+<div class="category-card" onclick="filterQuotes('Life')">
+<span class="category-icon">🌿</span>
+<strong>Life Quotes</strong>
+</div>
 
-        </div>
+<div class="category-card" onclick="filterQuotes('Friendship')">
+<span class="category-icon">🤝</span>
+<strong>Friendship</strong>
+</div>
 
+<div class="category-card" onclick="filterQuotes('Shayari')">
+<span class="category-icon">📝</span>
+<strong>Shayari</strong>
+</div>
 
-        <!-- QUOTE 2 -->
-        <div class="quote-card" data-category="Motivational">
+<div class="category-card" onclick="showAllQuotes()">
+<span class="category-icon">✨</span>
+<strong>All Quotes</strong>
+</div>
 
-          <div class="quote-text">
-            "रास्ते मुश्किल हों तो क्या हुआ,
-            मंज़िल पाने का जुनून होना चाहिए।"
-          </div>
+</div>
 
-          <div class="quote-category">
-            💪 Motivational
-          </div>
+</section>
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
 
-        </div>
+<!-- QUOTES -->
 
+<section id="quotes">
 
-        <!-- QUOTE 3 -->
-        <div class="quote-card" data-category="Life">
+<div class="section-title">
 
-          <div class="quote-text">
-            "ज़िंदगी छोटी नहीं होती,
-            हम जीना देर से शुरू करते हैं।"
-          </div>
+<h2>✨ Latest Quotes</h2>
 
-          <div class="quote-category">
-            🌿 Life Quotes
-          </div>
+<p class="section-subtitle">
+दिल से पढ़िए और अपनों के साथ शेयर कीजिए
+</p>
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
+</div>
 
-        </div>
 
+<div class="quotes" id="quotesContainer">
 
-        <!-- QUOTE 4 -->
-        <div class="quote-card" data-category="Attitude">
 
-          <div class="quote-text">
-            "हमसे मुकाबला करने से पहले,
-            खुद से जीतना सीखो।"
-          </div>
+<!-- LOVE -->
 
-          <div class="quote-category">
-            🔥 Attitude
-          </div>
+<div class="quote-card" data-category="Love">
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
+<div class="quote-top">
+<span class="badge">❤️ Love</span>
+<span class="quote-symbol">❝</span>
+</div>
 
-        </div>
+<div class="quote-text">
+सच्चा प्यार वही है,<br>
+जो वक्त के साथ और भी गहरा हो जाए।
+</div>
 
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
 
-        <!-- QUOTE 5 -->
-        <div class="quote-card" data-category="Sad">
+</div>
 
-          <div class="quote-text">
-            "कुछ रिश्ते खत्म नहीं होते,
-            बस बात करना बंद हो जाती है।"
-          </div>
 
-          <div class="quote-category">
-            😔 Sad Quotes
-          </div>
+<!-- MOTIVATIONAL -->
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
+<div class="quote-card" data-category="Motivational">
 
-        </div>
+<div class="quote-top">
+<span class="badge">💪 Motivation</span>
+<span class="quote-symbol">❝</span>
+</div>
 
+<div class="quote-text">
+रास्ते मुश्किल हों तो क्या हुआ,<br>
+मंज़िल पाने का जुनून होना चाहिए।
+</div>
 
-        <!-- QUOTE 6 -->
-        <div class="quote-card" data-category="Friendship">
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
 
-          <div class="quote-text">
-            "दोस्ती वो नहीं जो हर वक्त साथ हो,
-            दोस्ती वो है जो हर वक्त याद हो।"
-          </div>
+</div>
 
-          <div class="quote-category">
-            🤝 Friendship
-          </div>
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
+<!-- LIFE -->
 
-        </div>
+<div class="quote-card" data-category="Life">
 
+<div class="quote-top">
+<span class="badge">🌿 Life</span>
+<span class="quote-symbol">❝</span>
+</div>
 
-        <!-- QUOTE 7 -->
-        <div class="quote-card" data-category="Shayari">
+<div class="quote-text">
+ज़िंदगी छोटी नहीं होती,<br>
+हम जीना देर से शुरू करते हैं।
+</div>
 
-          <div class="quote-text">
-            "लफ़्ज़ कम पड़ जाते हैं,
-            जब एहसास बहुत गहरे होते हैं।"
-          </div>
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
 
-          <div class="quote-category">
-            📝 Shayari
-          </div>
+</div>
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
 
-        </div>
+<!-- ATTITUDE -->
 
+<div class="quote-card" data-category="Attitude">
 
-        <!-- QUOTE 8 -->
-        <div class="quote-card" data-category="Love">
+<div class="quote-top">
+<span class="badge">🔥 Attitude</span>
+<span class="quote-symbol">❝</span>
+</div>
 
-          <div class="quote-text">
-            "तुम साथ रहो तो,
-            हर मौसम खूबसूरत लगता है।"
-          </div>
+<div class="quote-text">
+हमसे मुकाबला करने से पहले,<br>
+खुद से जीतना सीखो।
+</div>
 
-          <div class="quote-category">
-            ❤️ Love Quotes
-          </div>
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
+</div>
 
-        </div>
 
+<!-- SAD -->
 
-        <!-- QUOTE 9 -->
-        <div class="quote-card" data-category="Motivational">
+<div class="quote-card" data-category="Sad">
 
-          <div class="quote-text">
-            "आज की मेहनत ही,
-            कल की पहचान बनेगी।"
-          </div>
+<div class="quote-top">
+<span class="badge">😔 Sad</span>
+<span class="quote-symbol">❝</span>
+</div>
 
-          <div class="quote-category">
-            💪 Motivational
-          </div>
+<div class="quote-text">
+कुछ रिश्ते खत्म नहीं होते,<br>
+बस बात करना बंद हो जाती है।
+</div>
 
-          <div class="buttons">
-            <button onclick="copyQuote(this)">📋 Copy</button>
-            <button onclick="shareQuote(this)">📤 Share</button>
-          </div>
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
 
-        </div>
+</div>
 
-      </div>
 
-    </section>
+<!-- FRIENDSHIP -->
 
+<div class="quote-card" data-category="Friendship">
 
-    <!-- ABOUT -->
-    <section class="about" id="about">
+<div class="quote-top">
+<span class="badge">🤝 Friendship</span>
+<span class="quote-symbol">❝</span>
+</div>
 
-      <h2>🌟 About Tehalka Quotes</h2>
+<div class="quote-text">
+दोस्ती वो नहीं जो हर वक्त साथ हो,<br>
+दोस्ती वो है जो हर वक्त याद हो।
+</div>
 
-      <p>
-        Tehalka Quotes एक ऐसी जगह है जहाँ आपको
-        Love, Life, Motivation, Attitude, Sad और
-        Friendship से जुड़े खूबसूरत Quotes और Shayari
-        मिलेंगे।
-      </p>
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
 
-      <p style="margin-top:10px;">
-        हमारा उद्देश्य अच्छे विचारों और खूबसूरत शब्दों
-        को ज्यादा से ज्यादा लोगों तक पहुँचाना है।
-      </p>
+</div>
 
-    </section>
 
-  </main>
+<!-- SHAYARI -->
 
+<div class="quote-card" data-category="Shayari">
 
-  <!-- FOOTER -->
-  <footer>
+<div class="quote-top">
+<span class="badge">📝 Shayari</span>
+<span class="quote-symbol">❝</span>
+</div>
 
-    <h3>Tehalka Quotes</h3>
+<div class="quote-text">
+लफ़्ज़ कम पड़ जाते हैं,<br>
+जब एहसास बहुत गहरे होते हैं।
+</div>
 
-    <p>
-      Quotes • Shayari • Thoughts
-    </p>
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
 
-    <div style="margin-top:15px;">
+</div>
 
-      <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#about">About</a>
 
-    </div>
+<!-- LOVE 2 -->
 
-    <div class="copyright">
-      © 2026 Tehalka Quotes. All Rights Reserved.
-    </div>
+<div class="quote-card" data-category="Love">
 
-  </footer>
+<div class="quote-top">
+<span class="badge">❤️ Love</span>
+<span class="quote-symbol">❝</span>
+</div>
 
+<div class="quote-text">
+तुम साथ रहो तो,<br>
+हर मौसम खूबसूरत लगता है।
+</div>
 
-  <!-- JAVASCRIPT -->
-  <script>
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
 
-    /* SEARCH QUOTES */
+</div>
 
-    function searchQuotes() {
 
-      let input =
-        document.getElementById("searchInput")
+<!-- MOTIVATION 2 -->
+
+<div class="quote-card" data-category="Motivational">
+
+<div class="quote-top">
+<span class="badge">💪 Motivation</span>
+<span class="quote-symbol">❝</span>
+</div>
+
+<div class="quote-text">
+आज की मेहनत ही,<br>
+कल की पहचान बनेगी।
+</div>
+
+<div class="quote-actions">
+<button onclick="copyQuote(this)">📋 Copy</button>
+<button onclick="shareQuote(this)">📤 Share</button>
+<button onclick="downloadQuote(this)">🖼️ Download</button>
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="no-results" id="noResults">
+<h3>😔 कोई Quote नहीं मिला</h3>
+<p>कुछ और search करके देखें।</p>
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about-box" id="about">
+
+<h2>🌟 About Tehalka Quotes</h2>
+
+<p>
+Tehalka Quotes एक Hindi Quotes और Shayari platform है,
+जहाँ आपको Love, Life, Motivation, Attitude, Sad,
+Friendship और कई अन्य विषयों पर खूबसूरत Quotes मिलेंगे।
+</p>
+
+<p>
+हमारा उद्देश्य अच्छे विचारों और खूबसूरत शब्दों को
+ज्यादा से ज्यादा लोगों तक पहुँचाना है।
+</p>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>Tehalka Quotes</h3>
+
+<p>
+Quotes • Shayari • Thoughts
+</p>
+
+<div class="footer-links">
+
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#quotes">Quotes</a>
+<a href="#about">About</a>
+
+</div>
+
+<div class="copyright">
+© 2026 Tehalka Quotes. All Rights Reserved.
+</div>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast=document.getElementById("toast");
+
+    toast.innerText=message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+        toast.classList.remove("show");
+    },2200);
+
+}
+
+
+/* SEARCH */
+
+function searchQuotes(){
+
+    let input=document
+        .getElementById("searchInput")
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
 
-      let cards =
-        document.querySelectorAll(".quote-card");
+    let cards=document.querySelectorAll(".quote-card");
 
-      cards.forEach(function(card) {
+    let found=0;
 
-        let text =
-          card.innerText.toLowerCase();
+    cards.forEach(function(card){
 
-        if (text.includes(input)) {
+        let text=card.innerText.toLowerCase();
 
-          card.style.display = "flex";
+        if(text.includes(input)){
 
-        } else {
+            card.style.display="flex";
+            found++;
 
-          card.style.display = "none";
+        }else{
 
-        }
-
-      });
-
-    }
-
-
-    /* FILTER CATEGORY */
-
-    function filterQuotes(category) {
-
-      let cards =
-        document.querySelectorAll(".quote-card");
-
-      cards.forEach(function(card) {
-
-        if (card.dataset.category === category) {
-
-          card.style.display = "flex";
-
-        } else {
-
-          card.style.display = "none";
+            card.style.display="none";
 
         }
 
-      });
+    });
 
-      document.getElementById("quotes")
+    document.getElementById("noResults").style.display =
+        found===0 ? "block" : "none";
+
+}
+
+
+/* CATEGORY FILTER */
+
+function filterQuotes(category){
+
+    let cards=document.querySelectorAll(".quote-card");
+
+    let found=0;
+
+    cards.forEach(function(card){
+
+        if(card.dataset.category===category){
+
+            card.style.display="flex";
+            found++;
+
+        }else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+    document.getElementById("noResults").style.display="none";
+
+    document
+        .getElementById("quotes")
         .scrollIntoView({
-          behavior: "smooth"
+            behavior:"smooth"
         });
 
-    }
+}
 
 
-    /* SHOW ALL */
+/* SHOW ALL */
 
-    function showAllQuotes() {
+function showAllQuotes(){
 
-      let cards =
-        document.querySelectorAll(".quote-card");
+    document
+        .getElementById("searchInput")
+        .value="";
 
-      cards.forEach(function(card) {
+    let cards=document.querySelectorAll(".quote-card");
 
-        card.style.display = "flex";
+    cards.forEach(function(card){
+        card.style.display="flex";
+    });
 
-      });
+    document.getElementById("noResults").style.display="none";
 
-      document.getElementById("quotes")
+    document
+        .getElementById("quotes")
         .scrollIntoView({
-          behavior: "smooth"
+            behavior:"smooth"
         });
 
-    }
+}
 
 
-    /* COPY */
+/* COPY */
 
-    function copyQuote(button) {
+function copyQuote(button){
 
-      let card =
-        button.closest(".quote-card");
+    let card=button.closest(".quote-card");
 
-      let text =
-        card.querySelector(".quote-text").innerText;
+    let text=card.querySelector(".quote-text").innerText;
 
-      navigator.clipboard.writeText(text)
-        .then(function() {
+    navigator.clipboard.writeText(text)
+    .then(function(){
 
-          alert("Quote copied! 📋");
+        showToast("Quote copied! 📋");
 
-        })
-        .catch(function() {
+    })
+    .catch(function(){
 
-          alert("Quote copy नहीं हो पाया।");
+        showToast("Copy नहीं हो पाया।");
 
-        });
+    });
 
-    }
+}
 
 
-    /* SHARE */
+/* SHARE */
 
-    function shareQuote(button) {
+function shareQuote(button){
 
-      let card =
-        button.closest(".quote-card");
+    let card=button.closest(".quote-card");
 
-      let text =
-        card.querySelector(".quote-text").innerText;
+    let text=card.querySelector(".quote-text").innerText;
 
-      if (navigator.share) {
+    if(navigator.share){
 
         navigator.share({
-
-          title: "Tehalka Quotes",
-          text: text,
-          url: window.location.href
-
+            title:"Tehalka Quotes",
+            text:text,
+            url:window.location.href
         });
 
-      } else {
+    }else{
 
         navigator.clipboard.writeText(text);
 
-        alert("Quote copied! अब आप इसे share कर सकते हैं 📤");
-
-      }
+        showToast("Quote copied! अब share करें 📤");
 
     }
 
-  </script>
+}
+
+
+/* DOWNLOAD QUOTE AS IMAGE */
+
+function downloadQuote(button){
+
+    let card=button.closest(".quote-card");
+
+    let text=card.querySelector(".quote-text").innerText;
+
+    let category=card.dataset.category;
+
+    let canvas=document.createElement("canvas");
+
+    canvas.width=1080;
+    canvas.height=1080;
+
+    let ctx=canvas.getContext("2d");
+
+
+    /* BACKGROUND */
+
+    let gradient=ctx.createLinearGradient(
+        0,
+        0,
+        1080,
+        1080
+    );
+
+    gradient.addColorStop(0,"#6a11cb");
+    gradient.addColorStop(1,"#2575fc");
+
+    ctx.fillStyle=gradient;
+
+    ctx.fillRect(
+        0,
+        0,
+        1080,
+        1080
+    );
+
+
+    /* BRAND */
+
+    ctx.fillStyle="#ffffff";
+
+    ctx.font="bold 42px Arial";
+
+    ctx.textAlign="center";
+
+    ctx.fillText(
+        "TEHALKA QUOTES",
+        540,
+        150
+    );
+
+
+    /* QUOTE MARK */
+
+    ctx.font="100px Arial";
+
+    ctx.fillStyle="rgba(255,255,255,0.3)";
+
+    ctx.fillText(
+        "“",
+        540,
+        300
+    );
+
+
+    /* QUOTE */
+
+    ctx.fillStyle="#ffffff";
+
+    ctx.font="bold 45px Arial";
+
+    let words=text.split(" ");
+
+    let lines=[];
+
+    let line="";
+
+    for(let i=0;i<words.length;i++){
+
+        let testLine=line+words[i]+" ";
+
+        let width=ctx.measureText(testLine).width;
+
+        if(width>850){
+
+            lines.push(line);
+
+            line=words[i]+" ";
+
+        }else{
+
+            line=testLine;
+
+        }
+
+    }
+
+    lines.push(line);
+
+
+    let startY=480;
+
+    lines.forEach(function(item,index){
+
+        ctx.fillText(
+            item.trim(),
+            540,
+            startY+(index*75)
+        );
+
+    });
+
+
+    /* CATEGORY */
+
+    ctx.font="bold 30px Arial";
+
+    ctx.fillStyle="#ffe66d";
+
+    ctx.fillText(
+        category.toUpperCase()+" QUOTES",
+        540,
+        850
+    );
+
+
+    /* FOOTER */
+
+    ctx.font="26px Arial";
+
+    ctx.fillStyle="rgba(255,255,255,.8)";
+
+    ctx.fillText(
+        "tehalka-quotes",
+        540,
+        950
+    );
+
+
+    /* DOWNLOAD */
+
+    let link=document.createElement("a");
+
+    link.download="Tehalka-Quotes.png";
+
+    link.href=canvas.toDataURL("image/png");
+
+    link.click();
+
+    showToast("Quote image downloaded! 🖼️");
+
+}
+
+
+/* DARK MODE */
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark");
+
+    let button=document.getElementById("themeButton");
+
+    if(document.body.classList.contains("dark")){
+
+        button.innerText="☀️";
+
+        localStorage.setItem("theme","dark");
+
+    }else{
+
+        button.innerText="🌙";
+
+        localStorage.setItem("theme","light");
+
+    }
+
+}
+
+
+/* REMEMBER THEME */
+
+window.addEventListener("load",function(){
+
+    if(localStorage.getItem("theme")==="dark"){
+
+        document.body.classList.add("dark");
+
+        document.getElementById("themeButton").innerText="☀️";
+
+    }
+
+});
+
+</script>
 
 </body>
   </html>
