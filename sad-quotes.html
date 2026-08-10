@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sad Quotes in Hindi | Tehalka Quotes</title>
+
+<meta name="description" content="Tehalka Quotes पर पढ़ें खूबसूरत Sad Quotes, Heart Touching Quotes और Emotional Shayari in Hindi. Quotes को Copy, Share और Image के रूप में Download करें।">
+
+<meta name="keywords" content="Sad Quotes in Hindi, Sad Shayari, Heart Touching Quotes, Emotional Quotes, Hindi Sad Quotes">
+
+<meta name="author" content="Tehalka Quotes">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+    color:#222;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#17191f;
+    color:white;
+    box-shadow:0 3px 15px rgba(0,0,0,.18);
+}
+
+.header-inner{
+    max-width:1150px;
+    margin:auto;
+    padding:15px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#8ab4f8;
+}
+
+.nav{
+    display:flex;
+    gap:20px;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.nav a:hover{
+    color:#8ab4f8;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#232526,#414345);
+    color:white;
+    text-align:center;
+    padding:65px 20px 75px;
+}
+
+.hero-icon{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:17px;
+    color:#ddd;
+}
+
+/* SEARCH */
+
+.search-wrapper{
+    max-width:700px;
+    margin:-30px auto 35px;
+    padding:0 18px;
+}
+
+.search-box{
+    display:flex;
+    background:white;
+    padding:6px;
+    border-radius:35px;
+    box-shadow:0 7px 25px rgba(0,0,0,.15);
+}
+
+.search-box input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:15px 18px;
+    font-size:16px;
+    border-radius:30px;
+}
+
+.search-box button{
+    border:0;
+    background:#343a40;
+    color:white;
+    border-radius:30px;
+    padding:0 22px;
+    cursor:pointer;
+}
+
+.search-box button:hover{
+    background:#212529;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:10px 18px 60px;
+}
+
+.title{
+    text-align:center;
+    margin:25px 0 30px;
+}
+
+.title h2{
+    font-size:29px;
+}
+
+.title p{
+    color:#777;
+    margin-top:6px;
+}
+
+/* QUOTES */
+
+.quotes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.quote-card{
+    background:white;
+    border-radius:20px;
+    padding:25px 20px;
+    min-height:290px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    border:1px solid #e8eaed;
+    transition:.25s;
+}
+
+.quote-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.quote-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.badge{
+    background:#eef1f4;
+    color:#343a40;
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.quote-mark{
+    font-size:32px;
+    color:#c5c9ce;
+}
+
+.quote-text{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:19px;
+    line-height:1.8;
+    font-weight:600;
+    padding:15px 5px;
+}
+
+.actions{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.actions button{
+    border:0;
+    background:#f0f2f4;
+    color:#333;
+    padding:9px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:12px;
+    transition:.2s;
+}
+
+.actions button:hover{
+    background:#343a40;
+    color:white;
+}
+
+/* NO RESULTS */
+
+#noResults{
+    display:none;
+    text-align:center;
+    padding:45px;
+    color:#777;
+}
+
+/* INFO */
+
+.info{
+    background:white;
+    border-radius:20px;
+    padding:30px 22px;
+    margin-top:50px;
+    text-align:center;
+    border:1px solid #e8eaed;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.info h2{
+    margin-bottom:12px;
+}
+
+.info p{
+    color:#666;
+    max-width:800px;
+    margin:8px auto;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    background:#17191f;
+    color:#ccc;
+    text-align:center;
+    padding:35px 15px;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:8px;
+    font-size:21px;
+}
+
+footer p{
+    color:#aaa;
+}
+
+.footer-links{
+    margin-top:15px;
+}
+
+.footer-links a{
+    color:#bbb;
+    text-decoration:none;
+    margin:0 8px;
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:#8ab4f8;
+}
+
+.copy{
+    margin-top:18px;
+    color:#777;
+    font-size:12px;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translate(-50%,100px);
+    background:#222;
+    color:white;
+    padding:12px 20px;
+    border-radius:25px;
+    opacity:0;
+    transition:.3s;
+    z-index:2000;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+    opacity:1;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav{
+        display:none;
+    }
+
+    .quotes{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+}
+
+@media(max-width:550px){
+
+    .quotes{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:50px 15px 65px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .search-box button{
+        padding:0 16px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header-inner">
+
+<div class="logo">
+Tehalka <span>Quotes</span>
+</div>
+
+<nav class="nav">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="index.html#categories">
+Categories
+</a>
+
+<a href="index.html#quotes">
+Quotes
+</a>
+
+<a href="index.html#about">
+About
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-icon">
+😔
+</div>
+
+<h1>
+Sad Quotes
+</h1>
+
+<p>
+कुछ एहसास शब्दों में ही बेहतर समझ आते हैं
+</p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search-wrapper">
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Sad Quote खोजें..."
+onkeyup="searchQuotes()"
+>
+
+<button onclick="searchQuotes()">
+Search
+</button>
+
+</div>
+
+</div>
+
+
+<main class="container">
+
+
+<div class="title">
+
+<h2>
+😔 Heart Touching Sad Quotes
+</h2>
+
+<p>
+उन भावनाओं के लिए जिन्हें शब्दों की जरूरत होती है
+</p>
+
+</div>
+
+
+<div
+class="quotes"
+id="quotesContainer">
+
+
+<!-- QUOTE 1 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+😔 Sad
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+कुछ रिश्ते खत्म नहीं होते,<br>
+बस बात करना बंद हो जाती है।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUOTE 2 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+💔 Heart Touching
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+जिसे सबसे ज्यादा चाहा,<br>
+अक्सर वही सबसे ज्यादा दर्द देता है।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUOTE 3 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+🥀 Emotional
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+कभी-कभी मुस्कुराना पड़ता है,<br>
+ताकि कोई हमारे दर्द को पढ़ न सके।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUOTE 4 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+💔 Pain
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+दर्द तब ज्यादा होता है,<br>
+जब सामने वाला बदल जाए और वजह भी न बताए।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUOTE 5 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+🥀 Sad
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+कुछ यादें ऐसी होती हैं,<br>
+जिन्हें भूलना चाहो फिर भी नहीं भूल पाते।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUOTE 6 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+😢 Alone
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+भीड़ में भी अकेलापन तब महसूस होता है,<br>
+जब अपना कोई पास नहीं होता।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUOTE 7 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+💔 Broken
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+दिल टूटने की आवाज़ नहीं होती,<br>
+लेकिन उसका दर्द बहुत गहरा होता है।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUOTE 8 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+🥀 Memories
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+कुछ लोग दूर होकर भी,<br>
+दिल के बहुत करीब रहते हैं।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- QUOTE 9 -->
+
+<div class="quote-card">
+
+<div class="quote-top">
+
+<span class="badge">
+😔 Feelings
+</span>
+
+<span class="quote-mark">
+❝
+</span>
+
+</div>
+
+<div class="quote-text">
+हमने खामोशी को अपना लिया,<br>
+क्योंकि हर बात समझाने वाला कोई नहीं था।
+</div>
+
+<div class="actions">
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div id="noResults">
+
+<h3>
+😔 Quote नहीं मिला
+</h3>
+
+<p>
+कोई दूसरा शब्द search करके देखें।
+</p>
+
+</div>
+
+
+<!-- INFO -->
+
+<section class="info">
+
+<h2>
+😔 Hindi Sad Quotes
+</h2>
+
+<p>
+Tehalka Quotes पर आपको Sad Quotes,
+Heart Touching Quotes, Emotional Quotes,
+Broken Heart Quotes और Sad Shayari मिलेंगी।
+</p>
+
+<p>
+आप किसी भी Quote को आसानी से Copy,
+Share या Image के रूप में Download कर सकते हैं।
+</p>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>
+Tehalka Quotes
+</h3>
+
+<p>
+Love • Life • Sad • Shayari • Thoughts
+</p>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="index.html#categories">
+Categories
+</a>
+
+<a href="index.html#quotes">
+Quotes
+</a>
+
+<a href="index.html#about">
+About
+</a>
+
+</div>
+
+<div class="copy">
+© 2026 Tehalka Quotes. All Rights Reserved.
+</div>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div
+class="toast"
+id="toast">
+</div>
+
+
+<script>
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2200);
+
+}
+
+
+/* SEARCH */
+
+function searchQuotes(){
+
+    const input =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards =
+        document.querySelectorAll(".quote-card");
+
+    let found = 0;
+
+    cards.forEach(function(card){
+
+        const text =
+            card.innerText.toLowerCase();
+
+        if(text.includes(input)){
+
+            card.style.display = "flex";
+
+            found++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("noResults").style.display =
+        found === 0 ? "block" : "none";
+
+}
+
+
+/* COPY */
+
+function copyQuote(button){
+
+    const card =
+        button.closest(".quote-card");
+
+    const text =
+        card
+        .querySelector(".quote-text")
+        .innerText;
+
+    if(navigator.clipboard){
+
+        navigator.clipboard
+        .writeText(text)
+        .then(function(){
+
+            showToast(
+                "Sad Quote copied! 📋"
+            );
+
+        })
+        .catch(function(){
+
+            showToast(
+                "Copy नहीं हो पाया।"
+            );
+
+        });
+
+    }else{
+
+        showToast(
+            "Copy आपके browser में उपलब्ध नहीं है।"
+        );
+
+    }
+
+}
+
+
+/* SHARE */
+
+function shareQuote(button){
+
+    const card =
+        button.closest(".quote-card");
+
+    const text =
+        card
+        .querySelector(".quote-text")
+        .innerText;
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:
+                "Tehalka Quotes - Sad Quotes",
+
+            text:text,
+
+            url:
+                window.location.href
+
+        }).catch(function(){});
+
+    }else{
+
+        if(navigator.clipboard){
+
+            navigator.clipboard
+            .writeText(text);
+
+        }
+
+        showToast(
+            "Quote copied! अब share करें 📤"
+        );
+
+    }
+
+}
+
+
+/* DOWNLOAD IMAGE */
+
+function downloadQuote(button){
+
+    const card =
+        button.closest(".quote-card");
+
+    const text =
+        card
+        .querySelector(".quote-text")
+        .innerText;
+
+
+    const canvas =
+        document.createElement("canvas");
+
+    canvas.width = 1080;
+
+    canvas.height = 1080;
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    /* BACKGROUND */
+
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            1080,
+            1080
+        );
+
+    gradient.addColorStop(
+        0,
+        "#232526"
+    );
+
+    gradient.addColorStop(
+        1,
+        "#414345"
+    );
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(
+        0,
+        0,
+        1080,
+        1080
+    );
+
+
+    /* BRAND */
+
+    ctx.textAlign = "center";
+
+    ctx.fillStyle = "white";
+
+    ctx.font =
+        "bold 42px Arial";
+
+    ctx.fillText(
+        "TEHALKA QUOTES",
+        540,
+        145
+    );
+
+
+    /* ICON */
+
+    ctx.font =
+        "90px Arial";
+
+    ctx.fillText(
+        "😔",
+        540,
+        290
+    );
+
+
+    /* QUOTE TEXT */
+
+    ctx.font =
+        "bold 43px Arial";
+
+    let words =
+        text.split(" ");
+
+    let lines = [];
+
+    let line = "";
+
+
+    words.forEach(function(word){
+
+        const test =
+            line + word + " ";
+
+        const width =
+            ctx.measureText(test).width;
+
+        if(width > 850){
+
+            lines.push(
+                line.trim()
+            );
+
+            line =
+                word + " ";
+
+        }else{
+
+            line = test;
+
+        }
+
+    });
+
+
+    lines.push(
+        line.trim()
+    );
+
+
+    let y = 460;
+
+
+    lines.forEach(function(item){
+
+        ctx.fillText(
+            item,
+            540,
+            y
+        );
+
+        y += 75;
+
+    });
+
+
+    /* CATEGORY */
+
+    ctx.fillStyle =
+        "#bfc5cc";
+
+    ctx.font =
+        "bold 30px Arial";
+
+    ctx.fillText(
+        "SAD QUOTES",
+        540,
+        850
+    );
+
+
+    /* FOOTER */
+
+    ctx.fillStyle =
+        "rgba(255,255,255,.8)";
+
+    ctx.font =
+        "25px Arial";
+
+    ctx.fillText(
+        "Tehalka Quotes",
+        540,
+        950
+    );
+
+
+    /* DOWNLOAD */
+
+    const link =
+        document.createElement("a");
+
+    link.download =
+        "Tehalka-Sad-Quote.png";
+
+    link.href =
+        canvas.toDataURL(
+            "image/png"
+        );
+
+    link.click();
+
+
+    showToast(
+        "Sad Quote image downloaded! 🖼️"
+    );
+
+}
+
+</script>
+
+</body>
+  </html>
