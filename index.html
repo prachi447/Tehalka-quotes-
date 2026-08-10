@@ -7,7 +7,9 @@
 <title>Tehalka Quotes | Hindi Quotes & Shayari</title>
 
 <meta name="description" content="Tehalka Quotes पर पढ़ें खूबसूरत Hindi Love, Life, Sad, Attitude, Motivational Quotes और Shayari.">
+
 <meta name="keywords" content="Hindi Quotes, Shayari, Love Quotes, Sad Quotes, Motivational Quotes, Attitude Quotes, Life Quotes">
+
 <meta name="author" content="Tehalka Quotes">
 
 <style>
@@ -26,7 +28,7 @@ body{
     font-family:Arial, Helvetica, sans-serif;
     background:#f5f6fa;
     color:#202124;
-    transition:0.3s;
+    transition:.3s;
 }
 
 /* DARK MODE */
@@ -62,10 +64,10 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(20,20,30,0.96);
+    background:rgba(20,20,30,.96);
     backdrop-filter:blur(10px);
     color:white;
-    box-shadow:0 3px 15px rgba(0,0,0,0.15);
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
 .header-inner{
@@ -140,7 +142,7 @@ header{
 
 .hero-small{
     opacity:.85;
-    font-size:14px !important;
+    font-size:14px!important;
 }
 
 /* SEARCH */
@@ -216,8 +218,11 @@ header{
     padding:22px 10px;
     text-align:center;
     cursor:pointer;
+    text-decoration:none;
+    color:inherit;
     box-shadow:0 5px 18px rgba(0,0,0,.07);
     transition:.25s;
+    display:block;
 }
 
 .category-card:hover{
@@ -467,6 +472,12 @@ footer h3{
 
 }
 
+/* CATEGORY LINK FIX */
+
+a.category-card{
+    -webkit-tap-highlight-color:transparent;
+}
+
 </style>
 </head>
 
@@ -483,13 +494,20 @@ Tehalka <span>Quotes</span>
 </div>
 
 <nav class="nav">
-<a href="#home">Home</a>
+
+<a href="index.html">Home</a>
+
 <a href="#categories">Categories</a>
+
 <a href="#quotes">Quotes</a>
+
 <a href="#about">About</a>
+
 </nav>
 
-<button class="theme-btn" onclick="toggleDarkMode()" id="themeButton">
+<button class="theme-btn"
+onclick="toggleDarkMode()"
+id="themeButton">
 🌙
 </button>
 
@@ -526,7 +544,9 @@ placeholder="🔍 Quote खोजें..."
 onkeyup="searchQuotes()"
 >
 
-<button class="search-btn" onclick="searchQuotes()">
+<button
+class="search-btn"
+onclick="searchQuotes()">
 Search
 </button>
 
@@ -555,45 +575,141 @@ Search
 
 <div class="categories">
 
-<div class="category-card" onclick="filterQuotes('Love')">
-<span class="category-icon">❤️</span>
-<strong>Love Quotes</strong>
+
+<!-- LOVE - CONNECTED PAGE -->
+
+<a href="love-quotes.html"
+class="category-card">
+
+<span class="category-icon">
+❤️
+</span>
+
+<strong>
+Love Quotes
+</strong>
+
+</a>
+
+
+<!-- SAD -->
+
+<div
+class="category-card"
+onclick="filterQuotes('Sad')">
+
+<span class="category-icon">
+😔
+</span>
+
+<strong>
+Sad Quotes
+</strong>
+
 </div>
 
-<div class="category-card" onclick="filterQuotes('Sad')">
-<span class="category-icon">😔</span>
-<strong>Sad Quotes</strong>
+
+<!-- MOTIVATIONAL -->
+
+<div
+class="category-card"
+onclick="filterQuotes('Motivational')">
+
+<span class="category-icon">
+💪
+</span>
+
+<strong>
+Motivational
+</strong>
+
 </div>
 
-<div class="category-card" onclick="filterQuotes('Motivational')">
-<span class="category-icon">💪</span>
-<strong>Motivational</strong>
+
+<!-- ATTITUDE -->
+
+<div
+class="category-card"
+onclick="filterQuotes('Attitude')">
+
+<span class="category-icon">
+🔥
+</span>
+
+<strong>
+Attitude
+</strong>
+
 </div>
 
-<div class="category-card" onclick="filterQuotes('Attitude')">
-<span class="category-icon">🔥</span>
-<strong>Attitude</strong>
+
+<!-- LIFE -->
+
+<div
+class="category-card"
+onclick="filterQuotes('Life')">
+
+<span class="category-icon">
+🌿
+</span>
+
+<strong>
+Life Quotes
+</strong>
+
 </div>
 
-<div class="category-card" onclick="filterQuotes('Life')">
-<span class="category-icon">🌿</span>
-<strong>Life Quotes</strong>
+
+<!-- FRIENDSHIP -->
+
+<div
+class="category-card"
+onclick="filterQuotes('Friendship')">
+
+<span class="category-icon">
+🤝
+</span>
+
+<strong>
+Friendship
+</strong>
+
 </div>
 
-<div class="category-card" onclick="filterQuotes('Friendship')">
-<span class="category-icon">🤝</span>
-<strong>Friendship</strong>
+
+<!-- SHAYARI -->
+
+<div
+class="category-card"
+onclick="filterQuotes('Shayari')">
+
+<span class="category-icon">
+📝
+</span>
+
+<strong>
+Shayari
+</strong>
+
 </div>
 
-<div class="category-card" onclick="filterQuotes('Shayari')">
-<span class="category-icon">📝</span>
-<strong>Shayari</strong>
+
+<!-- ALL -->
+
+<div
+class="category-card"
+onclick="showAllQuotes()">
+
+<span class="category-icon">
+✨
+</span>
+
+<strong>
+All Quotes
+</strong>
+
 </div>
 
-<div class="category-card" onclick="showAllQuotes()">
-<span class="category-icon">✨</span>
-<strong>All Quotes</strong>
-</div>
 
 </div>
 
@@ -615,16 +731,27 @@ Search
 </div>
 
 
-<div class="quotes" id="quotesContainer">
+<div
+class="quotes"
+id="quotesContainer">
 
 
-<!-- LOVE -->
+<!-- QUOTE 1 -->
 
-<div class="quote-card" data-category="Love">
+<div
+class="quote-card"
+data-category="Love">
 
 <div class="quote-top">
-<span class="badge">❤️ Love</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+❤️ Love
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -633,21 +760,40 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
 
-<!-- MOTIVATIONAL -->
 
-<div class="quote-card" data-category="Motivational">
+<!-- QUOTE 2 -->
+
+<div
+class="quote-card"
+data-category="Motivational">
 
 <div class="quote-top">
-<span class="badge">💪 Motivation</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+💪 Motivation
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -656,21 +802,40 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
 
-<!-- LIFE -->
 
-<div class="quote-card" data-category="Life">
+<!-- QUOTE 3 -->
+
+<div
+class="quote-card"
+data-category="Life">
 
 <div class="quote-top">
-<span class="badge">🌿 Life</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+🌿 Life
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -679,21 +844,40 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
 
-<!-- ATTITUDE -->
 
-<div class="quote-card" data-category="Attitude">
+<!-- QUOTE 4 -->
+
+<div
+class="quote-card"
+data-category="Attitude">
 
 <div class="quote-top">
-<span class="badge">🔥 Attitude</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+🔥 Attitude
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -702,21 +886,40 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
 
-<!-- SAD -->
 
-<div class="quote-card" data-category="Sad">
+<!-- QUOTE 5 -->
+
+<div
+class="quote-card"
+data-category="Sad">
 
 <div class="quote-top">
-<span class="badge">😔 Sad</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+😔 Sad
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -725,21 +928,40 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
 
-<!-- FRIENDSHIP -->
 
-<div class="quote-card" data-category="Friendship">
+<!-- QUOTE 6 -->
+
+<div
+class="quote-card"
+data-category="Friendship">
 
 <div class="quote-top">
-<span class="badge">🤝 Friendship</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+🤝 Friendship
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -748,21 +970,40 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
 
-<!-- SHAYARI -->
 
-<div class="quote-card" data-category="Shayari">
+<!-- QUOTE 7 -->
+
+<div
+class="quote-card"
+data-category="Shayari">
 
 <div class="quote-top">
-<span class="badge">📝 Shayari</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+📝 Shayari
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -771,21 +1012,40 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
 
-<!-- LOVE 2 -->
 
-<div class="quote-card" data-category="Love">
+<!-- QUOTE 8 -->
+
+<div
+class="quote-card"
+data-category="Love">
 
 <div class="quote-top">
-<span class="badge">❤️ Love</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+❤️ Love
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -794,21 +1054,40 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
 
-<!-- MOTIVATION 2 -->
 
-<div class="quote-card" data-category="Motivational">
+<!-- QUOTE 9 -->
+
+<div
+class="quote-card"
+data-category="Motivational">
 
 <div class="quote-top">
-<span class="badge">💪 Motivation</span>
-<span class="quote-symbol">❝</span>
+
+<span class="badge">
+💪 Motivation
+</span>
+
+<span class="quote-symbol">
+❝
+</span>
+
 </div>
 
 <div class="quote-text">
@@ -817,20 +1096,39 @@ Search
 </div>
 
 <div class="quote-actions">
-<button onclick="copyQuote(this)">📋 Copy</button>
-<button onclick="shareQuote(this)">📤 Share</button>
-<button onclick="downloadQuote(this)">🖼️ Download</button>
-</div>
+
+<button onclick="copyQuote(this)">
+📋 Copy
+</button>
+
+<button onclick="shareQuote(this)">
+📤 Share
+</button>
+
+<button onclick="downloadQuote(this)">
+🖼️ Download
+</button>
 
 </div>
 
+</div>
+
 
 </div>
 
 
-<div class="no-results" id="noResults">
-<h3>😔 कोई Quote नहीं मिला</h3>
-<p>कुछ और search करके देखें।</p>
+<div
+class="no-results"
+id="noResults">
+
+<h3>
+😔 कोई Quote नहीं मिला
+</h3>
+
+<p>
+कुछ और search करके देखें।
+</p>
+
 </div>
 
 </section>
@@ -838,19 +1136,24 @@ Search
 
 <!-- ABOUT -->
 
-<section class="about-box" id="about">
+<section
+class="about-box"
+id="about">
 
-<h2>🌟 About Tehalka Quotes</h2>
+<h2>
+🌟 About Tehalka Quotes
+</h2>
 
 <p>
-Tehalka Quotes एक Hindi Quotes और Shayari platform है,
-जहाँ आपको Love, Life, Motivation, Attitude, Sad,
-Friendship और कई अन्य विषयों पर खूबसूरत Quotes मिलेंगे।
+Tehalka Quotes एक Hindi Quotes और Shayari
+platform है, जहाँ आपको Love, Life,
+Motivation, Attitude, Sad, Friendship और
+कई अन्य विषयों पर खूबसूरत Quotes मिलेंगे।
 </p>
 
 <p>
-हमारा उद्देश्य अच्छे विचारों और खूबसूरत शब्दों को
-ज्यादा से ज्यादा लोगों तक पहुँचाना है।
+हमारा उद्देश्य अच्छे विचारों और खूबसूरत शब्दों
+को ज्यादा से ज्यादा लोगों तक पहुँचाना है।
 </p>
 
 </section>
@@ -862,7 +1165,9 @@ Friendship और कई अन्य विषयों पर खूबसू�
 
 <footer>
 
-<h3>Tehalka Quotes</h3>
+<h3>
+Tehalka Quotes
+</h3>
 
 <p>
 Quotes • Shayari • Thoughts
@@ -870,10 +1175,21 @@ Quotes • Shayari • Thoughts
 
 <div class="footer-links">
 
-<a href="#home">Home</a>
-<a href="#categories">Categories</a>
-<a href="#quotes">Quotes</a>
-<a href="#about">About</a>
+<a href="index.html">
+Home
+</a>
+
+<a href="#categories">
+Categories
+</a>
+
+<a href="#quotes">
+Quotes
+</a>
+
+<a href="#about">
+About
+</a>
 
 </div>
 
@@ -886,7 +1202,10 @@ Quotes • Shayari • Thoughts
 
 <!-- TOAST -->
 
-<div class="toast" id="toast"></div>
+<div
+class="toast"
+id="toast">
+</div>
 
 
 <script>
@@ -895,14 +1214,17 @@ Quotes • Shayari • Thoughts
 
 function showToast(message){
 
-    const toast=document.getElementById("toast");
+    const toast =
+        document.getElementById("toast");
 
     toast.innerText=message;
 
     toast.classList.add("show");
 
     setTimeout(function(){
+
         toast.classList.remove("show");
+
     },2200);
 
 }
@@ -912,23 +1234,27 @@ function showToast(message){
 
 function searchQuotes(){
 
-    let input=document
+    let input =
+        document
         .getElementById("searchInput")
         .value
         .toLowerCase()
         .trim();
 
-    let cards=document.querySelectorAll(".quote-card");
+    let cards =
+        document.querySelectorAll(".quote-card");
 
     let found=0;
 
     cards.forEach(function(card){
 
-        let text=card.innerText.toLowerCase();
+        let text =
+            card.innerText.toLowerCase();
 
         if(text.includes(input)){
 
             card.style.display="flex";
+
             found++;
 
         }else{
@@ -939,7 +1265,9 @@ function searchQuotes(){
 
     });
 
-    document.getElementById("noResults").style.display =
+    document
+    .getElementById("noResults")
+    .style.display =
         found===0 ? "block" : "none";
 
 }
@@ -949,7 +1277,8 @@ function searchQuotes(){
 
 function filterQuotes(category){
 
-    let cards=document.querySelectorAll(".quote-card");
+    let cards =
+        document.querySelectorAll(".quote-card");
 
     let found=0;
 
@@ -958,6 +1287,7 @@ function filterQuotes(category){
         if(card.dataset.category===category){
 
             card.style.display="flex";
+
             found++;
 
         }else{
@@ -968,13 +1298,15 @@ function filterQuotes(category){
 
     });
 
-    document.getElementById("noResults").style.display="none";
+    document
+    .getElementById("noResults")
+    .style.display="none";
 
     document
-        .getElementById("quotes")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    .getElementById("quotes")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
@@ -984,22 +1316,27 @@ function filterQuotes(category){
 function showAllQuotes(){
 
     document
-        .getElementById("searchInput")
-        .value="";
+    .getElementById("searchInput")
+    .value="";
 
-    let cards=document.querySelectorAll(".quote-card");
+    let cards =
+        document.querySelectorAll(".quote-card");
 
     cards.forEach(function(card){
+
         card.style.display="flex";
+
     });
 
-    document.getElementById("noResults").style.display="none";
+    document
+    .getElementById("noResults")
+    .style.display="none";
 
     document
-        .getElementById("quotes")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    .getElementById("quotes")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
@@ -1008,19 +1345,28 @@ function showAllQuotes(){
 
 function copyQuote(button){
 
-    let card=button.closest(".quote-card");
+    let card =
+        button.closest(".quote-card");
 
-    let text=card.querySelector(".quote-text").innerText;
+    let text =
+        card
+        .querySelector(".quote-text")
+        .innerText;
 
-    navigator.clipboard.writeText(text)
+    navigator.clipboard
+    .writeText(text)
     .then(function(){
 
-        showToast("Quote copied! 📋");
+        showToast(
+            "Quote copied! 📋"
+        );
 
     })
     .catch(function(){
 
-        showToast("Copy नहीं हो पाया।");
+        showToast(
+            "Copy नहीं हो पाया।"
+        );
 
     });
 
@@ -1031,58 +1377,85 @@ function copyQuote(button){
 
 function shareQuote(button){
 
-    let card=button.closest(".quote-card");
+    let card =
+        button.closest(".quote-card");
 
-    let text=card.querySelector(".quote-text").innerText;
+    let text =
+        card
+        .querySelector(".quote-text")
+        .innerText;
 
     if(navigator.share){
 
         navigator.share({
+
             title:"Tehalka Quotes",
+
             text:text,
+
             url:window.location.href
+
         });
 
     }else{
 
-        navigator.clipboard.writeText(text);
+        navigator.clipboard
+        .writeText(text);
 
-        showToast("Quote copied! अब share करें 📤");
+        showToast(
+            "Quote copied! अब share करें 📤"
+        );
 
     }
 
 }
 
 
-/* DOWNLOAD QUOTE AS IMAGE */
+/* DOWNLOAD QUOTE IMAGE */
 
 function downloadQuote(button){
 
-    let card=button.closest(".quote-card");
+    let card =
+        button.closest(".quote-card");
 
-    let text=card.querySelector(".quote-text").innerText;
+    let text =
+        card
+        .querySelector(".quote-text")
+        .innerText;
 
-    let category=card.dataset.category;
+    let category =
+        card.dataset.category;
 
-    let canvas=document.createElement("canvas");
+
+    let canvas =
+        document.createElement("canvas");
 
     canvas.width=1080;
     canvas.height=1080;
 
-    let ctx=canvas.getContext("2d");
+    let ctx =
+        canvas.getContext("2d");
 
 
     /* BACKGROUND */
 
-    let gradient=ctx.createLinearGradient(
+    let gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            1080,
+            1080
+        );
+
+    gradient.addColorStop(
         0,
-        0,
-        1080,
-        1080
+        "#6a11cb"
     );
 
-    gradient.addColorStop(0,"#6a11cb");
-    gradient.addColorStop(1,"#2575fc");
+    gradient.addColorStop(
+        1,
+        "#2575fc"
+    );
 
     ctx.fillStyle=gradient;
 
@@ -1096,11 +1469,12 @@ function downloadQuote(button){
 
     /* BRAND */
 
+    ctx.textAlign="center";
+
     ctx.fillStyle="#ffffff";
 
-    ctx.font="bold 42px Arial";
-
-    ctx.textAlign="center";
+    ctx.font=
+        "bold 42px Arial";
 
     ctx.fillText(
         "TEHALKA QUOTES",
@@ -1113,7 +1487,8 @@ function downloadQuote(button){
 
     ctx.font="100px Arial";
 
-    ctx.fillStyle="rgba(255,255,255,0.3)";
+    ctx.fillStyle=
+        "rgba(255,255,255,.3)";
 
     ctx.fillText(
         "“",
@@ -1122,29 +1497,43 @@ function downloadQuote(button){
     );
 
 
-    /* QUOTE */
+    /* QUOTE TEXT */
 
     ctx.fillStyle="#ffffff";
 
-    ctx.font="bold 45px Arial";
+    ctx.font=
+        "bold 45px Arial";
 
-    let words=text.split(" ");
+    let words =
+        text.split(" ");
 
     let lines=[];
 
     let line="";
 
-    for(let i=0;i<words.length;i++){
 
-        let testLine=line+words[i]+" ";
+    for(
+        let i=0;
+        i<words.length;
+        i++
+    ){
 
-        let width=ctx.measureText(testLine).width;
+        let testLine =
+            line +
+            words[i] +
+            " ";
+
+        let width =
+            ctx.measureText(
+                testLine
+            ).width;
 
         if(width>850){
 
             lines.push(line);
 
-            line=words[i]+" ";
+            line =
+                words[i]+" ";
 
         }else{
 
@@ -1159,20 +1548,24 @@ function downloadQuote(button){
 
     let startY=480;
 
-    lines.forEach(function(item,index){
 
-        ctx.fillText(
-            item.trim(),
-            540,
-            startY+(index*75)
-        );
+    lines.forEach(
+        function(item,index){
 
-    });
+            ctx.fillText(
+                item.trim(),
+                540,
+                startY+(index*75)
+            );
+
+        }
+    );
 
 
     /* CATEGORY */
 
-    ctx.font="bold 30px Arial";
+    ctx.font=
+        "bold 30px Arial";
 
     ctx.fillStyle="#ffe66d";
 
@@ -1187,70 +1580,4 @@ function downloadQuote(button){
 
     ctx.font="26px Arial";
 
-    ctx.fillStyle="rgba(255,255,255,.8)";
-
-    ctx.fillText(
-        "tehalka-quotes",
-        540,
-        950
-    );
-
-
-    /* DOWNLOAD */
-
-    let link=document.createElement("a");
-
-    link.download="Tehalka-Quotes.png";
-
-    link.href=canvas.toDataURL("image/png");
-
-    link.click();
-
-    showToast("Quote image downloaded! 🖼️");
-
-}
-
-
-/* DARK MODE */
-
-function toggleDarkMode(){
-
-    document.body.classList.toggle("dark");
-
-    let button=document.getElementById("themeButton");
-
-    if(document.body.classList.contains("dark")){
-
-        button.innerText="☀️";
-
-        localStorage.setItem("theme","dark");
-
-    }else{
-
-        button.innerText="🌙";
-
-        localStorage.setItem("theme","light");
-
-    }
-
-}
-
-
-/* REMEMBER THEME */
-
-window.addEventListener("load",function(){
-
-    if(localStorage.getItem("theme")==="dark"){
-
-        document.body.classList.add("dark");
-
-        document.getElementById("themeButton").innerText="☀️";
-
-    }
-
-});
-
-</script>
-
-</body>
-  </html>
+    ctx.fi
