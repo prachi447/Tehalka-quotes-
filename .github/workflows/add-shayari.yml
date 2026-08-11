@@ -36,9 +36,7 @@ permissions:
   contents: write
 
 jobs:
-
   add-shayari:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -53,11 +51,12 @@ jobs:
           TEXT: ${{ inputs.text }}
           AUTHOR: ${{ inputs.author }}
         run: |
-
           python - <<'PY'
-
-          import json
           import os
+          import json
+          import re
+          import subprocess
+          import tempfile
 
           file = "quotes-data.js"
 
@@ -66,20 +65,75 @@ jobs:
           text = os.environ["TEXT"]
           author = os.environ["AUTHOR"] or "Tehalka Quotes"
 
+          # Read existing JavaScript file
           with open(file, "r", encoding="utf-8") as f:
               content = f.read()
 
-          start = content.find("[")
-          end = content.rfind("]")
-
-          data = json.loads(
-              content[start:end+1]
+          # Extract the array from quotes-data.js
+          match = re.search(
+              r'const\s+quotesData\s*=\s*(\[[\s\S]*\])\s*;?',
+              content
           )
 
+          if not match:
+              raise Exception(
+                  "quotes-data.js में const quotesData = [...] नहीं मिला।"
+              )
+
+          array_text = match.group(1)
+
+          # Use Node.js to safely read the JavaScript array
+          node_script = r'''
+          const fs = require("fs");
+          const vm = require("vm");
+
+          const source = fs.readFileSync(
+              process.argv[1],
+              "utf8"
+          );
+
+          const sandbox = {};
+          vm.createContext(sandbox);
+
+          vm.runInContext(
+              source + "\nthis.__quotesData = quotesData;",
+              sandbox
+          );
+
+          console.log(
+              JSON.stringify(sandbox.__quotesData)
+          );
+          '''
+
+          with tempfile.NamedTemporaryFile(
+              mode="w",
+              suffix=".js",
+              delete=False,
+              encoding="utf-8"
+          ) as temp:
+              temp.write(content)
+              temp_path = temp.name
+
+          result = subprocess.run(
+              ["node", "-e", node_script, temp_path],
+              capture_output=True,
+              text=True
+          )
+
+          if result.returncode != 0:
+              print(result.stderr)
+              raise Exception(
+                  "quotes-data.js पढ़ने में समस्या आई।"
+              )
+
+          data = json.loads(result.stdout)
+
+          # Create new ID
           new_id = max(
               [item.get("id", 0) for item in data] or [0]
           ) + 1
 
+          # Add new Shayari
           data.append({
               "id": new_id,
               "title": title,
@@ -88,6 +142,7 @@ jobs:
               "author": author
           })
 
+          # Save JavaScript file
           new_content = (
               "const quotesData = "
               + json.dumps(
@@ -103,19 +158,21 @@ jobs:
               "w",
               encoding="utf-8"
           ) as f:
-
               f.write(new_content)
+
+          print("Shayari successfully added!")
+          print("Title:", title)
+          print("Category:", category)
 
           PY
 
       - name: Save Shayari
         run: |
-
           git config user.name "Tehalka Quotes"
           git config user.email "actions@github.com"
 
           git add quotes-data.js
 
-          git commit -m "Add new Shayari"
+          git diff --cached --quiet || git commit -m "Add new Shayari"
 
           git push
