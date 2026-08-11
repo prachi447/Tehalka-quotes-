@@ -107,10 +107,6 @@ textarea:focus{
     margin-top:22px;
 }
 
-.publish-btn:hover{
-    background:#5310a1;
-}
-
 .clear-btn{
     width:100%;
     border:0;
@@ -153,6 +149,7 @@ textarea:focus{
     font-size:20px;
     line-height:1.8;
     font-weight:bold;
+    white-space:pre-line;
 }
 
 .output{
@@ -165,21 +162,40 @@ textarea:focus{
 }
 
 .output textarea{
-    min-height:230px;
+    min-height:240px;
     background:#f7f7f7;
     font-family:monospace;
     font-size:13px;
 }
 
-.copy-btn{
+.copy-btn,
+.actions-btn{
     width:100%;
     border:0;
-    background:#222;
     color:white;
     padding:13px;
     border-radius:10px;
     cursor:pointer;
     margin-top:10px;
+    font-weight:bold;
+}
+
+.copy-btn{
+    background:#222;
+}
+
+.actions-btn{
+    background:#188038;
+}
+
+.help{
+    margin-top:20px;
+    padding:15px;
+    background:#fff8e1;
+    border-radius:12px;
+    font-size:13px;
+    line-height:1.7;
+    color:#5f4b00;
 }
 
 .message{
@@ -244,8 +260,6 @@ Admin Panel
 </div>
 
 
-<!-- TITLE -->
-
 <label for="title">
 Shayari Title
 </label>
@@ -257,46 +271,22 @@ placeholder="जैसे: दिल की बात"
 >
 
 
-<!-- CATEGORY -->
-
 <label for="category">
 Category
 </label>
 
 <select id="category">
 
-<option value="Love">
-❤️ Love
-</option>
-
-<option value="Sad">
-😔 Sad
-</option>
-
-<option value="Life">
-🌿 Life
-</option>
-
-<option value="Motivational">
-💪 Motivational
-</option>
-
-<option value="Attitude">
-🔥 Attitude
-</option>
-
-<option value="Friendship">
-🤝 Friendship
-</option>
-
-<option value="Shayari">
-📝 Shayari
-</option>
+<option value="Love">❤️ Love</option>
+<option value="Sad">😔 Sad</option>
+<option value="Life">🌿 Life</option>
+<option value="Motivational">💪 Motivational</option>
+<option value="Attitude">🔥 Attitude</option>
+<option value="Friendship">🤝 Friendship</option>
+<option value="Shayari">📝 Shayari</option>
 
 </select>
 
-
-<!-- SHAYARI -->
 
 <label for="shayari">
 अपनी Shayari लिखें
@@ -313,10 +303,8 @@ placeholder="यहाँ अपनी पूरी Shayari लिखें...
 ></textarea>
 
 
-<!-- AUTHOR -->
-
 <label for="author">
-Author / नाम (Optional)
+Author / नाम
 </label>
 
 <input
@@ -326,13 +314,11 @@ placeholder="जैसे: Tehalka Quotes"
 >
 
 
-<!-- PUBLISH -->
-
 <button
 class="publish-btn"
 onclick="createShayari()"
 >
-🚀 Publish Shayari
+🚀 Prepare Shayari
 </button>
 
 
@@ -350,15 +336,11 @@ id="message">
 </div>
 
 
-<!-- PREVIEW -->
-
 <div
 class="preview"
 id="preview">
 
-<h3>
-👀 Preview
-</h3>
+<h3>👀 Preview</h3>
 
 <div class="preview-card">
 
@@ -377,14 +359,12 @@ id="previewText">
 </div>
 
 
-<!-- GENERATED DATA -->
-
 <div
 class="output"
 id="output">
 
 <h3>
-📦 Website Data
+📦 Shayari Data
 </h3>
 
 <textarea
@@ -398,6 +378,27 @@ onclick="copyGenerated()"
 >
 📋 Copy Data
 </button>
+
+<button
+class="actions-btn"
+onclick="openActions()"
+>
+⚙️ Open GitHub Actions
+</button>
+
+</div>
+
+
+<div class="help">
+
+<b>📌 कैसे Publish करें?</b><br><br>
+
+1. Shayari यहाँ तैयार करें।<br>
+2. "Copy Data" से data copy करें।<br>
+3. "Open GitHub Actions" दबाएँ।<br>
+4. वहाँ <b>Add Shayari → Run workflow</b> करें।<br>
+5. Shayari की details भरकर workflow चलाएँ।<br>
+6. हरा ✅ Success आने के बाद website पर Shayari दिखाई देगी।
 
 </div>
 
@@ -416,24 +417,17 @@ class="back"
 
 <script>
 
-/* CATEGORY ICON */
 
 function getIcon(category){
 
     const icons = {
 
         Love:"❤️",
-
         Sad:"😔",
-
         Life:"🌿",
-
         Motivational:"💪",
-
         Attitude:"🔥",
-
         Friendship:"🤝",
-
         Shayari:"📝"
 
     };
@@ -442,8 +436,6 @@ function getIcon(category){
 
 }
 
-
-/* CREATE SHAYARI */
 
 function createShayari(){
 
@@ -476,8 +468,6 @@ function createShayari(){
         .getElementById("message");
 
 
-    /* VALIDATION */
-
     if(!shayari){
 
         message.innerText =
@@ -491,7 +481,12 @@ function createShayari(){
     }
 
 
-    /* PREVIEW */
+    const finalTitle =
+        title || "Untitled Shayari";
+
+    const finalAuthor =
+        author || "Tehalka Quotes";
+
 
     document
     .getElementById("previewCategory")
@@ -513,41 +508,27 @@ function createShayari(){
         "block";
 
 
-    /* DATA OBJECT */
-
     const data = {
 
-        title:title || "Untitled Shayari",
+        title:finalTitle,
 
         category:category,
 
         text:shayari,
 
-        author:
-            author ||
-            "Tehalka Quotes",
-
-        date:
-            new Date()
-            .toISOString()
+        author:finalAuthor
 
     };
-
-
-    /* JSON */
-
-    const json =
-        JSON.stringify(
-            data,
-            null,
-            4
-        );
 
 
     document
     .getElementById("generatedCode")
     .value =
-        json;
+        JSON.stringify(
+            data,
+            null,
+            4
+        );
 
 
     document
@@ -557,7 +538,7 @@ function createShayari(){
 
 
     message.innerText =
-        "✅ Shayari तैयार हो गई!";
+        "✅ Shayari तैयार है!";
 
     message.style.color =
         "#188038";
@@ -571,8 +552,6 @@ function createShayari(){
 
 }
 
-
-/* COPY GENERATED DATA */
 
 function copyGenerated(){
 
@@ -588,24 +567,46 @@ function copyGenerated(){
         .writeText(output)
         .then(function(){
 
-            const message =
-                document
-                .getElementById("message");
-
-            message.innerText =
-                "📋 Data copied!";
-
-            message.style.color =
-                "#188038";
+            showMessage(
+                "📋 Data copied!"
+            );
 
         });
+
+    }else{
+
+        showMessage(
+            "⚠️ Copy manually करें।"
+        );
 
     }
 
 }
 
 
-/* CLEAR */
+function openActions(){
+
+    window.open(
+        "https://github.com/prachi447/Tehalka-quotes-/actions/workflows/add-shayari.yml",
+        "_blank"
+    );
+
+}
+
+
+function showMessage(text){
+
+    const message =
+        document
+        .getElementById("message");
+
+    message.innerText = text;
+
+    message.style.color =
+        "#188038";
+
+}
+
 
 function clearForm(){
 
