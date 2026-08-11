@@ -1,4 +1,4 @@
-const quotesData = [
+window.quotesData = [
     {
         "id": 1,
         "title": "सच्चा प्यार",
@@ -52,22 +52,21 @@ const quotesData = [
         "id": 8,
         "title": "Sukoon",
         "category": "Love",
-        "text": "Mohabbat main marziyan nahi chalayi jati .....  Sukoon.    Gardan zhukayi jati hai ....huku -ea-yaar ke liye   ",
+        "text": "Mohabbat main marziyan nahi chalayi jati ..... Sukoon. Gardan zhukayi jati hai .... hukum-e-yaar ke liye",
         "author": "Tehalka Quotes"
     },
     {
         "id": 9,
-        "title": "नई शुरुआत ",
+        "title": "नई शुरुआत",
         "category": "Life",
-        "text": "हर दिन एक नई शुरुआत है    बस खुद पर विश्वास होना चाहिए ",
+        "text": "हर दिन एक नई शुरुआत है,\nबस खुद पर विश्वास होना चाहिए।",
         "author": "Tehalka Quotes"
     },
     {
         "id": 10,
-        "title": "Test shayari",
+        "title": "Test Shayari",
         "category": "Life",
-        "text": "Yah ak test shayari hai",
-        "author": "Tehalka Quotes",
-        "image": "images/Image/test.jpg"
+        "text": "यह एक टेस्ट शायरी है।",
+        "author": "Tehalka Quotes"
     }
 ];
