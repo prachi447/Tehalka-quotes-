@@ -36,7 +36,9 @@ permissions:
   contents: write
 
 jobs:
+
   add-shayari:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -51,123 +53,82 @@ jobs:
           TEXT: ${{ inputs.text }}
           AUTHOR: ${{ inputs.author }}
         run: |
-          python - <<'PY'
-          import os
-          import json
-          import re
-          import subprocess
-          import tempfile
 
-          file = "quotes-data.js"
+          node <<'NODE'
 
-          title = os.environ["TITLE"]
-          category = os.environ["CATEGORY"]
-          text = os.environ["TEXT"]
-          author = os.environ["AUTHOR"] or "Tehalka Quotes"
-
-          # Read existing JavaScript file
-          with open(file, "r", encoding="utf-8") as f:
-              content = f.read()
-
-          # Extract the array from quotes-data.js
-          match = re.search(
-              r'const\s+quotesData\s*=\s*(\[[\s\S]*\])\s*;?',
-              content
-          )
-
-          if not match:
-              raise Exception(
-                  "quotes-data.js में const quotesData = [...] नहीं मिला।"
-              )
-
-          array_text = match.group(1)
-
-          # Use Node.js to safely read the JavaScript array
-          node_script = r'''
           const fs = require("fs");
           const vm = require("vm");
 
-          const source = fs.readFileSync(
-              process.argv[1],
-              "utf8"
-          );
+          const file = "quotes-data.js";
+
+          const title = process.env.TITLE;
+          const category = process.env.CATEGORY;
+          const text = process.env.TEXT;
+          const author = process.env.AUTHOR || "Tehalka Quotes";
+
+          console.log("Reading quotes-data.js...");
+
+          const content = fs.readFileSync(file, "utf8");
 
           const sandbox = {};
+
           vm.createContext(sandbox);
 
-          vm.runInContext(
-              source + "\nthis.__quotesData = quotesData;",
-              sandbox
+          try {
+            vm.runInContext(content, sandbox);
+          } catch (error) {
+            console.error("quotes-data.js पढ़ने में error आया:");
+            console.error(error);
+            process.exit(1);
+          }
+
+          let data = sandbox.quotesData;
+
+          if (!Array.isArray(data)) {
+            console.error("Error: quotesData एक array नहीं है।");
+            process.exit(1);
+          }
+
+          const newId =
+            Math.max(
+              0,
+              ...data.map(item => Number(item.id) || 0)
+            ) + 1;
+
+          const newShayari = {
+            id: newId,
+            title: title,
+            category: category,
+            text: text,
+            author: author
+          };
+
+          data.push(newShayari);
+
+          const newContent =
+            "const quotesData = " +
+            JSON.stringify(data, null, 2) +
+            ";\n";
+
+          fs.writeFileSync(
+            file,
+            newContent,
+            "utf8"
           );
 
-          console.log(
-              JSON.stringify(sandbox.__quotesData)
-          );
-          '''
+          console.log("================================");
+          console.log("✅ Shayari successfully added!");
+          console.log("Title:", title);
+          console.log("Category:", category);
+          console.log("Author:", author);
+          console.log("ID:", newId);
+          console.log("================================");
 
-          with tempfile.NamedTemporaryFile(
-              mode="w",
-              suffix=".js",
-              delete=False,
-              encoding="utf-8"
-          ) as temp:
-              temp.write(content)
-              temp_path = temp.name
-
-          result = subprocess.run(
-              ["node", "-e", node_script, temp_path],
-              capture_output=True,
-              text=True
-          )
-
-          if result.returncode != 0:
-              print(result.stderr)
-              raise Exception(
-                  "quotes-data.js पढ़ने में समस्या आई।"
-              )
-
-          data = json.loads(result.stdout)
-
-          # Create new ID
-          new_id = max(
-              [item.get("id", 0) for item in data] or [0]
-          ) + 1
-
-          # Add new Shayari
-          data.append({
-              "id": new_id,
-              "title": title,
-              "category": category,
-              "text": text,
-              "author": author
-          })
-
-          # Save JavaScript file
-          new_content = (
-              "const quotesData = "
-              + json.dumps(
-                  data,
-                  ensure_ascii=False,
-                  indent=4
-              )
-              + ";\n"
-          )
-
-          with open(
-              file,
-              "w",
-              encoding="utf-8"
-          ) as f:
-              f.write(new_content)
-
-          print("Shayari successfully added!")
-          print("Title:", title)
-          print("Category:", category)
-
-          PY
+          NODE
 
       - name: Save Shayari
         run: |
+
           git config user.name "Tehalka Quotes"
           git config user.email "actions@github.com"
 
