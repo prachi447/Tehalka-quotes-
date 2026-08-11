@@ -206,6 +206,14 @@ header{
     color:#c4ccc6;
 }
 
+.quote-title{
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:15px;
+    color:#287a3c;
+}
+
 .quote-text{
     flex:1;
     display:flex;
@@ -216,6 +224,14 @@ header{
     line-height:1.8;
     font-weight:600;
     padding:15px 5px;
+    white-space:pre-line;
+}
+
+.quote-author{
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    margin-bottom:12px;
 }
 
 .actions{
@@ -239,6 +255,15 @@ header{
 .actions button:hover{
     background:#287a3c;
     color:white;
+}
+
+/* LOADING */
+
+.loading{
+    text-align:center;
+    padding:40px;
+    color:#777;
+    font-size:15px;
 }
 
 /* NO RESULTS */
@@ -470,370 +495,15 @@ Search
 </div>
 
 
+<!-- DYNAMIC QUOTES -->
+
 <div
 class="quotes"
 id="quotesContainer">
 
-
-<!-- QUOTE 1 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-🌿 Life
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
+<div class="loading" id="loading">
+⏳ Life Quotes लोड हो रहे हैं...
 </div>
-
-<div class="quote-text">
-ज़िंदगी छोटी नहीं होती,<br>
-हम जीना देर से शुरू करते हैं।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QUOTE 2 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-✨ Zindagi
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
-</div>
-
-<div class="quote-text">
-ज़िंदगी में वही पल खूबसूरत होते हैं,<br>
-जिन्हें हम दिल से जीते हैं।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QUOTE 3 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-🌱 Growth
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
-</div>
-
-<div class="quote-text">
-हर दिन ज़िंदगी एक नया सबक देती है,<br>
-बस सीखने वाली नज़र चाहिए।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QUOTE 4 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-🌅 Hope
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
-</div>
-
-<div class="quote-text">
-बुरा वक्त भी गुजर जाता है,<br>
-बस उम्मीद नहीं छोड़नी चाहिए।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QUOTE 5 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-❤️ Happiness
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
-</div>
-
-<div class="quote-text">
-खुश रहने के लिए वजह नहीं,<br>
-एक खूबसूरत सोच चाहिए।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QUOTE 6 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-⏳ Time
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
-</div>
-
-<div class="quote-text">
-वक्त किसी के लिए नहीं रुकता,<br>
-इसलिए हर पल को जीना सीखो।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QUOTE 7 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-🌸 Peace
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
-</div>
-
-<div class="quote-text">
-सुकून वहीं मिलता है,<br>
-जहाँ उम्मीदें कम और खुशियाँ ज्यादा हों।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QUOTE 8 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-🛤️ Journey
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
-</div>
-
-<div class="quote-text">
-ज़िंदगी एक सफर है,<br>
-हर मोड़ पर कुछ नया सिखाती है।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
-
-<!-- QUOTE 9 -->
-
-<div class="quote-card">
-
-<div class="quote-top">
-
-<span class="badge">
-🌟 Believe
-</span>
-
-<span class="quote-mark">
-❝
-</span>
-
-</div>
-
-<div class="quote-text">
-अपनी ज़िंदगी की कहानी खुद लिखो,<br>
-किसी और को लेखक मत बनने दो।
-</div>
-
-<div class="actions">
-
-<button onclick="copyQuote(this)">
-📋 Copy
-</button>
-
-<button onclick="shareQuote(this)">
-📤 Share
-</button>
-
-<button onclick="downloadQuote(this)">
-🖼️ Download
-</button>
-
-</div>
-
-</div>
-
 
 </div>
 
@@ -923,6 +593,11 @@ id="toast">
 </div>
 
 
+<!-- IMPORTANT: DATA FILE FIRST -->
+
+<script src="quotes-data.js"></script>
+
+
 <script>
 
 /* TOAST */
@@ -945,6 +620,234 @@ function showToast(message){
 }
 
 
+/* CREATE QUOTE CARD */
+
+function createQuoteCard(quote){
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "quote-card";
+
+    card.dataset.category =
+        quote.category || "";
+
+
+    const top =
+        document.createElement("div");
+
+    top.className =
+        "quote-top";
+
+
+    const badge =
+        document.createElement("span");
+
+    badge.className =
+        "badge";
+
+    badge.innerText =
+        "🌿 Life";
+
+
+    const mark =
+        document.createElement("span");
+
+    mark.className =
+        "quote-mark";
+
+    mark.innerText =
+        "❝";
+
+
+    top.appendChild(badge);
+
+    top.appendChild(mark);
+
+
+    const title =
+        document.createElement("div");
+
+    title.className =
+        "quote-title";
+
+    title.innerText =
+        quote.title || "";
+
+
+    const text =
+        document.createElement("div");
+
+    text.className =
+        "quote-text";
+
+    text.innerText =
+        quote.text || "";
+
+
+    const author =
+        document.createElement("div");
+
+    author.className =
+        "quote-author";
+
+    author.innerText =
+        "— " +
+        (quote.author || "Tehalka Quotes");
+
+
+    const actions =
+        document.createElement("div");
+
+    actions.className =
+        "actions";
+
+
+    const copyButton =
+        document.createElement("button");
+
+    copyButton.innerText =
+        "📋 Copy";
+
+    copyButton.onclick =
+        function(){
+
+            copyQuote(copyButton);
+
+        };
+
+
+    const shareButton =
+        document.createElement("button");
+
+    shareButton.innerText =
+        "📤 Share";
+
+    shareButton.onclick =
+        function(){
+
+            shareQuote(shareButton);
+
+        };
+
+
+    const downloadButton =
+        document.createElement("button");
+
+    downloadButton.innerText =
+        "🖼️ Download";
+
+    downloadButton.onclick =
+        function(){
+
+            downloadQuote(downloadButton);
+
+        };
+
+
+    actions.appendChild(copyButton);
+
+    actions.appendChild(shareButton);
+
+    actions.appendChild(downloadButton);
+
+
+    card.appendChild(top);
+
+    if(quote.title){
+
+        card.appendChild(title);
+
+    }
+
+    card.appendChild(text);
+
+    card.appendChild(author);
+
+    card.appendChild(actions);
+
+
+    return card;
+
+}
+
+
+/* LOAD LIFE QUOTES */
+
+function loadLifeQuotes(){
+
+    const container =
+        document.getElementById(
+            "quotesContainer"
+        );
+
+    const loading =
+        document.getElementById(
+            "loading"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if(
+        typeof quotesData === "undefined"
+    ){
+
+        container.innerHTML =
+
+            '<div class="loading">' +
+            '⚠️ quotes-data.js लोड नहीं हो सकी।' +
+            '</div>';
+
+        return;
+
+    }
+
+
+    const lifeQuotes =
+        quotesData.filter(
+            function(quote){
+
+                return (
+                    String(
+                        quote.category || ""
+                    ).toLowerCase()
+                    === "life"
+                );
+
+            }
+        );
+
+
+    if(lifeQuotes.length === 0){
+
+        container.innerHTML =
+
+            '<div class="loading">' +
+            '🌿 अभी कोई Life Quote उपलब्ध नहीं है।' +
+            '</div>';
+
+        return;
+
+    }
+
+
+    lifeQuotes.forEach(
+        function(quote){
+
+            const card =
+                createQuoteCard(quote);
+
+            container.appendChild(card);
+
+        }
+    );
+
+}
+
+
 /* SEARCH */
 
 function searchQuotes(){
@@ -956,32 +859,50 @@ function searchQuotes(){
         .toLowerCase()
         .trim();
 
+
     const cards =
-        document.querySelectorAll(".quote-card");
+        document.querySelectorAll(
+            ".quote-card"
+        );
+
 
     let found = 0;
 
-    cards.forEach(function(card){
 
-        const text =
-            card.innerText.toLowerCase();
+    cards.forEach(
+        function(card){
 
-        if(text.includes(input)){
+            const text =
+                card.innerText
+                .toLowerCase();
 
-            card.style.display = "flex";
 
-            found++;
+            if(
+                text.includes(input)
+            ){
 
-        }else{
+                card.style.display =
+                    "flex";
 
-            card.style.display = "none";
+                found++;
+
+            }else{
+
+                card.style.display =
+                    "none";
+
+            }
 
         }
+    );
 
-    });
 
-    document.getElementById("noResults").style.display =
-        found === 0 ? "block" : "none";
+    document
+    .getElementById("noResults")
+    .style.display =
+        found === 0
+        ? "block"
+        : "none";
 
 }
 
@@ -991,36 +912,48 @@ function searchQuotes(){
 function copyQuote(button){
 
     const card =
-        button.closest(".quote-card");
+        button.closest(
+            ".quote-card"
+        );
+
 
     const text =
         card
-        .querySelector(".quote-text")
+        .querySelector(
+            ".quote-text"
+        )
         .innerText;
 
-    if(navigator.clipboard){
+
+    if(
+        navigator.clipboard
+    ){
 
         navigator.clipboard
         .writeText(text)
-        .then(function(){
+        .then(
+            function(){
 
-            showToast(
-                "Life Quote copied! 📋"
-            );
+                showToast(
+                    "Life Quote copied! 📋"
+                );
 
-        })
-        .catch(function(){
+            }
+        )
+        .catch(
+            function(){
 
-            showToast(
-                "Copy नहीं हो पाया।"
-            );
+                showToast(
+                    "Copy नहीं हो पाया।"
+                );
 
-        });
+            }
+        );
 
     }else{
 
         showToast(
-            "Copy आपके browser में उपलब्ध नहीं है।"
+            "Copy उपलब्ध नहीं है।"
         );
 
     }
@@ -1033,30 +966,43 @@ function copyQuote(button){
 function shareQuote(button){
 
     const card =
-        button.closest(".quote-card");
+        button.closest(
+            ".quote-card"
+        );
+
 
     const text =
         card
-        .querySelector(".quote-text")
+        .querySelector(
+            ".quote-text"
+        )
         .innerText;
 
-    if(navigator.share){
+
+    if(
+        navigator.share
+    ){
 
         navigator.share({
 
             title:
                 "Tehalka Quotes - Life Quotes",
 
-            text:text,
+            text:
+                text,
 
             url:
                 window.location.href
 
-        }).catch(function(){});
+        }).catch(
+            function(){}
+        );
 
     }else{
 
-        if(navigator.clipboard){
+        if(
+            navigator.clipboard
+        ){
 
             navigator.clipboard
             .writeText(text);
@@ -1077,23 +1023,36 @@ function shareQuote(button){
 function downloadQuote(button){
 
     const card =
-        button.closest(".quote-card");
+        button.closest(
+            ".quote-card"
+        );
+
 
     const text =
         card
-        .querySelector(".quote-text")
+        .querySelector(
+            ".quote-text"
+        )
         .innerText;
 
 
     const canvas =
-        document.createElement("canvas");
+        document.createElement(
+            "canvas"
+        );
 
-    canvas.width = 1080;
 
-    canvas.height = 1080;
+    canvas.width =
+        1080;
+
+    canvas.height =
+        1080;
+
 
     const ctx =
-        canvas.getContext("2d");
+        canvas.getContext(
+            "2d"
+        );
 
 
     /* BACKGROUND */
@@ -1106,6 +1065,7 @@ function downloadQuote(button){
             1080
         );
 
+
     gradient.addColorStop(
         0,
         "#134e2a"
@@ -1116,7 +1076,10 @@ function downloadQuote(button){
         "#3c8d4e"
     );
 
-    ctx.fillStyle = gradient;
+
+    ctx.fillStyle =
+        gradient;
+
 
     ctx.fillRect(
         0,
@@ -1128,12 +1091,15 @@ function downloadQuote(button){
 
     /* BRAND */
 
-    ctx.textAlign = "center";
+    ctx.textAlign =
+        "center";
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle =
+        "white";
 
     ctx.font =
         "bold 42px Arial";
+
 
     ctx.fillText(
         "TEHALKA QUOTES",
@@ -1147,6 +1113,7 @@ function downloadQuote(button){
     ctx.font =
         "90px Arial";
 
+
     ctx.fillText(
         "🌿",
         540,
@@ -1159,59 +1126,86 @@ function downloadQuote(button){
     ctx.font =
         "bold 43px Arial";
 
-    let words =
+
+    const words =
         text.split(" ");
 
-    let lines = [];
 
-    let line = "";
+    const lines =
+        [];
+
+    let line =
+        "";
 
 
-    words.forEach(function(word){
+    words.forEach(
+        function(word){
 
-        const test =
-            line + word + " ";
+            const test =
+                line +
+                word +
+                " ";
 
-        const width =
-            ctx.measureText(test).width;
 
-        if(width > 850){
+            const width =
+                ctx.measureText(
+                    test
+                ).width;
 
-            lines.push(
-                line.trim()
-            );
 
-            line =
-                word + " ";
+            if(
+                width > 850
+            ){
 
-        }else{
+                lines.push(
+                    line.trim()
+                );
 
-            line = test;
+
+                line =
+                    word +
+                    " ";
+
+            }else{
+
+                line =
+                    test;
+
+            }
 
         }
-
-    });
-
-
-    lines.push(
-        line.trim()
     );
 
 
-    let y = 460;
+    if(
+        line.trim()
+    ){
 
-
-    lines.forEach(function(item){
-
-        ctx.fillText(
-            item,
-            540,
-            y
+        lines.push(
+            line.trim()
         );
 
-        y += 75;
+    }
 
-    });
+
+    let y =
+        460;
+
+
+    lines.forEach(
+        function(item){
+
+            ctx.fillText(
+                item,
+                540,
+                y
+            );
+
+
+            y += 75;
+
+        }
+    );
 
 
     /* CATEGORY */
@@ -1222,6 +1216,7 @@ function downloadQuote(button){
     ctx.font =
         "bold 30px Arial";
 
+
     ctx.fillText(
         "LIFE QUOTES",
         540,
@@ -1229,7 +1224,15 @@ function downloadQuote(button){
     );
 
 
-    /* FOOTER */
+    /* AUTHOR */
+
+    const author =
+        card
+        .querySelector(
+            ".quote-author"
+        )
+        .innerText;
+
 
     ctx.fillStyle =
         "rgba(255,255,255,.8)";
@@ -1237,25 +1240,44 @@ function downloadQuote(button){
     ctx.font =
         "25px Arial";
 
+
+    ctx.fillText(
+        author,
+        540,
+        920
+    );
+
+
+    /* FOOTER */
+
+    ctx.font =
+        "22px Arial";
+
+
     ctx.fillText(
         "Tehalka Quotes",
         540,
-        950
+        975
     );
 
 
     /* DOWNLOAD */
 
     const link =
-        document.createElement("a");
+        document.createElement(
+            "a"
+        );
+
 
     link.download =
         "Tehalka-Life-Quote.png";
+
 
     link.href =
         canvas.toDataURL(
             "image/png"
         );
+
 
     link.click();
 
@@ -1266,7 +1288,13 @@ function downloadQuote(button){
 
 }
 
+
+/* START */
+
+loadLifeQuotes();
+
 </script>
 
+
 </body>
-  </html>
+    </html>
