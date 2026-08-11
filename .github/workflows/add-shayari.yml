@@ -1,0 +1,121 @@
+name: Add Shayari
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Shayari Title"
+        required: true
+        type: string
+
+      category:
+        description: "Category"
+        required: true
+        type: choice
+        options:
+          - Love
+          - Sad
+          - Life
+          - Motivational
+          - Attitude
+          - Friendship
+          - Shayari
+
+      text:
+        description: "Shayari Text"
+        required: true
+        type: string
+
+      author:
+        description: "Author"
+        required: false
+        default: "Tehalka Quotes"
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+
+  add-shayari:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Add Shayari
+        env:
+          TITLE: ${{ inputs.title }}
+          CATEGORY: ${{ inputs.category }}
+          TEXT: ${{ inputs.text }}
+          AUTHOR: ${{ inputs.author }}
+        run: |
+
+          python - <<'PY'
+
+          import json
+          import os
+
+          file = "quotes-data.js"
+
+          title = os.environ["TITLE"]
+          category = os.environ["CATEGORY"]
+          text = os.environ["TEXT"]
+          author = os.environ["AUTHOR"] or "Tehalka Quotes"
+
+          with open(file, "r", encoding="utf-8") as f:
+              content = f.read()
+
+          start = content.find("[")
+          end = content.rfind("]")
+
+          data = json.loads(
+              content[start:end+1]
+          )
+
+          new_id = max(
+              [item.get("id", 0) for item in data] or [0]
+          ) + 1
+
+          data.append({
+              "id": new_id,
+              "title": title,
+              "category": category,
+              "text": text,
+              "author": author
+          })
+
+          new_content = (
+              "const quotesData = "
+              + json.dumps(
+                  data,
+                  ensure_ascii=False,
+                  indent=4
+              )
+              + ";\n"
+          )
+
+          with open(
+              file,
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              f.write(new_content)
+
+          PY
+
+      - name: Save Shayari
+        run: |
+
+          git config user.name "Tehalka Quotes"
+          git config user.email "actions@github.com"
+
+          git add quotes-data.js
+
+          git commit -m "Add new Shayari"
+
+          git push
