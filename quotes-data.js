@@ -61,5 +61,13 @@ const quotesData = [
         "category": "Life",
         "text": "हर दिन एक नई शुरुआत है    बस खुद पर विश्वास होना चाहिए ",
         "author": "Tehalka Quotes"
+    },
+    {
+        "id": 10,
+        "title": "Test shayari",
+        "category": "Life",
+        "text": "Yah ak test shayari hai",
+        "author": "Tehalka Quotes",
+        "image": "images/Image/test.jpg"
     }
 ];
