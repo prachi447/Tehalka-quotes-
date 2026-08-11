@@ -54,5 +54,12 @@ const quotesData = [
         "category": "Love",
         "text": "Mohabbat main marziyan nahi chalayi jati .....  Sukoon.    Gardan zhukayi jati hai ....huku -ea-yaar ke liye   ",
         "author": "Tehalka Quotes"
+    },
+    {
+        "id": 9,
+        "title": "नई शुरुआत ",
+        "category": "Life",
+        "text": "हर दिन एक नई शुरुआत है    बस खुद पर विश्वास होना चाहिए ",
+        "author": "Tehalka Quotes"
     }
 ];
