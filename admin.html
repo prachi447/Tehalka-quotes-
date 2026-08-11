@@ -83,7 +83,7 @@ textarea{
 }
 
 textarea{
-    min-height:170px;
+    min-height:160px;
     resize:vertical;
     line-height:1.7;
 }
@@ -93,6 +93,49 @@ select:focus,
 textarea:focus{
     border-color:#6a11cb;
 }
+
+/* IMAGE UPLOAD */
+
+.image-box{
+    border:2px dashed #d5d5d5;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    background:#fafafa;
+}
+
+.image-box input{
+    border:0;
+    padding:10px;
+    background:white;
+}
+
+.image-help{
+    color:#777;
+    font-size:13px;
+    margin-top:8px;
+}
+
+.image-preview{
+    display:none;
+    margin-top:15px;
+}
+
+.image-preview img{
+    width:100%;
+    max-height:350px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.file-name{
+    margin-top:8px;
+    font-size:13px;
+    color:#666;
+    word-break:break-all;
+}
+
+/* BUTTONS */
 
 .publish-btn{
     width:100%;
@@ -107,6 +150,10 @@ textarea:focus{
     margin-top:22px;
 }
 
+.publish-btn:hover{
+    background:#5310a1;
+}
+
 .clear-btn{
     width:100%;
     border:0;
@@ -119,6 +166,8 @@ textarea:focus{
     margin-top:10px;
 }
 
+/* PREVIEW */
+
 .preview{
     margin-top:30px;
     display:none;
@@ -129,11 +178,47 @@ textarea:focus{
 }
 
 .preview-card{
-    background:linear-gradient(135deg,#6a11cb,#2575fc);
-    color:white;
+    position:relative;
+    overflow:hidden;
+    min-height:420px;
     border-radius:20px;
-    padding:30px 20px;
+    background:
+        linear-gradient(
+            135deg,
+            #6a11cb,
+            #2575fc
+        );
+    color:white;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
     text-align:center;
+}
+
+.preview-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.preview-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.1)
+        );
+}
+
+.preview-content{
+    position:relative;
+    z-index:2;
+    padding:30px 20px;
+    width:100%;
 }
 
 .preview-category{
@@ -146,11 +231,18 @@ textarea:focus{
 }
 
 .preview-text{
-    font-size:20px;
+    font-size:21px;
     line-height:1.8;
     font-weight:bold;
-    white-space:pre-line;
 }
+
+.preview-author{
+    margin-top:15px;
+    font-size:13px;
+    color:#eee;
+}
+
+/* OUTPUT */
 
 .output{
     margin-top:25px;
@@ -162,40 +254,21 @@ textarea:focus{
 }
 
 .output textarea{
-    min-height:240px;
+    min-height:280px;
     background:#f7f7f7;
     font-family:monospace;
     font-size:13px;
 }
 
-.copy-btn,
-.actions-btn{
+.copy-btn{
     width:100%;
     border:0;
+    background:#222;
     color:white;
     padding:13px;
     border-radius:10px;
     cursor:pointer;
     margin-top:10px;
-    font-weight:bold;
-}
-
-.copy-btn{
-    background:#222;
-}
-
-.actions-btn{
-    background:#188038;
-}
-
-.help{
-    margin-top:20px;
-    padding:15px;
-    background:#fff8e1;
-    border-radius:12px;
-    font-size:13px;
-    line-height:1.7;
-    color:#5f4b00;
 }
 
 .message{
@@ -222,6 +295,10 @@ textarea:focus{
 
     .admin-box{
         padding:20px 16px;
+    }
+
+    .preview-text{
+        font-size:18px;
     }
 
 }
@@ -254,11 +331,13 @@ Admin Panel
 <h2>➕ Add New Shayari</h2>
 
 <p>
-अपनी नई Shayari तैयार करें
+Shayari और उसकी image एक साथ तैयार करें
 </p>
 
 </div>
 
+
+<!-- TITLE -->
 
 <label for="title">
 Shayari Title
@@ -267,9 +346,11 @@ Shayari Title
 <input
 type="text"
 id="title"
-placeholder="जैसे: दिल की बात"
+placeholder="जैसे: नई शुरुआत"
 >
 
+
+<!-- CATEGORY -->
 
 <label for="category">
 Category
@@ -278,15 +359,23 @@ Category
 <select id="category">
 
 <option value="Love">❤️ Love</option>
+
 <option value="Sad">😔 Sad</option>
+
 <option value="Life">🌿 Life</option>
+
 <option value="Motivational">💪 Motivational</option>
+
 <option value="Attitude">🔥 Attitude</option>
+
 <option value="Friendship">🤝 Friendship</option>
+
 <option value="Shayari">📝 Shayari</option>
 
 </select>
 
+
+<!-- SHAYARI -->
 
 <label for="shayari">
 अपनी Shayari लिखें
@@ -294,14 +383,11 @@ Category
 
 <textarea
 id="shayari"
-placeholder="यहाँ अपनी पूरी Shayari लिखें...
-
-उदाहरण:
-
-तेरी यादों का सिलसिला आज भी है,
-दिल में तेरा ही बसेरा आज भी है..."
+placeholder="यहाँ अपनी पूरी Shayari लिखें..."
 ></textarea>
 
+
+<!-- AUTHOR -->
 
 <label for="author">
 Author / नाम
@@ -310,23 +396,65 @@ Author / नाम
 <input
 type="text"
 id="author"
-placeholder="जैसे: Tehalka Quotes"
+placeholder="Tehalka Quotes"
 >
 
+
+<!-- IMAGE -->
+
+<label>
+🖼️ Quote Image
+</label>
+
+<div class="image-box">
+
+<input
+type="file"
+id="quoteImage"
+accept="image/*"
+onchange="previewImage(event)"
+>
+
+<div class="image-help">
+इस Quote के अनुसार image चुनें
+</div>
+
+<div
+class="image-preview"
+id="imagePreview">
+
+<img
+id="selectedImage"
+alt="Selected image"
+>
+
+<div
+class="file-name"
+id="fileName">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PUBLISH -->
 
 <button
 class="publish-btn"
-onclick="createShayari()"
->
+onclick="createShayari()">
+
 🚀 Prepare Shayari
+
 </button>
 
 
 <button
 class="clear-btn"
-onclick="clearForm()"
->
+onclick="clearForm()">
+
 🗑️ Clear
+
 </button>
 
 
@@ -336,13 +464,27 @@ id="message">
 </div>
 
 
+<!-- PREVIEW -->
+
 <div
 class="preview"
 id="preview">
 
-<h3>👀 Preview</h3>
+<h3>
+👀 Preview
+</h3>
 
 <div class="preview-card">
+
+<img
+id="previewImage"
+alt="Quote image"
+>
+
+<div class="preview-overlay">
+</div>
+
+<div class="preview-content">
 
 <div
 class="preview-category"
@@ -354,17 +496,26 @@ class="preview-text"
 id="previewText">
 </div>
 
+<div
+class="preview-author"
+id="previewAuthor">
 </div>
 
 </div>
 
+</div>
+
+</div>
+
+
+<!-- GENERATED DATA -->
 
 <div
 class="output"
 id="output">
 
 <h3>
-📦 Shayari Data
+📦 Quote Data
 </h3>
 
 <textarea
@@ -374,40 +525,21 @@ readonly>
 
 <button
 class="copy-btn"
-onclick="copyGenerated()"
->
+onclick="copyGenerated()">
+
 📋 Copy Data
+
 </button>
-
-<button
-class="actions-btn"
-onclick="openActions()"
->
-⚙️ Open GitHub Actions
-</button>
-
-</div>
-
-
-<div class="help">
-
-<b>📌 कैसे Publish करें?</b><br><br>
-
-1. Shayari यहाँ तैयार करें।<br>
-2. "Copy Data" से data copy करें।<br>
-3. "Open GitHub Actions" दबाएँ।<br>
-4. वहाँ <b>Add Shayari → Run workflow</b> करें।<br>
-5. Shayari की details भरकर workflow चलाएँ।<br>
-6. हरा ✅ Success आने के बाद website पर Shayari दिखाई देगी।
 
 </div>
 
 
 <a
 href="index.html"
-class="back"
->
+class="back">
+
 ← वापस Website पर जाएँ
+
 </a>
 
 </div>
@@ -417,25 +549,74 @@ class="back"
 
 <script>
 
+/* ==========================================
+   IMAGE PREVIEW
+========================================== */
 
-function getIcon(category){
+let selectedImageData = "";
+let selectedFileName = "";
 
-    const icons = {
 
-        Love:"❤️",
-        Sad:"😔",
-        Life:"🌿",
-        Motivational:"💪",
-        Attitude:"🔥",
-        Friendship:"🤝",
-        Shayari:"📝"
+function previewImage(event){
+
+    const file =
+        event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+
+    selectedFileName =
+        file.name;
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+    function(e){
+
+        selectedImageData =
+            e.target.result;
+
+
+        document
+        .getElementById(
+            "selectedImage"
+        )
+        .src =
+            selectedImageData;
+
+
+        document
+        .getElementById(
+            "imagePreview"
+        )
+        .style.display =
+            "block";
+
+
+        document
+        .getElementById(
+            "fileName"
+        )
+        .innerText =
+            "Selected: " +
+            selectedFileName;
 
     };
 
-    return icons[category] || "📝";
+
+    reader.readAsDataURL(file);
 
 }
 
+
+/* ==========================================
+   CREATE SHAYARI
+========================================== */
 
 function createShayari(){
 
@@ -445,16 +626,19 @@ function createShayari(){
         .value
         .trim();
 
+
     const category =
         document
         .getElementById("category")
         .value;
+
 
     const shayari =
         document
         .getElementById("shayari")
         .value
         .trim();
+
 
     const author =
         document
@@ -466,6 +650,21 @@ function createShayari(){
     const message =
         document
         .getElementById("message");
+
+
+    /* VALIDATION */
+
+    if(!title){
+
+        message.innerText =
+            "⚠️ पहले Title लिखें।";
+
+        message.style.color =
+            "#d93025";
+
+        return;
+
+    }
 
 
     if(!shayari){
@@ -481,48 +680,123 @@ function createShayari(){
     }
 
 
-    const finalTitle =
-        title || "Untitled Shayari";
+    if(!selectedImageData){
 
-    const finalAuthor =
-        author || "Tehalka Quotes";
+        message.innerText =
+            "⚠️ पहले Quote की image चुनें।";
+
+        message.style.color =
+            "#d93025";
+
+        return;
+
+    }
+
+
+    /* PREVIEW */
+
+    document
+    .getElementById(
+        "previewImage"
+    )
+    .src =
+        selectedImageData;
 
 
     document
-    .getElementById("previewCategory")
+    .getElementById(
+        "previewCategory"
+    )
     .innerText =
-        getIcon(category) +
-        " " +
         category;
 
 
     document
-    .getElementById("previewText")
+    .getElementById(
+        "previewText"
+    )
     .innerText =
         shayari;
 
 
     document
-    .getElementById("preview")
+    .getElementById(
+        "previewAuthor"
+    )
+    .innerText =
+        "— " +
+        (
+            author ||
+            "Tehalka Quotes"
+        );
+
+
+    document
+    .getElementById(
+        "preview"
+    )
     .style.display =
         "block";
 
 
+    /* IMAGE PATH */
+
+    const cleanName =
+        title
+        .toLowerCase()
+        .replace(
+            /[^a-z0-9]+/g,
+            "-"
+        )
+        .replace(
+            /^-+|-+$/g,
+            ""
+        );
+
+
+    const extension =
+        selectedFileName
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+
+    const imagePath =
+        "images/" +
+        cleanName +
+        "." +
+        extension;
+
+
+    /* DATA */
+
     const data = {
 
-        title:finalTitle,
+        title:
+            title,
 
-        category:category,
+        category:
+            category,
 
-        text:shayari,
+        text:
+            shayari,
 
-        author:finalAuthor
+        author:
+            author ||
+            "Tehalka Quotes",
+
+        image:
+            imagePath
 
     };
 
 
+    /* JSON */
+
     document
-    .getElementById("generatedCode")
+    .getElementById(
+        "generatedCode"
+    )
     .value =
         JSON.stringify(
             data,
@@ -532,20 +806,24 @@ function createShayari(){
 
 
     document
-    .getElementById("output")
+    .getElementById(
+        "output"
+    )
     .style.display =
         "block";
 
 
     message.innerText =
-        "✅ Shayari तैयार है!";
+        "✅ Shayari और image तैयार हैं!";
 
     message.style.color =
         "#188038";
 
 
     document
-    .getElementById("output")
+    .getElementById(
+        "output"
+    )
     .scrollIntoView({
         behavior:"smooth"
     });
@@ -553,11 +831,17 @@ function createShayari(){
 }
 
 
+/* ==========================================
+   COPY
+========================================== */
+
 function copyGenerated(){
 
     const output =
         document
-        .getElementById("generatedCode")
+        .getElementById(
+            "generatedCode"
+        )
         .value;
 
 
@@ -567,46 +851,30 @@ function copyGenerated(){
         .writeText(output)
         .then(function(){
 
-            showMessage(
-                "📋 Data copied!"
-            );
+            const message =
+                document
+                .getElementById(
+                    "message"
+                );
+
+
+            message.innerText =
+                "📋 Data copied!";
+
+
+            message.style.color =
+                "#188038";
 
         });
-
-    }else{
-
-        showMessage(
-            "⚠️ Copy manually करें।"
-        );
 
     }
 
 }
 
 
-function openActions(){
-
-    window.open(
-        "https://github.com/prachi447/Tehalka-quotes-/actions/workflows/add-shayari.yml",
-        "_blank"
-    );
-
-}
-
-
-function showMessage(text){
-
-    const message =
-        document
-        .getElementById("message");
-
-    message.innerText = text;
-
-    message.style.color =
-        "#188038";
-
-}
-
+/* ==========================================
+   CLEAR
+========================================== */
 
 function clearForm(){
 
@@ -614,32 +882,60 @@ function clearForm(){
     .getElementById("title")
     .value = "";
 
+
     document
     .getElementById("shayari")
     .value = "";
+
 
     document
     .getElementById("author")
     .value = "";
 
+
     document
-    .getElementById("preview")
+    .getElementById("quoteImage")
+    .value = "";
+
+
+    document
+    .getElementById(
+        "imagePreview"
+    )
     .style.display =
         "none";
 
+
     document
-    .getElementById("output")
+    .getElementById(
+        "preview"
+    )
     .style.display =
         "none";
 
+
     document
-    .getElementById("message")
+    .getElementById(
+        "output"
+    )
+    .style.display =
+        "none";
+
+
+    document
+    .getElementById(
+        "message"
+    )
     .innerText =
         "";
+
+
+    selectedImageData = "";
+    selectedFileName = "";
 
 }
 
 </script>
 
 </body>
-</html>
+    </html>
