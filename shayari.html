@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hindi Shayari | Tehalka Quotes</title>
+
+<meta name="description" content="Tehalka Quotes पर पढ़ें खूबसूरत Hindi Shayari, Love Shayari, Sad Shayari, Dosti Shayari और दिल छू लेने वाली शायरियां। Copy, Share और Image Download करें।">
+
+<meta name="keywords" content="Hindi Shayari, Shayari in Hindi, Love Shayari, Sad Shayari, Dosti Shayari, Best Hindi Shayari">
+
+<meta name="author" content="Tehalka Quotes">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#faf5f8;
+    color:#202124;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#35152b;
+    color:white;
+    box-shadow:0 3px 15px rgba(0,0,0,.2);
+}
+
+.header-inner{
+    max-width:1150px;
+    margin:auto;
+    padding:15px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#ff9acb;
+}
+
+.nav{
+    display:flex;
+    gap:20px;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.nav a:hover{
+    color:#ff9acb;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#7b1e52,#d84b8b);
+    color:white;
+    text-align:center;
+    padding:65px 20px 75px;
+}
+
+.hero-icon{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:17px;
+    color:#ffeaf5;
+}
+
+/* SEARCH */
+
+.search-wrapper{
+    max-width:700px;
+    margin:-30px auto 35px;
+    padding:0 18px;
+}
+
+.search-box{
+    display:flex;
+    background:white;
+    padding:6px;
+    border-radius:35px;
+    box-shadow:0 7px 25px rgba(0,0,0,.15);
+}
+
+.search-box input{
+    flex:1;
+    border:0;
+    outline:0;
+    padding:15px 18px;
+    font-size:16px;
+    border-radius:30px;
+}
+
+.search-box button{
+    border:0;
+    background:#a52d69;
+    color:white;
+    border-radius:30px;
+    padding:0 22px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.search-box button:hover{
+    background:#7b1e52;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:10px 18px 60px;
+}
+
+.title{
+    text-align:center;
+    margin:25px 0 30px;
+}
+
+.title h2{
+    font-size:29px;
+}
+
+.title p{
+    color:#777;
+    margin-top:6px;
+}
+
+/* SHAYARI CARDS */
+
+.shayari-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.shayari-card{
+    background:white;
+    border-radius:20px;
+    padding:25px 20px;
+    min-height:310px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    border:1px solid #f0dce7;
+    transition:.25s;
+}
+
+.shayari-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.shayari-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.badge{
+    background:#fce6f1;
+    color:#a52d69;
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.mark{
+    font-size:32px;
+    color:#d2b7c5;
+}
+
+.shayari-text{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:19px;
+    line-height:1.9;
+    font-weight:600;
+    padding:15px 5px;
+}
+
+.actions{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.actions button{
+    border:0;
+    background:#f3edf1;
+    color:#333;
+    padding:9px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:12px;
+    transition:.2s;
+}
+
+.actions button:hover{
+    background:#a52d69;
+    color:white;
+}
+
+/* NO RESULTS */
+
+#noResults{
+    display:none;
+    text-align:center;
+    padding:45px;
+    color:#777;
+}
+
+/* INFO */
+
+.info{
+    background:white;
+    border-radius:20px;
+    padding:30px 22px;
+    margin-top:50px;
+    text-align:center;
+    border:1px solid #f0dce7;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.info h2{
+    margin-bottom:12px;
+}
+
+.info p{
+    color:#666;
+    max-width:800px;
+    margin:8px auto;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    background:#35152b;
+    color:#ccc;
+    text-align:center;
+    padding:35px 15px;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:8px;
+    font-size:21px;
+}
+
+footer p{
+    color:#aaa;
+}
+
+.footer-links{
+    margin-top:15px;
+}
+
+.footer-links a{
+    color:#bbb;
+    text-decoration:none;
+    margin:0 8px;
+    font-size:13px;
+}
+
+.footer-links a:hover{
+    color:#ff9acb;
+}
+
+.copy{
+    margin-top:18px;
+    color:#777;
+    font-size:12px;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translate(-50%,100px);
+    background:#222;
+    color:white;
+    padding:12px 20px;
+    border-radius:25px;
+    opacity:0;
+    transition:.3s;
+    z-index:2000;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+    opacity:1;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav{
+        display:none;
+    }
+
+    .shayari-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .shayari-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:50px 15px 65px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .search-box button{
+        padding:0 16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header-inner">
+
+<div class="logo">
+Tehalka <span>Quotes</span>
+</div>
+
+<nav class="nav">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="index.html#categories">
+Categories
+</a>
+
+<a href="index.html#quotes">
+Quotes
+</a>
+
+<a href="index.html#about">
+About
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-icon">
+📝
+</div>
+
+<h1>
+Hindi Shayari
+</h1>
+
+<p>
+कुछ अल्फ़ाज़ दिल की बातें कह जाते हैं ❤️
+</p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search-wrapper">
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Shayari खोजें..."
+onkeyup="searchShayari()"
+>
+
+<button onclick="searchShayari()">
+Search
+</button>
+
+</div>
+
+</div>
+
+
+<main class="container">
+
+
+<div class="title">
+
+<h2>
+📝 Best Hindi Shayari
+</h2>
+
+<p>
+दिल के एहसासों को खूबसूरत शब्दों में पढ़िए
+</p>
+
+</div>
+
+
+<div
+class="shayari-grid"
+id="shayariContainer">
+
+
+<!-- SHAYARI 1 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+❤️ Love Shayari
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+तेरी मुस्कान में कुछ ऐसा असर है,<br>
+जो मेरे हर ग़म से बेहतर है।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SHAYARI 2 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+💔 Sad Shayari
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+कुछ दर्द ऐसे होते हैं,<br>
+जो मुस्कुराकर भी छुपाने पड़ते हैं।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SHAYARI 3 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+🌹 Romantic
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+तुम सामने रहो तो बात कुछ और है,<br>
+तुम्हारे बिना ये रात कुछ और है।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SHAYARI 4 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+🤝 Dosti
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+दोस्ती का रिश्ता बड़ा खास होता है,<br>
+हर दोस्त दिल के पास होता है।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SHAYARI 5 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+🌿 Life
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+ज़िंदगी की राहों में ठोकरें भी जरूरी हैं,<br>
+तभी तो मंज़िल की कीमत समझ आती है।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SHAYARI 6 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+🔥 Attitude
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+हम अपना अंदाज़ खुद बनाते हैं,<br>
+लोग उसे Attitude कहते हैं।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SHAYARI 7 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+✨ Feelings
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+लफ़्ज़ों की जरूरत कहाँ होती है,<br>
+जब आँखें सारी कहानी कह देती हैं।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SHAYARI 8 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+🌙 Night
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+रात खामोश है मगर दिल बोलता है,<br>
+तेरी यादों में हर पल कुछ सोचता है।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SHAYARI 9 -->
+
+<div class="shayari-card">
+
+<div class="shayari-top">
+
+<span class="badge">
+💫 Emotions
+</span>
+
+<span class="mark">
+❝
+</span>
+
+</div>
+
+<div class="shayari-text">
+कुछ रिश्ते नाम के मोहताज नहीं होते,<br>
+कुछ लोग दिल में हमेशा खास होते हैं।
+</div>
+
+<div class="actions">
+
+<button onclick="copyShayari(this)">
+📋 Copy
+</button>
+
+<button onclick="shareShayari(this)">
+📤 Share
+</button>
+
+<button onclick="downloadShayari(this)">
+🖼️ Download
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div id="noResults">
+
+<h3>
+😔 Shayari नहीं मिली
+</h3>
+
+<p>
+कोई दूसरा शब्द search करके देखें।
+</p>
+
+</div>
+
+
+<!-- INFO -->
+
+<section class="info">
+
+<h2>
+📝 Hindi Shayari
+</h2>
+
+<p>
+Tehalka Quotes पर आपको Love Shayari,
+Sad Shayari, Romantic Shayari, Dosti Shayari,
+Life Shayari और Attitude Shayari मिलेंगी।
+</p>
+
+<p>
+अपनी पसंदीदा Shayari को Copy करें,
+दोस्तों के साथ Share करें या Image के रूप में Download करें।
+</p>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>
+Tehalka Quotes
+</h3>
+
+<p>
+Shayari • Love • Sad • Dosti • Life • Attitude
+</p>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="index.html#categories">
+Categories
+</a>
+
+<a href="index.html#quotes">
+Quotes
+</a>
+
+<a href="index.html#about">
+About
+</a>
+
+</div>
+
+<div class="copy">
+© 2026 Tehalka Quotes. All Rights Reserved.
+</div>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div
+class="toast"
+id="toast">
+</div>
+
+
+<script>
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2200);
+
+}
+
+
+/* SEARCH */
+
+function searchShayari(){
+
+    const input =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards =
+        document.querySelectorAll(".shayari-card");
+
+    let found = 0;
+
+    cards.forEach(function(card){
+
+        const text =
+            card.innerText.toLowerCase();
+
+        if(text.includes(input)){
+
+            card.style.display = "flex";
+
+            found++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("noResults").style.display =
+        found === 0 ? "block" : "none";
+
+}
+
+
+/* COPY */
+
+function copyShayari(button){
+
+    const card =
+        button.closest(".shayari-card");
+
+    const text =
+        card
+        .querySelector(".shayari-text")
+        .innerText;
+
+    if(navigator.clipboard){
+
+        navigator.clipboard
+        .writeText(text)
+        .then(function(){
+
+            showToast(
+                "Shayari copied! 📋"
+            );
+
+        })
+        .catch(function(){
+
+            showToast(
+                "Copy नहीं हो पाया।"
+            );
+
+        });
+
+    }else{
+
+        showToast(
+            "Copy आपके browser में उपलब्ध नहीं है।"
+        );
+
+    }
+
+}
+
+
+/* SHARE */
+
+function shareShayari(button){
+
+    const card =
+        button.closest(".shayari-card");
+
+    const text =
+        card
+        .querySelector(".shayari-text")
+        .innerText;
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:
+                "Tehalka Quotes - Hindi Shayari",
+
+            text:text,
+
+            url:
+                window.location.href
+
+        }).catch(function(){});
+
+    }else{
+
+        if(navigator.clipboard){
+
+            navigator.clipboard
+            .writeText(text);
+
+        }
+
+        showToast(
+            "Shayari copied! अब share करें 📤"
+        );
+
+    }
+
+}
+
+
+/* DOWNLOAD IMAGE */
+
+function downloadShayari(button){
+
+    const card =
+        button.closest(".shayari-card");
+
+    const text =
+        card
+        .querySelector(".shayari-text")
+        .innerText;
+
+
+    const canvas =
+        document.createElement("canvas");
+
+    canvas.width = 1080;
+
+    canvas.height = 1080;
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    /* BACKGROUND */
+
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            1080,
+            1080
+        );
+
+    gradient.addColorStop(
+        0,
+        "#7b1e52"
+    );
+
+    gradient.addColorStop(
+        1,
+        "#d84b8b"
+    );
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(
+        0,
+        0,
+        1080,
+        1080
+    );
+
+
+    /* BRAND */
+
+    ctx.textAlign = "center";
+
+    ctx.fillStyle = "white";
+
+    ctx.font =
+        "bold 42px Arial";
+
+    ctx.fillText(
+        "TEHALKA QUOTES",
+        540,
+        145
+    );
+
+
+    /* ICON */
+
+    ctx.font =
+        "90px Arial";
+
+    ctx.fillText(
+        "📝",
+        540,
+        290
+    );
+
+
+    /* SHAYARI TEXT */
+
+    ctx.font =
+        "bold 43px Arial";
+
+    let words =
+        text.split(" ");
+
+    let lines = [];
+
+    let line = "";
+
+
+    words.forEach(function(word){
+
+        const test =
+            line + word + " ";
+
+        const width =
+            ctx.measureText(test).width;
+
+        if(width > 850){
+
+            lines.push(
+                line.trim()
+            );
+
+            line =
+                word + " ";
+
+        }else{
+
+            line = test;
+
+        }
+
+    });
+
+
+    lines.push(
+        line.trim()
+    );
+
+
+    let y = 455;
+
+
+    lines.forEach(function(item){
+
+        ctx.fillText(
+            item,
+            540,
+            y
+        );
+
+        y += 75;
+
+    });
+
+
+    /* CATEGORY */
+
+    ctx.fillStyle =
+        "rgba(255,255,255,.85)";
+
+    ctx.font =
+        "bold 30px Arial";
+
+    ctx.fillText(
+        "HINDI SHAYARI",
+        540,
+        850
+    );
+
+
+    /* FOOTER */
+
+    ctx.fillStyle =
+        "rgba(255,255,255,.8)";
+
+    ctx.font =
+        "25px Arial";
+
+    ctx.fillText(
+        "Tehalka Quotes",
+        540,
+        950
+    );
+
+
+    /* DOWNLOAD */
+
+    const link =
+        document.createElement("a");
+
+    link.download =
+        "Tehalka-Hindi-Shayari.png";
+
+    link.href =
+        canvas.toDataURL(
+            "image/png"
+        );
+
+    link.click();
+
+
+    showToast(
+        "Shayari image downloaded! 🖼️"
+    );
+
+}
+
+</script>
+
+</body>
+  </html>
