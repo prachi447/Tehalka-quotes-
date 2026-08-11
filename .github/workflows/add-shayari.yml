@@ -54,86 +54,157 @@ jobs:
           AUTHOR: ${{ inputs.author }}
         run: |
 
-          node <<'NODE'
+          python - <<'PY'
 
-          const fs = require("fs");
-          const vm = require("vm");
+          import os
+          import json
+          import re
 
-          const file = "quotes-data.js";
+          file = "quotes-data.js"
 
-          const title = process.env.TITLE;
-          const category = process.env.CATEGORY;
-          const text = process.env.TEXT;
-          const author = process.env.AUTHOR || "Tehalka Quotes";
+          print("Reading quotes-data.js...")
 
-          console.log("Reading quotes-data.js...");
+          with open(
+              file,
+              "r",
+              encoding="utf-8"
+          ) as f:
+              content = f.read()
 
-          const content = fs.readFileSync(file, "utf8");
+          # Find quotesData array
+          match = re.search(
+              r'const\s+quotesData\s*=\s*(\[.*\])\s*;',
+              content,
+              re.DOTALL
+          )
 
-          const sandbox = {};
+          if not match:
+              print("Error: quotesData array नहीं मिली।")
+              exit(1)
 
-          vm.createContext(sandbox);
+          array_text = match.group(1)
 
-          try {
-            vm.runInContext(content, sandbox);
-          } catch (error) {
-            console.error("quotes-data.js पढ़ने में error आया:");
-            console.error(error);
-            process.exit(1);
+          # Convert JavaScript-style object keys to JSON-style keys
+          array_text = re.sub(
+              r'([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:',
+              r'\1"\2":',
+              array_text
+          )
+
+          # Convert escaped new lines correctly
+          array_text = array_text.replace(
+              '\\"',
+              '"'
+          )
+
+          try:
+
+              data = json.loads(
+                  array_text
+              )
+
+          except Exception as error:
+
+              print("Error: quotes-data.js का data पढ़ा नहीं जा सका।")
+              print(error)
+
+              exit(1)
+
+          if not isinstance(data, list):
+
+              print("Error: quotesData एक array नहीं है।")
+              exit(1)
+
+          # Existing IDs
+          ids = []
+
+          for item in data:
+
+              try:
+                  ids.append(
+                      int(item.get("id", 0))
+                  )
+              except:
+                  pass
+
+          new_id = max(
+              ids or [0]
+          ) + 1
+
+          # New Shayari
+          new_shayari = {
+
+              "id": new_id,
+
+              "title":
+                  os.environ["TITLE"],
+
+              "category":
+                  os.environ["CATEGORY"],
+
+              "text":
+                  os.environ["TEXT"],
+
+              "author":
+                  os.environ["AUTHOR"]
+                  or "Tehalka Quotes"
+
           }
 
-          let data = sandbox.quotesData;
+          data.append(
+              new_shayari
+          )
 
-          if (!Array.isArray(data)) {
-            console.error("Error: quotesData एक array नहीं है।");
-            process.exit(1);
-          }
+          # Create new quotes-data.js
+          new_content = (
+              "const quotesData = "
+              +
+              json.dumps(
+                  data,
+                  ensure_ascii=False,
+                  indent=4
+              )
+              +
+              ";\n"
+          )
 
-          const newId =
-            Math.max(
-              0,
-              ...data.map(item => Number(item.id) || 0)
-            ) + 1;
+          with open(
+              file,
+              "w",
+              encoding="utf-8"
+          ) as f:
 
-          const newShayari = {
-            id: newId,
-            title: title,
-            category: category,
-            text: text,
-            author: author
-          };
+              f.write(
+                  new_content
+              )
 
-          data.push(newShayari);
+          print(
+              "✅ Shayari successfully added!"
+          )
 
-          const newContent =
-            "const quotesData = " +
-            JSON.stringify(data, null, 2) +
-            ";\n";
+          print(
+              "New ID:",
+              new_id
+          )
 
-          fs.writeFileSync(
-            file,
-            newContent,
-            "utf8"
-          );
+          print(
+              "Title:",
+              os.environ["TITLE"]
+          )
 
-          console.log("================================");
-          console.log("✅ Shayari successfully added!");
-          console.log("Title:", title);
-          console.log("Category:", category);
-          console.log("Author:", author);
-          console.log("ID:", newId);
-          console.log("================================");
-
-          NODE
+          PY
 
       - name: Save Shayari
+
         run: |
 
           git config user.name "Tehalka Quotes"
+
           git config user.email "actions@github.com"
 
           git add quotes-data.js
 
-          git diff --cached --quiet || git commit -m "Add new Shayari"
+          git diff --cached --quiet || \
+          git commit -m "Add new Shayari"
 
           git push
