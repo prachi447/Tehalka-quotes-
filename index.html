@@ -8,10 +8,10 @@
 <title>Tehalka Quotes | Hindi Quotes & Shayari</title>
 
 <meta name="description"
-content="Tehalka Quotes पर पढ़ें खूबसूरत Hindi Quotes, Shayari, Love, Life, Sad, Motivation और Attitude Quotes. Quotes को image के साथ Download और Share करें.">
+content="Tehalka Quotes पर पढ़ें खूबसूरत Hindi Quotes, Shayari, Love, Life, Sad, Motivation और Attitude Quotes.">
 
 <meta name="keywords"
-content="Hindi Quotes, Hindi Shayari, Life Quotes, Love Quotes, Sad Shayari, Motivational Quotes, Attitude Shayari">
+content="Hindi Quotes, Hindi Shayari, Love Quotes, Sad Shayari, Life Quotes, Motivational Quotes, Attitude Shayari">
 
 <meta name="author" content="Tehalka Quotes">
 
@@ -41,7 +41,7 @@ header{
     z-index:1000;
     background:#17181d;
     color:white;
-    box-shadow:0 3px 15px rgba(0,0,0,.20);
+    box-shadow:0 3px 15px rgba(0,0,0,.2);
 }
 
 .header-inner{
@@ -88,7 +88,7 @@ header{
 }
 
 .hero-icon{
-    font-size:58px;
+    font-size:55px;
     margin-bottom:12px;
 }
 
@@ -138,11 +138,7 @@ header{
     font-weight:bold;
 }
 
-.search-box button:hover{
-    background:#5310a1;
-}
-
-/* CATEGORY */
+/* CATEGORIES */
 
 .categories{
     max-width:1100px;
@@ -170,7 +166,7 @@ header{
     color:white;
 }
 
-/* CONTAINER */
+/* MAIN */
 
 .container{
     max-width:1150px;
@@ -192,7 +188,7 @@ header{
     margin-top:7px;
 }
 
-/* GRID */
+/* QUOTES GRID */
 
 .quotes{
     display:grid;
@@ -213,15 +209,14 @@ header{
 
 .quote-card:hover{
     transform:translateY(-5px);
-    box-shadow:0 12px 30px rgba(0,0,0,.14);
 }
 
-/* IMAGE */
+/* IMAGE AREA */
 
 .quote-image{
     position:relative;
     width:100%;
-    aspect-ratio:1 / 1;
+    aspect-ratio:1/1;
     overflow:hidden;
     background:linear-gradient(135deg,#6a11cb,#2575fc);
 }
@@ -239,23 +234,23 @@ header{
     inset:0;
     background:linear-gradient(
         to top,
-        rgba(0,0,0,.75),
-        rgba(0,0,0,.05) 65%
+        rgba(0,0,0,.82),
+        rgba(0,0,0,.08) 70%
     );
 }
 
 .image-quote{
     position:absolute;
     z-index:2;
-    left:25px;
-    right:25px;
+    left:22px;
+    right:22px;
     bottom:55px;
     color:white;
     text-align:center;
-    font-size:21px;
+    font-size:20px;
     line-height:1.7;
     font-weight:bold;
-    text-shadow:0 2px 5px rgba(0,0,0,.6);
+    text-shadow:0 2px 5px rgba(0,0,0,.7);
 }
 
 .image-author{
@@ -265,23 +260,18 @@ header{
     left:0;
     right:0;
     text-align:center;
-    color:rgba(255,255,255,.9);
+    color:white;
     font-size:12px;
 }
 
-/* INFO */
+/* CARD INFO */
 
 .quote-info{
     padding:15px 17px 17px;
 }
 
-.quote-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
 .badge{
+    display:inline-block;
     background:#f0e7ff;
     color:#6a11cb;
     padding:6px 11px;
@@ -296,7 +286,7 @@ header{
     font-weight:bold;
 }
 
-/* ACTIONS */
+/* BUTTONS */
 
 .actions{
     display:flex;
@@ -314,7 +304,6 @@ header{
     border-radius:20px;
     cursor:pointer;
     font-size:12px;
-    transition:.2s;
 }
 
 .actions button:hover{
@@ -380,10 +369,6 @@ footer h3{
     font-size:13px;
 }
 
-.footer-links a:hover{
-    color:#ffd54a;
-}
-
 .copy{
     margin-top:18px;
     color:#777;
@@ -403,7 +388,7 @@ footer h3{
     border-radius:25px;
     opacity:0;
     transition:.3s;
-    z-index:2000;
+    z-index:3000;
 }
 
 .toast.show{
@@ -440,18 +425,12 @@ footer h3{
     }
 
     .image-quote{
-        font-size:20px;
-        left:20px;
-        right:20px;
+        font-size:19px;
     }
 
 }
 
 @media(max-width:380px){
-
-    .image-quote{
-        font-size:18px;
-    }
 
     .actions button{
         padding:8px 10px;
@@ -465,6 +444,8 @@ footer h3{
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 
 <div class="header-inner">
@@ -476,11 +457,8 @@ Tehalka <span>Quotes</span>
 <nav class="nav">
 
 <a href="index.html">Home</a>
-
 <a href="#quotes">Quotes</a>
-
 <a href="#categories">Categories</a>
-
 <a href="#about">About</a>
 
 </nav>
@@ -490,11 +468,17 @@ Tehalka <span>Quotes</span>
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="hero-icon">✨</div>
+<div class="hero-icon">
+✨
+</div>
 
-<h1>Tehalka Quotes</h1>
+<h1>
+Tehalka Quotes
+</h1>
 
 <p>
 हर एहसास को खूबसूरत शब्दों में महसूस कीजिए ❤️
@@ -502,6 +486,8 @@ Tehalka <span>Quotes</span>
 
 </section>
 
+
+<!-- SEARCH -->
 
 <div class="search-wrapper">
 
@@ -511,10 +497,10 @@ Tehalka <span>Quotes</span>
 type="text"
 id="searchInput"
 placeholder="🔍 Quote या Shayari खोजें..."
-oninput="searchQuotes()"
 >
 
-<button onclick="searchQuotes()">
+<button
+onclick="searchQuotes()">
 Search
 </button>
 
@@ -523,44 +509,56 @@ Search
 </div>
 
 
-<div class="categories" id="categories">
+<!-- CATEGORIES -->
 
-<button class="category-btn"
+<div
+class="categories"
+id="categories">
+
+<button
+class="category-btn"
 onclick="filterCategory('All')">
 ✨ All
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Love')">
 ❤️ Love
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Sad')">
 😔 Sad
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Life')">
 🌿 Life
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Motivational')">
 💪 Motivation
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Attitude')">
 🔥 Attitude
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Friendship')">
 🤝 Friendship
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Shayari')">
 📝 Shayari
 </button>
@@ -568,7 +566,11 @@ onclick="filterCategory('Shayari')">
 </div>
 
 
-<main class="container" id="quotes">
+<!-- MAIN -->
+
+<main
+class="container"
+id="quotes">
 
 <div class="title">
 
@@ -577,7 +579,7 @@ onclick="filterCategory('Shayari')">
 </h2>
 
 <p>
-हर quote को image के साथ पढ़ें, share करें और download करें।
+हर Quote को पढ़ें, Copy करें, Share करें और Download करें।
 </p>
 
 </div>
@@ -589,9 +591,12 @@ id="quotesContainer">
 </div>
 
 
-<div id="noResults">
+<div
+id="noResults">
 
-<h3>😔 Quote नहीं मिला</h3>
+<h3>
+😔 Quote नहीं मिला
+</h3>
 
 <p>
 कोई दूसरा शब्द search करके देखें।
@@ -600,7 +605,11 @@ id="quotesContainer">
 </div>
 
 
-<section class="info" id="about">
+<!-- ABOUT -->
+
+<section
+class="info"
+id="about">
 
 <h2>
 ✨ About Tehalka Quotes
@@ -613,15 +622,16 @@ Hindi Shayari से जुड़े खूबसूरत Quotes मिले�
 </p>
 
 <p>
-हर Quote को उसकी theme के अनुसार image के
-साथ प्रस्तुत किया जाता है। आप Quote को Copy,
-Share या पूरी image के रूप में Download कर सकते हैं।
+हर Quote को उसकी theme के अनुसार प्रस्तुत किया जाता है।
+आप Quote को Copy, Share और image के रूप में Download कर सकते हैं।
 </p>
 
 </section>
 
 </main>
 
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -636,11 +646,8 @@ Love • Life • Motivation • Attitude • Shayari
 <div class="footer-links">
 
 <a href="index.html">Home</a>
-
 <a href="#quotes">Quotes</a>
-
 <a href="#categories">Categories</a>
-
 <a href="#about">About</a>
 
 </div>
@@ -652,13 +659,63 @@ Love • Life • Motivation • Attitude • Shayari
 </footer>
 
 
-<div class="toast" id="toast"></div>
+<!-- TOAST -->
+
+<div
+class="toast"
+id="toast">
+</div>
 
 
-<script src="quotes-data.js"></script>
+<!-- QUOTES DATA -->
+
+<script src="./quotes-data.js"></script>
 
 
 <script>
+
+/* ==========================================
+   CHECK DATA
+========================================== */
+
+function checkQuotesData(){
+
+    if(
+        typeof quotesData === "undefined"
+    ){
+
+        console.error(
+            "quotes-data.js load नहीं हुआ।"
+        );
+
+        showToast(
+            "Quotes data load नहीं हुआ ❌"
+        );
+
+        return false;
+
+    }
+
+    if(
+        !Array.isArray(quotesData)
+    ){
+
+        console.error(
+            "quotesData array नहीं है।"
+        );
+
+        showToast(
+            "Quotes data में error है ❌"
+        );
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
 
 /* ==========================================
    TOAST
@@ -669,7 +726,8 @@ function showToast(message){
     const toast =
         document.getElementById("toast");
 
-    toast.innerText = message;
+    toast.innerText =
+        message;
 
     toast.classList.add("show");
 
@@ -715,7 +773,9 @@ function escapeHTML(text){
         document.createElement("div");
 
     div.innerText =
-        text == null ? "" : String(text);
+        text == null
+        ? ""
+        : String(text);
 
     return div.innerHTML;
 
@@ -728,12 +788,6 @@ function escapeHTML(text){
 
 function formatText(text){
 
-    if(!text){
-
-        return "";
-
-    }
-
     return escapeHTML(text)
         .replace(/\n/g,"<br>");
 
@@ -741,7 +795,7 @@ function formatText(text){
 
 
 /* ==========================================
-   RENDER
+   RENDER QUOTES
 ========================================== */
 
 function renderQuotes(list){
@@ -751,38 +805,40 @@ function renderQuotes(list){
             "quotesContainer"
         );
 
-
     container.innerHTML = "";
 
-
-    if(!list || list.length === 0){
+    if(
+        !list ||
+        list.length === 0
+    ){
 
         document
         .getElementById("noResults")
-        .style.display = "block";
+        .style.display =
+            "block";
 
         return;
 
     }
 
-
     document
     .getElementById("noResults")
-    .style.display = "none";
+    .style.display =
+        "none";
 
 
     list.forEach(function(quote){
 
         const card =
-            document.createElement("div");
-
+            document.createElement(
+                "div"
+            );
 
         card.className =
             "quote-card";
 
 
         let imageHTML = "";
-
 
         if(quote.image){
 
@@ -807,7 +863,9 @@ function renderQuotes(list){
             ${imageHTML}
 
             <div class="image-quote">
-                ${formatText(quote.text)}
+                ${formatText(
+                    quote.text
+                )}
             </div>
 
             <div class="image-author">
@@ -819,26 +877,20 @@ function renderQuotes(list){
 
         </div>
 
-
         <div class="quote-info">
 
-            <div class="quote-top">
+            <span class="badge">
 
-                <span class="badge">
+                ${getCategoryIcon(
+                    quote.category
+                )}
 
-                    ${getCategoryIcon(
-                        quote.category
-                    )}
+                ${escapeHTML(
+                    quote.category ||
+                    "Shayari"
+                )}
 
-                    ${escapeHTML(
-                        quote.category ||
-                        "Shayari"
-                    )}
-
-                </span>
-
-            </div>
-
+            </span>
 
             <div class="quote-title">
 
@@ -848,7 +900,6 @@ function renderQuotes(list){
                 )}
 
             </div>
-
 
             <div class="actions">
 
@@ -887,20 +938,26 @@ function renderQuotes(list){
 
 function searchQuotes(){
 
+    if(!checkQuotesData()){
+        return;
+    }
+
     const input =
         document
-        .getElementById("searchInput")
+        .getElementById(
+            "searchInput"
+        )
         .value
         .toLowerCase()
         .trim();
 
 
     const filtered =
-        quotesData.filter(function(quote){
+        quotesData.filter(
+            function(quote){
 
-            const searchable =
+                const searchable = (
 
-                (
                     (quote.title || "") +
                     " " +
                     (quote.category || "") +
@@ -908,27 +965,35 @@ function searchQuotes(){
                     (quote.text || "") +
                     " " +
                     (quote.author || "")
-                )
-                .toLowerCase();
+
+                ).toLowerCase();
 
 
-            return searchable.includes(
-                input
-            );
+                return searchable.includes(
+                    input
+                );
 
-        });
+            }
+        );
 
 
-    renderQuotes(filtered);
+    renderQuotes(
+        filtered
+    );
 
 }
 
 
 /* ==========================================
-   CATEGORY FILTER
+   CATEGORY
 ========================================== */
 
 function filterCategory(category){
+
+    if(!checkQuotesData()){
+        return;
+    }
+
 
     if(category === "All"){
 
@@ -942,14 +1007,21 @@ function filterCategory(category){
 
 
     const filtered =
-        quotesData.filter(function(quote){
+        quotesData.filter(
+            function(quote){
 
-            return quote.category === category;
+                return (
+                    quote.category ===
+                    category
+                );
 
-        });
+            }
+        );
 
 
-    renderQuotes(filtered);
+    renderQuotes(
+        filtered
+    );
 
 }
 
@@ -959,6 +1031,11 @@ function filterCategory(category){
 ========================================== */
 
 function copyQuote(id){
+
+    if(!checkQuotesData()){
+        return;
+    }
+
 
     const quote =
         quotesData.find(
@@ -971,9 +1048,7 @@ function copyQuote(id){
 
 
     if(!quote){
-
         return;
-
     }
 
 
@@ -986,7 +1061,9 @@ function copyQuote(id){
         );
 
 
-    if(navigator.clipboard){
+    if(
+        navigator.clipboard
+    ){
 
         navigator.clipboard
         .writeText(text)
@@ -1000,10 +1077,16 @@ function copyQuote(id){
         .catch(function(){
 
             showToast(
-                "Copy नहीं हो पाया।"
+                "Copy नहीं हो पाया ❌"
             );
 
         });
+
+    }else{
+
+        showToast(
+            "Copy supported नहीं है।"
+        );
 
     }
 
@@ -1016,6 +1099,11 @@ function copyQuote(id){
 
 function shareQuote(id){
 
+    if(!checkQuotesData()){
+        return;
+    }
+
+
     const quote =
         quotesData.find(
             function(item){
@@ -1027,9 +1115,7 @@ function shareQuote(id){
 
 
     if(!quote){
-
         return;
-
     }
 
 
@@ -1042,7 +1128,9 @@ function shareQuote(id){
         );
 
 
-    if(navigator.share){
+    if(
+        navigator.share
+    ){
 
         navigator.share({
 
@@ -1060,7 +1148,9 @@ function shareQuote(id){
 
     }else{
 
-        if(navigator.clipboard){
+        if(
+            navigator.clipboard
+        ){
 
             navigator.clipboard
             .writeText(text);
@@ -1068,7 +1158,7 @@ function shareQuote(id){
         }
 
         showToast(
-            "Quote copied! अब share करें 📤"
+            "Quote copied! अब Share करें 📤"
         );
 
     }
@@ -1082,6 +1172,11 @@ function shareQuote(id){
 
 function downloadQuote(id){
 
+    if(!checkQuotesData()){
+        return;
+    }
+
+
     const quote =
         quotesData.find(
             function(item){
@@ -1093,38 +1188,33 @@ function downloadQuote(id){
 
 
     if(!quote){
-
         return;
-
     }
 
 
     const canvas =
-        document.createElement("canvas");
-
-
-    const size = 1080;
+        document.createElement(
+            "canvas"
+        );
 
 
     canvas.width =
-        size;
+        1080;
 
     canvas.height =
-        size;
+        1080;
 
 
     const ctx =
         canvas.getContext("2d");
 
 
-    if(quote.image){
+    if(
+        quote.image
+    ){
 
         const img =
             new Image();
-
-
-        img.crossOrigin =
-            "anonymous";
 
 
         img.onload =
@@ -1168,7 +1258,7 @@ function downloadQuote(id){
 
 
 /* ==========================================
-   DRAW QUOTE IMAGE
+   DRAW IMAGE
 ========================================== */
 
 function drawQuoteImage(
@@ -1177,11 +1267,14 @@ function drawQuoteImage(
     quote
 ){
 
-    const width = 1080;
-    const height = 1080;
+    const width =
+        1080;
+
+    const height =
+        1080;
 
 
-    /* BACKGROUND IMAGE */
+    /* BACKGROUND */
 
     if(img){
 
@@ -1195,14 +1288,12 @@ function drawQuoteImage(
         const imgWidth =
             img.width * scale;
 
-
         const imgHeight =
             img.height * scale;
 
 
         const x =
             (width - imgWidth) / 2;
-
 
         const y =
             (height - imgHeight) / 2;
@@ -1232,7 +1323,6 @@ function drawQuoteImage(
             "#6a11cb"
         );
 
-
         gradient.addColorStop(
             1,
             "#2575fc"
@@ -1241,7 +1331,6 @@ function drawQuoteImage(
 
         ctx.fillStyle =
             gradient;
-
 
         ctx.fillRect(
             0,
@@ -1253,7 +1342,7 @@ function drawQuoteImage(
     }
 
 
-    /* DARK OVERLAY */
+    /* OVERLAY */
 
     const overlay =
         ctx.createLinearGradient(
@@ -1266,25 +1355,22 @@ function drawQuoteImage(
 
     overlay.addColorStop(
         0,
-        "rgba(0,0,0,.15)"
+        "rgba(0,0,0,.10)"
     );
-
 
     overlay.addColorStop(
-        .45,
-        "rgba(0,0,0,.30)"
+        .5,
+        "rgba(0,0,0,.35)"
     );
-
 
     overlay.addColorStop(
         1,
-        "rgba(0,0,0,.80)"
+        "rgba(0,0,0,.85)"
     );
 
 
     ctx.fillStyle =
         overlay;
-
 
     ctx.fillRect(
         0,
@@ -1299,14 +1385,11 @@ function drawQuoteImage(
     ctx.textAlign =
         "center";
 
-
     ctx.fillStyle =
-        "rgba(255,255,255,.95)";
-
+        "#ffffff";
 
     ctx.font =
-        "bold 28px Arial";
-
+        "bold 30px Arial";
 
     ctx.fillText(
         getCategoryIcon(
@@ -1320,212 +1403,3 @@ function drawQuoteImage(
         width / 2,
         100
     );
-
-
-    /* QUOTE */
-
-    ctx.fillStyle =
-        "#ffffff";
-
-
-    ctx.font =
-        "bold 48px Arial";
-
-
-    const maxWidth =
-        900;
-
-
-    const words =
-        String(
-            quote.text || ""
-        ).split(/\s+/);
-
-
-    const lines = [];
-
-
-    let line = "";
-
-
-    words.forEach(function(word){
-
-        const testLine =
-            line ?
-            line + " " + word :
-            word;
-
-
-        const metrics =
-            ctx.measureText(
-                testLine
-            );
-
-
-        if(
-            metrics.width >
-            maxWidth &&
-            line
-        ){
-
-            lines.push(
-                line
-            );
-
-            line =
-                word;
-
-        }else{
-
-            line =
-                testLine;
-
-        }
-
-    });
-
-
-    if(line){
-
-        lines.push(
-            line
-            );
-
-}
-
-
-/* ==========================================
-   DRAW ALL TEXT LINES
-========================================== */
-
-const lineHeight =
-    70;
-
-let startY =
-    height / 2 -
-    (
-        lines.length *
-        lineHeight
-    ) / 2;
-
-
-/* QUOTE TEXT */
-
-lines.forEach(function(textLine){
-
-    ctx.fillText(
-        textLine,
-        width / 2,
-        startY
-    );
-
-    startY +=
-        lineHeight;
-
-});
-
-
-/* ==========================================
-   AUTHOR
-========================================== */
-
-ctx.font =
-    "26px Arial";
-
-ctx.fillStyle =
-    "rgba(255,255,255,.95)";
-
-ctx.fillText(
-    "— " +
-    (
-        quote.author ||
-        "Tehalka Quotes"
-    ),
-    width / 2,
-    height - 100
-);
-
-
-/* ==========================================
-   DOWNLOAD IMAGE
-========================================== */
-
-const link =
-    document.createElement(
-        "a"
-    );
-
-
-link.download =
-    (
-        quote.title ||
-        "tehalka-quote"
-    )
-    .replace(
-        /[^a-zA-Z0-9\u0900-\u097F]+/g,
-        "-"
-    )
-    +
-    ".png";
-
-
-link.href =
-    canvas.toDataURL(
-        "image/png"
-    );
-
-
-link.click();
-
-
-/* ==========================================
-   SUCCESS MESSAGE
-========================================== */
-
-showToast(
-    "Image Download हो रही है 📥"
-);
-
-}
-
-
-/* ==========================================
-   INITIAL LOAD
-========================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        if(
-            typeof quotesData !==
-            "undefined"
-        ){
-
-            renderQuotes(
-                quotesData
-            );
-
-        }else{
-
-            document
-            .getElementById(
-                "noResults"
-            )
-            .style.display =
-                "block";
-
-
-            console.error(
-                "quotesData नहीं मिला।"
-            );
-
-        }
-
-    }
-);
-
-</script>
-
-</body>
-</html>
