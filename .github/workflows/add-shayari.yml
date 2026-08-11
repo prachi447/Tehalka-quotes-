@@ -32,6 +32,11 @@ on:
         default: "Tehalka Quotes"
         type: string
 
+      image_path:
+        description: "Image path inside images folder"
+        required: true
+        type: string
+
 permissions:
   contents: write
 
@@ -46,12 +51,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Add Shayari
+      - name: Add Shayari to quotes-data.js
         env:
           TITLE: ${{ inputs.title }}
           CATEGORY: ${{ inputs.category }}
           TEXT: ${{ inputs.text }}
           AUTHOR: ${{ inputs.author }}
+          IMAGE_PATH: ${{ inputs.image_path }}
+
         run: |
 
           python - <<'PY'
@@ -71,7 +78,6 @@ jobs:
           ) as f:
               content = f.read()
 
-          # Find quotesData array
           match = re.search(
               r'const\s+quotesData\s*=\s*(\[.*\])\s*;',
               content,
@@ -84,57 +90,48 @@ jobs:
 
           array_text = match.group(1)
 
-          # Convert JavaScript-style object keys to JSON-style keys
-          array_text = re.sub(
-              r'([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:',
-              r'\1"\2":',
-              array_text
-          )
-
-          # Convert escaped new lines correctly
-          array_text = array_text.replace(
-              '\\"',
-              '"'
-          )
-
           try:
 
-              data = json.loads(
-                  array_text
-              )
+              data = json.loads(array_text)
 
           except Exception as error:
 
-              print("Error: quotes-data.js का data पढ़ा नहीं जा सका।")
+              print(
+                  "Error: quotes-data.js पढ़ा नहीं जा सका।"
+              )
+
               print(error)
 
               exit(1)
 
           if not isinstance(data, list):
 
-              print("Error: quotesData एक array नहीं है।")
+              print(
+                  "Error: quotesData एक array नहीं है।"
+              )
+
               exit(1)
 
-          # Existing IDs
           ids = []
 
           for item in data:
 
               try:
+
                   ids.append(
                       int(item.get("id", 0))
                   )
-              except:
+
+              except Exception:
+
                   pass
 
-          new_id = max(
-              ids or [0]
-          ) + 1
+          new_id = max(ids or [0]) + 1
 
-          # New Shayari
           new_shayari = {
 
-              "id": new_id,
+              "id":
+                  new_id,
 
               "title":
                   os.environ["TITLE"],
@@ -147,15 +144,15 @@ jobs:
 
               "author":
                   os.environ["AUTHOR"]
-                  or "Tehalka Quotes"
+                  or "Tehalka Quotes",
+
+              "image":
+                  os.environ["IMAGE_PATH"]
 
           }
 
-          data.append(
-              new_shayari
-          )
+          data.append(new_shayari)
 
-          # Create new quotes-data.js
           new_content = (
               "const quotesData = "
               +
@@ -174,28 +171,15 @@ jobs:
               encoding="utf-8"
           ) as f:
 
-              f.write(
-                  new_content
-              )
+              f.write(new_content)
 
-          print(
-              "✅ Shayari successfully added!"
-          )
-
-          print(
-              "New ID:",
-              new_id
-          )
-
-          print(
-              "Title:",
-              os.environ["TITLE"]
-          )
+          print("✅ Shayari added successfully!")
+          print("New ID:", new_id)
+          print("Image:", os.environ["IMAGE_PATH"])
 
           PY
 
-      - name: Save Shayari
-
+      - name: Save changes
         run: |
 
           git config user.name "Tehalka Quotes"
