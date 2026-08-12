@@ -33,11 +33,6 @@ on:
         default: "Tehalka Quotes"
         type: string
 
-      image_path:
-        description: "Image path inside images folder"
-        required: true
-        type: string
-
 
 permissions:
   contents: write
@@ -60,17 +55,20 @@ jobs:
 
 
       # ==========================================
-      # ADD SHAYARI
+      # ADD SHAYARI + AUTO IMAGE
       # ==========================================
 
-      - name: Add Shayari to quotes-data.js
+      - name: Create Shayari and automatic image
 
         env:
+
           TITLE: ${{ inputs.title }}
+
           CATEGORY: ${{ inputs.category }}
+
           TEXT: ${{ inputs.text }}
+
           AUTHOR: ${{ inputs.author }}
-          IMAGE_PATH: ${{ inputs.image_path }}
 
         run: |
 
@@ -79,38 +77,38 @@ jobs:
           import os
           import json
           import re
+          import html
           import sys
 
 
-          FILE = "quotes-data.js"
+          DATA_FILE = "quotes-data.js"
+
+          IMAGE_FOLDER = "images"
 
 
-          print("====================================")
-          print("      TEHALKA QUOTES")
-          print("      ADD NEW SHAYARI")
-          print("====================================")
+          print("======================================")
+          print("       TEHALKA QUOTES")
+          print("       ADD NEW SHAYARI")
+          print("======================================")
 
 
-          # --------------------------------------
-          # CHECK FILE
-          # --------------------------------------
+          # ======================================
+          # CHECK DATA FILE
+          # ======================================
 
-          if not os.path.exists(FILE):
+          if not os.path.exists(DATA_FILE):
 
               print("❌ quotes-data.js नहीं मिली।")
 
               sys.exit(1)
 
 
-          print("📂 Reading quotes-data.js...")
-
-
-          # --------------------------------------
-          # READ FILE
-          # --------------------------------------
+          # ======================================
+          # READ DATA FILE
+          # ======================================
 
           with open(
-              FILE,
+              DATA_FILE,
               "r",
               encoding="utf-8"
           ) as f:
@@ -118,12 +116,20 @@ jobs:
               content = f.read()
 
 
-          # --------------------------------------
-          # FIND quotesData ARRAY
-          # --------------------------------------
+          # ======================================
+          # FIND QUOTES ARRAY
+          #
+          # Supports:
+          #
+          # window.quotesData = [...]
+          #
+          # OR
+          #
+          # const quotesData = [...]
+          # ======================================
 
           match = re.search(
-              r'const\s+quotesData\s*=\s*(\[.*?\])\s*;',
+              r'(?:window\.)?quotesData\s*=\s*(\[.*?\])\s*;',
               content,
               re.DOTALL
           )
@@ -132,7 +138,7 @@ jobs:
           if not match:
 
               print(
-                  "❌ Error: quotesData array नहीं मिली।"
+                  "❌ quotesData array नहीं मिली।"
               )
 
               sys.exit(1)
@@ -141,9 +147,9 @@ jobs:
           array_text = match.group(1)
 
 
-          # --------------------------------------
-          # CONVERT JSON
-          # --------------------------------------
+          # ======================================
+          # READ JSON
+          # ======================================
 
           try:
 
@@ -154,68 +160,29 @@ jobs:
           except Exception as error:
 
               print(
-                  "❌ Error: quotes-data.js पढ़ा नहीं जा सका।"
+                  "❌ quotes-data.js पढ़ने में समस्या।"
               )
 
               print(
-                  "Details:",
+                  "Error:",
                   error
               )
 
               sys.exit(1)
 
 
-          # --------------------------------------
-          # CHECK ARRAY
-          # --------------------------------------
-
           if not isinstance(data, list):
 
               print(
-                  "❌ Error: quotesData array नहीं है।"
+                  "❌ quotesData list नहीं है।"
               )
 
               sys.exit(1)
 
 
-          # --------------------------------------
-          # FIND LAST ID
-          # --------------------------------------
-
-          ids = []
-
-
-          for item in data:
-
-              if not isinstance(item, dict):
-                  continue
-
-              try:
-
-                  current_id = int(
-                      item.get(
-                          "id",
-                          0
-                      )
-                  )
-
-                  ids.append(
-                      current_id
-                  )
-
-              except Exception:
-
-                  continue
-
-
-          new_id = max(
-              ids or [0]
-          ) + 1
-
-
-          # --------------------------------------
-          # GET INPUTS
-          # --------------------------------------
+          # ======================================
+          # INPUTS
+          # ======================================
 
           title = os.environ.get(
               "TITLE",
@@ -241,39 +208,20 @@ jobs:
           ).strip()
 
 
-          image_path = os.environ.get(
-              "IMAGE_PATH",
-              ""
-          ).strip()
-
-
-          # --------------------------------------
+          # ======================================
           # VALIDATION
-          # --------------------------------------
+          # ======================================
 
           if not title:
 
-              print(
-                  "❌ Title खाली है।"
-              )
+              print("❌ Title खाली है।")
 
               sys.exit(1)
 
 
           if not text:
 
-              print(
-                  "❌ Shayari text खाली है।"
-              )
-
-              sys.exit(1)
-
-
-          if not image_path:
-
-              print(
-                  "❌ Image path खाली है।"
-              )
+              print("❌ Shayari Text खाली है।")
 
               sys.exit(1)
 
@@ -283,31 +231,424 @@ jobs:
               author = "Tehalka Quotes"
 
 
-          # --------------------------------------
-          # NORMALIZE IMAGE PATH
-          # --------------------------------------
+          # ======================================
+          # NEW ID
+          # ======================================
 
-          image_path = image_path.replace(
-              "\\",
-              "/"
+          ids = []
+
+          for item in data:
+
+              if isinstance(item, dict):
+
+                  try:
+
+                      ids.append(
+                          int(
+                              item.get(
+                                  "id",
+                                  0
+                              )
+                          )
+                      )
+
+                  except:
+
+                      pass
+
+
+          new_id = max(
+              ids or [0]
+          ) + 1
+
+
+          # ======================================
+          # IMAGE FILENAME
+          # ======================================
+
+          image_filename = (
+              "quote-" +
+              str(new_id) +
+              ".svg"
           )
 
 
-          if not image_path.startswith(
-              "images/"
-          ):
+          image_path = (
+              IMAGE_FOLDER +
+              "/" +
+              image_filename
+          )
 
-              image_path = (
-                  "images/" +
-                  image_path.lstrip("/")
+
+          # ======================================
+          # CREATE IMAGES FOLDER
+          # ======================================
+
+          os.makedirs(
+              IMAGE_FOLDER,
+              exist_ok=True
+          )
+
+
+          # ======================================
+          # SVG TEXT WRAPPING
+          # ======================================
+
+          def wrap_text(text, max_chars=30):
+
+              words = text.split()
+
+              lines = []
+
+              current = ""
+
+
+              for word in words:
+
+                  test = (
+                      word
+                      if not current
+                      else current + " " + word
+                  )
+
+
+                  if len(test) > max_chars:
+
+                      if current:
+
+                          lines.append(
+                              current
+                          )
+
+                      current = word
+
+                  else:
+
+                      current = test
+
+
+              if current:
+
+                  lines.append(
+                      current
+                  )
+
+
+              return lines
+
+
+          # ======================================
+          # PREPARE TEXT
+          # ======================================
+
+          safe_title = html.escape(
+              title
+          )
+
+
+          safe_author = html.escape(
+              author
+          )
+
+
+          safe_category = html.escape(
+              category
+          )
+
+
+          lines = []
+
+
+          for paragraph in text.splitlines():
+
+              paragraph = paragraph.strip()
+
+              if not paragraph:
+
+                  continue
+
+
+              lines.extend(
+                  wrap_text(
+                      paragraph,
+                      28
+                  )
               )
 
 
-          # --------------------------------------
-          # CREATE NEW SHAYARI
-          # --------------------------------------
+          if not lines:
 
-          new_shayari = {
+              lines = [
+                  text
+              ]
+
+
+          # ======================================
+          # SVG QUOTE TEXT
+          # ======================================
+
+          text_elements = []
+
+
+          start_y = (
+              450 -
+              ((len(lines) - 1) * 32)
+          )
+
+
+          for index, line in enumerate(lines):
+
+              safe_line = html.escape(
+                  line
+              )
+
+
+              y = (
+                  start_y +
+                  index * 64
+              )
+
+
+              text_elements.append(
+                  f'''
+                  <text
+                      x="540"
+                      y="{y}"
+                      text-anchor="middle"
+                      class="quote"
+                  >{safe_line}</text>
+                  '''
+              )
+
+
+          quote_text_svg = "\n".join(
+              text_elements
+          )
+
+
+          # ======================================
+          # CREATE AUTOMATIC SVG IMAGE
+          # ======================================
+
+          svg = f'''<?xml version="1.0" encoding="UTF-8"?>
+
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1080"
+              height="1080"
+              viewBox="0 0 1080 1080"
+          >
+
+              <defs>
+
+                  <linearGradient
+                      id="background"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                  >
+
+                      <stop
+                          offset="0%"
+                          stop-color="#17181d"
+                      />
+
+                      <stop
+                          offset="50%"
+                          stop-color="#6a11cb"
+                      />
+
+                      <stop
+                          offset="100%"
+                          stop-color="#2575fc"
+                      />
+
+                  </linearGradient>
+
+
+                  <linearGradient
+                      id="overlay"
+                      x1="0%"
+                      y1="0%"
+                      x2="0%"
+                      y2="100%"
+                  >
+
+                      <stop
+                          offset="0%"
+                          stop-color="rgba(0,0,0,0.10)"
+                      />
+
+                      <stop
+                          offset="100%"
+                          stop-color="rgba(0,0,0,0.70)"
+                      />
+
+                  </linearGradient>
+
+
+                  <style>
+
+                      .brand {{
+                          font-family:
+                          'Noto Sans Devanagari',
+                          'Noto Sans',
+                          Arial,
+                          sans-serif;
+
+                          font-size:30px;
+
+                          font-weight:bold;
+
+                          fill:#ffd54a;
+                      }}
+
+
+                      .category {{
+                          font-family:
+                          'Noto Sans Devanagari',
+                          'Noto Sans',
+                          Arial,
+                          sans-serif;
+
+                          font-size:28px;
+
+                          font-weight:bold;
+
+                          fill:white;
+                      }}
+
+
+                      .quote {{
+                          font-family:
+                          'Noto Sans Devanagari',
+                          'Noto Sans',
+                          Arial,
+                          sans-serif;
+
+                          font-size:42px;
+
+                          font-weight:bold;
+
+                          fill:white;
+                      }}
+
+
+                      .author {{
+                          font-family:
+                          'Noto Sans Devanagari',
+                          'Noto Sans',
+                          Arial,
+                          sans-serif;
+
+                          font-size:25px;
+
+                          fill:#eeeeee;
+                      }}
+
+
+                      .title {{
+                          font-family:
+                          'Noto Sans Devanagari',
+                          'Noto Sans',
+                          Arial,
+                          sans-serif;
+
+                          font-size:20px;
+
+                          fill:#dddddd;
+                      }}
+
+                  </style>
+
+              </defs>
+
+
+              <rect
+                  width="1080"
+                  height="1080"
+                  fill="url(#background)"
+              />
+
+
+              <rect
+                  width="1080"
+                  height="1080"
+                  fill="url(#overlay)"
+              />
+
+
+              <text
+                  x="540"
+                  y="80"
+                  text-anchor="middle"
+                  class="brand"
+              >
+                  ✨ Tehalka Quotes
+              </text>
+
+
+              <text
+                  x="540"
+                  y="135"
+                  text-anchor="middle"
+                  class="category"
+              >
+                  {safe_category}
+              </text>
+
+
+              {quote_text_svg}
+
+
+              <text
+                  x="540"
+                  y="930"
+                  text-anchor="middle"
+                  class="author"
+              >
+                  — {safe_author}
+              </text>
+
+
+              <text
+                  x="540"
+                  y="985"
+                  text-anchor="middle"
+                  class="title"
+              >
+                  {safe_title}
+              </text>
+
+          </svg>
+          '''
+
+
+          # ======================================
+          # SAVE IMAGE
+          # ======================================
+
+          with open(
+              image_path,
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              f.write(svg)
+
+
+          print(
+              "🖼️ Automatic image created:",
+              image_path
+          )
+
+
+          # ======================================
+          # CREATE NEW QUOTE
+          # ======================================
+
+          new_quote = {
 
               "id":
                   new_id,
@@ -326,24 +667,25 @@ jobs:
 
               "image":
                   image_path
+
           }
 
 
-          # --------------------------------------
-          # ADD TO DATA
-          # --------------------------------------
+          # ======================================
+          # ADD QUOTE
+          # ======================================
 
           data.append(
-              new_shayari
+              new_quote
           )
 
 
-          # --------------------------------------
-          # CREATE NEW FILE
-          # --------------------------------------
+          # ======================================
+          # SAVE quotes-data.js
+          # ======================================
 
           new_content = (
-              "const quotesData = "
+              "window.quotesData = "
               +
               json.dumps(
                   data,
@@ -355,12 +697,8 @@ jobs:
           )
 
 
-          # --------------------------------------
-          # SAVE
-          # --------------------------------------
-
           with open(
-              FILE,
+              DATA_FILE,
               "w",
               encoding="utf-8"
           ) as f:
@@ -370,20 +708,20 @@ jobs:
               )
 
 
-          # --------------------------------------
+          # ======================================
           # SUCCESS
-          # --------------------------------------
+          # ======================================
 
           print("")
-          print("====================================")
-          print("✅ SHAYARI ADDED SUCCESSFULLY")
-          print("====================================")
+          print("======================================")
+          print("✅ SHAYARI ADDED")
+          print("======================================")
           print("ID       :", new_id)
           print("Title    :", title)
           print("Category :", category)
           print("Author   :", author)
           print("Image    :", image_path)
-          print("====================================")
+          print("======================================")
 
 
           PY
@@ -394,27 +732,41 @@ jobs:
       # ==========================================
 
       - name: Check changes
+
         run: |
 
-          echo "Checking modified files..."
+          echo "======================================"
+
+          echo "Modified files:"
 
           git status
 
+          echo "======================================"
+
+          echo "quotes-data.js changes:"
+
           git diff -- quotes-data.js
+
+          echo "======================================"
 
 
       # ==========================================
       # COMMIT & PUSH
       # ==========================================
 
-      - name: Commit and push changes
+      - name: Commit and push
+
         run: |
 
           git config user.name "Tehalka Quotes"
 
           git config user.email "actions@github.com"
 
+
           git add quotes-data.js
+
+          git add images/
+
 
           if git diff --cached --quiet; then
 
@@ -424,22 +776,38 @@ jobs:
 
           fi
 
+
           git commit \
-            -m "Add new Shayari"
+            -m "Add new Shayari with automatic image"
+
 
           git push
 
 
       # ==========================================
-      # DONE
+      # FINISHED
       # ==========================================
 
       - name: Finished
+
         run: |
 
           echo ""
-          echo "===================================="
-          echo "🎉 Tehalka Quotes Update Complete"
-          echo "===================================="
-          echo "quotes-data.js successfully updated."
-          echo "===================================="
+
+          echo "======================================"
+
+          echo "🎉 TEHALKA QUOTES UPDATE COMPLETE"
+
+          echo "======================================"
+
+          echo "✅ Shayari added"
+
+          echo "✅ Automatic image created"
+
+          echo "✅ quotes-data.js updated"
+
+          echo "✅ Image saved"
+
+          echo "✅ Changes pushed to GitHub"
+
+          echo "======================================"
