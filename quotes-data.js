@@ -78,5 +78,13 @@ window.quotesData = [
         "text": "तेरी याद भी कमाल करती है, जब आती है तो दिल को बेहाल करती है।",
         "author": "Tehalka Quotes",
         "image": "images/quote-10.svg"
+    },
+    {
+        "id": 11,
+        "title": "पहली मोहब्ब",
+        "category": "Love",
+        "text": "कुछ रिश्ते दिल में ऐसे बस जाते हैं, जिन्हें भूलना चाहो फिर भी भूल नहीं पाते।",
+        "author": "Tehalka Quotes",
+        "image": "images/quote-11.svg"
     }
 ];
