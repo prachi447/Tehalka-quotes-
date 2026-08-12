@@ -1,4 +1,5 @@
 name: Add Shayari
+run-name: Add Shayari
 
 on:
   workflow_dispatch:
