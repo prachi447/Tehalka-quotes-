@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="1080"
+height="1080"
+viewBox="0 0 1080 1080">
+
+<defs>
+
+<linearGradient
+id="background"
+x1="0%"
+y1="0%"
+x2="100%"
+y2="100%">
+
+<stop
+offset="0%"
+stop-color="#17181d"/>
+
+<stop
+offset="50%"
+stop-color="#6a11cb"/>
+
+<stop
+offset="100%"
+stop-color="#2575fc"/>
+
+</linearGradient>
+
+<linearGradient
+id="overlay"
+x1="0%"
+y1="0%"
+x2="0%"
+y2="100%">
+
+<stop
+offset="0%"
+stop-color="#000000"
+stop-opacity="0.10"/>
+
+<stop
+offset="100%"
+stop-color="#000000"
+stop-opacity="0.65"/>
+
+</linearGradient>
+
+</defs>
+
+
+<rect
+width="1080"
+height="1080"
+fill="url(#background)"/>
+
+
+<rect
+width="1080"
+height="1080"
+fill="url(#overlay)"/>
+
+
+<text
+x="540"
+y="85"
+text-anchor="middle"
+class="brand">
+
+Tehalka Quotes
+
+</text>
+
+
+<text
+x="540"
+y="145"
+text-anchor="middle"
+class="category">
+
+❤️
+Love
+
+</text>
+
+
+
+<text
+    x="540"
+    y="466"
+    text-anchor="middle"
+    class="quote"
+>तेरी याद भी कमाल करती है, जब आती</text>
+
+<text
+    x="540"
+    y="534"
+    text-anchor="middle"
+    class="quote"
+>है तो दिल को बेहाल करती है।</text>
+
+
+
+<line
+x1="350"
+y1="820"
+x2="730"
+y2="820"
+stroke="#ffffff"
+stroke-opacity="0.35"
+stroke-width="2"/>
+
+
+<text
+x="540"
+y="880"
+text-anchor="middle"
+class="author">
+
+— Tehalka Quotes
+
+</text>
+
+
+<text
+x="540"
+y="945"
+text-anchor="middle"
+class="title">
+
+तेरी याद
+
+</text>
+
+
+<text
+x="540"
+y="1015"
+text-anchor="middle"
+class="website">
+
+Tehalka Quotes
+
+</text>
+
+
+<style>
+
+.brand {
+
+    font-family:
+        Arial,
+        "Noto Sans Devanagari",
+        sans-serif;
+
+    font-size:
+        36px;
+
+    font-weight:
+        bold;
+
+    fill:
+        #ffd54a;
+
+}
+
+
+.category {
+
+    font-family:
+        Arial,
+        "Noto Sans Devanagari",
+        sans-serif;
+
+    font-size:
+        28px;
+
+    font-weight:
+        bold;
+
+    fill:
+        #ffffff;
+
+}
+
+
+.quote {
+
+    font-family:
+        Arial,
+        "Noto Sans Devanagari",
+        sans-serif;
+
+    font-size:
+        42px;
+
+    font-weight:
+        bold;
+
+    fill:
+        #ffffff;
+
+}
+
+
+.author {
+
+    font-family:
+        Arial,
+        "Noto Sans Devanagari",
+        sans-serif;
+
+    font-size:
+        26px;
+
+    fill:
+        #eeeeee;
+
+}
+
+
+.title {
+
+    font-family:
+        Arial,
+        "Noto Sans Devanagari",
+        sans-serif;
+
+    font-size:
+        22px;
+
+    fill:
+        #dddddd;
+
+}
+
+
+.website {
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        18px;
+
+    fill:
+        #bbbbbb;
+
+}
+
+</style>
+
+</svg>
