@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
 
 <meta charset="UTF-8">
@@ -20,13 +19,12 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#f4f5f9;
     color:#222;
-    min-height:100vh;
 }
 
 header{
     background:#17181d;
     color:white;
-    padding:18px;
+    padding:20px;
     text-align:center;
 }
 
@@ -47,7 +45,7 @@ header span{
 .admin-box{
     background:white;
     border-radius:20px;
-    padding:25px;
+    padding:24px;
     box-shadow:0 7px 25px rgba(0,0,0,.08);
 }
 
@@ -57,7 +55,7 @@ header span{
 }
 
 .title h2{
-    margin-bottom:7px;
+    margin-bottom:8px;
 }
 
 .title p{
@@ -84,7 +82,7 @@ textarea{
 }
 
 textarea{
-    min-height:160px;
+    min-height:170px;
     resize:vertical;
     line-height:1.7;
 }
@@ -94,70 +92,6 @@ select:focus,
 textarea:focus{
     border-color:#6a11cb;
 }
-
-/* TOKEN */
-
-.security-box{
-    background:#fff8e1;
-    border:1px solid #ffe082;
-    border-radius:14px;
-    padding:15px;
-    margin-bottom:20px;
-}
-
-.security-box strong{
-    color:#8a6200;
-}
-
-.security-box p{
-    color:#725d20;
-    font-size:13px;
-    line-height:1.6;
-    margin-top:6px;
-}
-
-/* IMAGE */
-
-.image-box{
-    border:2px dashed #d5d5d5;
-    border-radius:15px;
-    padding:20px;
-    text-align:center;
-    background:#fafafa;
-}
-
-.image-box input{
-    border:0;
-    padding:10px;
-    background:white;
-}
-
-.image-help{
-    color:#777;
-    font-size:13px;
-    margin-top:8px;
-}
-
-.image-preview{
-    display:none;
-    margin-top:15px;
-}
-
-.image-preview img{
-    width:100%;
-    max-height:350px;
-    object-fit:cover;
-    border-radius:15px;
-}
-
-.file-name{
-    margin-top:8px;
-    font-size:13px;
-    color:#666;
-    word-break:break-all;
-}
-
-/* BUTTON */
 
 .publish-btn{
     width:100%;
@@ -172,9 +106,8 @@ textarea:focus{
     margin-top:22px;
 }
 
-.publish-btn:disabled{
-    opacity:.6;
-    cursor:not-allowed;
+.publish-btn:hover{
+    background:#5310a1;
 }
 
 .clear-btn{
@@ -189,92 +122,142 @@ textarea:focus{
     margin-top:10px;
 }
 
-/* PREVIEW */
+.message{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+    font-weight:bold;
+}
 
 .preview{
-    margin-top:30px;
     display:none;
+    margin-top:30px;
 }
 
 .preview h3{
     margin-bottom:12px;
 }
 
-.preview-card{
+/* QUOTE IMAGE */
+
+.quote-image{
+    width:100%;
+    aspect-ratio:1/1;
     position:relative;
     overflow:hidden;
-    min-height:420px;
     border-radius:20px;
-    color:white;
     display:flex;
-    align-items:flex-end;
+    align-items:center;
     justify-content:center;
     text-align:center;
-    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    color:white;
+    padding:35px;
 }
 
-.preview-card img{
+.quote-image::before{
+    content:"";
     position:absolute;
     inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,255,255,.18),
+            transparent 30%
+        );
 }
 
-.preview-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.85),
-        rgba(0,0,0,.1)
-    );
-}
-
-.preview-content{
+.quote-content{
     position:relative;
     z-index:2;
-    padding:30px 20px;
     width:100%;
 }
 
-.preview-category{
-    display:inline-block;
-    background:rgba(255,255,255,.2);
-    padding:7px 12px;
-    border-radius:20px;
-    font-size:12px;
-    margin-bottom:20px;
+.quote-brand{
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:35px;
 }
 
-.preview-text{
-    font-size:21px;
+.quote-category{
+    display:inline-block;
+    padding:7px 15px;
+    border-radius:30px;
+    background:rgba(255,255,255,.18);
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.quote-text{
+    font-size:25px;
     line-height:1.8;
     font-weight:bold;
     white-space:pre-line;
+    text-shadow:0 2px 8px rgba(0,0,0,.3);
 }
 
-.preview-author{
-    margin-top:15px;
+.quote-author{
+    margin-top:28px;
+    font-size:14px;
+    opacity:.9;
+}
+
+.quote-footer{
+    margin-top:35px;
+    font-size:12px;
+    opacity:.8;
+}
+
+/* OUTPUT */
+
+.output{
+    display:none;
+    margin-top:25px;
+}
+
+.output h3{
+    margin-bottom:10px;
+}
+
+.output textarea{
+    min-height:260px;
+    background:#f7f7f7;
+    font-family:monospace;
     font-size:13px;
 }
 
-/* MESSAGE */
-
-.message{
-    text-align:center;
-    margin-top:15px;
-    font-size:14px;
-    font-weight:bold;
-    line-height:1.6;
+.copy-btn{
+    width:100%;
+    border:0;
+    background:#222;
+    color:white;
+    padding:13px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:10px;
 }
 
-/* BACK */
+.download-btn{
+    width:100%;
+    border:0;
+    background:#188038;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:10px;
+    font-weight:bold;
+}
 
 .back{
     display:block;
     text-align:center;
-    margin-top:20px;
+    margin-top:22px;
     color:#6a11cb;
     text-decoration:none;
     font-weight:bold;
@@ -286,8 +269,12 @@ textarea:focus{
         padding:20px 16px;
     }
 
-    .preview-text{
-        font-size:18px;
+    .quote-text{
+        font-size:20px;
+    }
+
+    .quote-brand{
+        font-size:17px;
     }
 
 }
@@ -318,36 +305,10 @@ Tehalka <span>Quotes</span>
 <h2>➕ Add New Shayari</h2>
 
 <p>
-Shayari + Image सीधे Website पर Publish करें
+बस Shayari लिखें — Quote Image अपने-आप तैयार होगी
 </p>
 
 </div>
-
-
-<!-- SECURITY -->
-
-<div class="security-box">
-
-<strong>🔐 GitHub Token</strong>
-
-<p>
-अपना GitHub token यहाँ केवल Publish करते समय डालें।
-यह token इस page के code में save नहीं किया गया है।
-</p>
-
-</div>
-
-
-<label for="token">
-GitHub Token
-</label>
-
-<input
-type="password"
-id="token"
-placeholder="github_pat_..."
-autocomplete="off"
->
 
 
 <!-- TITLE -->
@@ -372,11 +333,17 @@ Category
 <select id="category">
 
 <option value="Love">❤️ Love</option>
+
 <option value="Sad">😔 Sad</option>
+
 <option value="Life">🌿 Life</option>
+
 <option value="Motivational">💪 Motivational</option>
+
 <option value="Attitude">🔥 Attitude</option>
+
 <option value="Friendship">🤝 Friendship</option>
+
 <option value="Shayari">📝 Shayari</option>
 
 </select>
@@ -407,52 +374,13 @@ placeholder="Tehalka Quotes"
 >
 
 
-<!-- IMAGE -->
-
-<label>
-🖼️ Quote Image
-</label>
-
-<div class="image-box">
-
-<input
-type="file"
-id="quoteImage"
-accept="image/*"
-onchange="previewImage(event)"
->
-
-<div class="image-help">
-Quote के अनुसार image चुनें
-</div>
-
-<div
-class="image-preview"
-id="imagePreview">
-
-<img
-id="selectedImage"
-alt="Selected image"
->
-
-<div
-class="file-name"
-id="fileName">
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PUBLISH -->
+<!-- PREPARE -->
 
 <button
 class="publish-btn"
-id="publishButton"
-onclick="publishQuote()">
+onclick="createQuote()">
 
-🚀 Publish Shayari
+✨ Quote Image तैयार करें
 
 </button>
 
@@ -478,37 +406,78 @@ id="message">
 class="preview"
 id="preview">
 
-<h3>👀 Preview</h3>
+<h3>
+👀 Quote Image Preview
+</h3>
 
-<div class="preview-card">
-
-<img
-id="previewImage"
-alt="Quote image"
->
-
-<div class="preview-overlay"></div>
-
-<div class="preview-content">
 
 <div
-class="preview-category"
+class="quote-image"
+id="quoteImage">
+
+<div class="quote-content">
+
+<div class="quote-brand">
+TEHALKA QUOTES
+</div>
+
+<div
+class="quote-category"
 id="previewCategory">
 </div>
 
 <div
-class="preview-text"
+class="quote-text"
 id="previewText">
 </div>
 
 <div
-class="preview-author"
+class="quote-author"
 id="previewAuthor">
 </div>
 
+<div class="quote-footer">
+www.tehalkaquotes.com
 </div>
 
 </div>
+
+</div>
+
+
+<button
+class="download-btn"
+onclick="downloadImage()">
+
+🖼️ Quote Image Download करें
+
+</button>
+
+</div>
+
+
+<!-- DATA -->
+
+<div
+class="output"
+id="output">
+
+<h3>
+📦 Quote Data
+</h3>
+
+<textarea
+id="generatedCode"
+readonly>
+</textarea>
+
+<button
+class="copy-btn"
+onclick="copyGenerated()">
+
+📋 Copy Data
+
+</button>
 
 </div>
 
@@ -517,7 +486,7 @@ id="previewAuthor">
 href="index.html"
 class="back">
 
-← वापस Website पर जाएँ
+← Website पर वापस जाएँ
 
 </a>
 
@@ -528,118 +497,157 @@ class="back">
 
 <script>
 
-/* ==========================================
-   GITHUB SETTINGS
-========================================== */
-
-const GITHUB_OWNER = "prachi447";
-
-const GITHUB_REPO = "Tehalka-quotes-";
-
-const GITHUB_BRANCH = "main";
-
-
-/* ==========================================
+/* =========================================
    VARIABLES
-========================================== */
+========================================= */
 
-let selectedImageData = "";
+let generatedImageData = "";
 
-let selectedFileName = "";
+let generatedFileName = "";
 
 
-/* ==========================================
-   MESSAGE
-========================================== */
+/* =========================================
+   CATEGORY BACKGROUNDS
+========================================= */
 
-function showMessage(text,color){
+const backgrounds = {
+
+    Love:
+        "linear-gradient(135deg,#ff416c,#ff4b2b)",
+
+    Sad:
+        "linear-gradient(135deg,#283048,#859398)",
+
+    Life:
+        "linear-gradient(135deg,#134e2a,#3c8d4e)",
+
+    Motivational:
+        "linear-gradient(135deg,#141e30,#243b55)",
+
+    Attitude:
+        "linear-gradient(135deg,#232526,#414345)",
+
+    Friendship:
+        "linear-gradient(135deg,#396afc,#2948ff)",
+
+    Shayari:
+        "linear-gradient(135deg,#42275a,#734b6d)"
+
+};
+
+
+/* =========================================
+   CREATE QUOTE
+========================================= */
+
+function createQuote(){
+
+    const title =
+        document
+        .getElementById("title")
+        .value
+        .trim();
+
+
+    const category =
+        document
+        .getElementById("category")
+        .value;
+
+
+    const shayari =
+        document
+        .getElementById("shayari")
+        .value
+        .trim();
+
+
+    const author =
+        document
+        .getElementById("author")
+        .value
+        .trim();
+
 
     const message =
-        document.getElementById("message");
-
-    message.innerText = text;
-
-    message.style.color = color;
-
-}
+        document
+        .getElementById("message");
 
 
-/* ==========================================
-   IMAGE PREVIEW
-========================================== */
+    /* VALIDATION */
 
-function previewImage(event){
+    if(!title){
 
-    const file =
-        event.target.files[0];
+        message.innerText =
+            "⚠️ पहले Title लिखें।";
 
-    if(!file){
+        message.style.color =
+            "#d93025";
 
         return;
 
     }
 
-    selectedFileName =
-        file.name;
 
-    const reader =
-        new FileReader();
+    if(!shayari){
 
-    reader.onload =
-    function(e){
+        message.innerText =
+            "⚠️ पहले Shayari लिखें।";
 
-        selectedImageData =
-            e.target.result;
+        message.style.color =
+            "#d93025";
 
+        return;
+
+    }
+
+
+    /* BACKGROUND */
+
+    const quoteImage =
         document
-        .getElementById("selectedImage")
-        .src =
-            selectedImageData;
-
-        document
-        .getElementById("previewImage")
-        .src =
-            selectedImageData;
-
-        document
-        .getElementById("imagePreview")
-        .style.display =
-            "block";
-
-        document
-        .getElementById("fileName")
-        .innerText =
-            "Selected: " +
-            selectedFileName;
-
-    };
-
-    reader.readAsDataURL(file);
-
-}
+        .getElementById("quoteImage");
 
 
-/* ==========================================
-   BASE64
-========================================== */
-
-function getBase64Data(dataURL){
-
-    return dataURL.split(",")[1];
-
-}
+    quoteImage.style.background =
+        backgrounds[category];
 
 
-/* ==========================================
-   SAFE FILE NAME
-========================================== */
+    /* PREVIEW */
 
-function makeFileName(title){
+    document
+    .getElementById("previewCategory")
+    .innerText =
+        category;
 
-    let name =
+
+    document
+    .getElementById("previewText")
+    .innerText =
+        shayari;
+
+
+    document
+    .getElementById("previewAuthor")
+    .innerText =
+        "— " +
+        (
+            author ||
+            "Tehalka Quotes"
+        );
+
+
+    document
+    .getElementById("preview")
+    .style.display =
+        "block";
+
+
+    /* FILE NAME */
+
+    const cleanName =
         title
         .toLowerCase()
-        .trim()
         .replace(
             /[^a-z0-9]+/g,
             "-"
@@ -649,299 +657,74 @@ function makeFileName(title){
             ""
         );
 
-    if(!name){
 
-        name = "quote";
-
-    }
-
-    return name;
-
-}
+    generatedFileName =
+        cleanName ||
+        "tehalka-quote";
 
 
-/* ==========================================
-   GITHUB API
-========================================== */
+    /* DATA */
 
-async function githubRequest(
-    url,
-    token,
-    options={}
-){
+    const data = {
 
-    const response =
-        await fetch(
-            url,
-            {
+        title:
+            title,
 
-                ...options,
+        category:
+            category,
 
-                headers:{
-                    "Accept":
-                        "application/vnd.github+json",
+        text:
+            shayari,
 
-                    "Authorization":
-                        "Bearer " + token,
+        author:
+            author ||
+            "Tehalka Quotes",
 
-                    "X-GitHub-Api-Version":
-                        "2022-11-28",
-
-                    ...(options.headers || {})
-                }
-
-            }
-        );
-
-
-    const data =
-        await response.json();
-
-
-    if(!response.ok){
-
-        throw new Error(
-            data.message ||
-            "GitHub request failed"
-        );
-
-    }
-
-
-    return data;
-
-}
-
-
-/* ==========================================
-   GET FILE
-========================================== */
-
-async function getGitHubFile(
-    path,
-    token
-){
-
-    const url =
-        `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}?ref=${GITHUB_BRANCH}`;
-
-    return await githubRequest(
-        url,
-        token
-    );
-
-}
-
-
-/* ==========================================
-   UPLOAD IMAGE
-========================================== */
-
-async function uploadImage(
-    token,
-    imagePath,
-    base64
-){
-
-    const url =
-        `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${imagePath}`;
-
-    const body = {
-
-        message:
-            "Add quote image",
-
-        content:
-            base64,
-
-        branch:
-            GITHUB_BRANCH
+        image:
+            "images/" +
+            generatedFileName +
+            ".png"
 
     };
 
 
-    return await githubRequest(
-        url,
-        token,
-        {
-
-            method:"PUT",
-
-            body:
-                JSON.stringify(body)
-
-        }
-    );
-
-}
-
-
-/* ==========================================
-   UPDATE QUOTES DATA
-========================================== */
-
-async function updateQuotesData(
-    token,
-    newQuote
-){
-
-    const file =
-        await getGitHubFile(
-            "quotes-data.js",
-            token
-        );
-
-
-    const decoded =
-        decodeURIComponent(
-            escape(
-                atob(
-                    file.content.replace(/\n/g,"")
-                )
-            )
-        );
-
-
-    const match =
-        decoded.match(
-            /const\s+quotesData\s*=\s*(\[[\s\S]*\])\s*;/
-        );
-
-
-    if(!match){
-
-        throw new Error(
-            "quotesData array नहीं मिली।"
-        );
-
-    }
-
-
-    let data;
-
-    try{
-
-        data =
-            JSON.parse(
-                match[1]
-            );
-
-    }catch(error){
-
-        throw new Error(
-            "quotes-data.js का format सही नहीं है।"
-        );
-
-    }
-
-
-    if(!Array.isArray(data)){
-
-        throw new Error(
-            "quotesData array नहीं है।"
-        );
-
-    }
-
-
-    const ids =
-        data
-        .map(
-            item =>
-                Number(item.id) || 0
-        );
-
-
-    const newId =
-        Math.max(
-            ...(ids.length ? ids : [0])
-        ) + 1;
-
-
-    newQuote.id =
-        newId;
-
-
-    data.push(
-        newQuote
-    );
-
-
-    const newContent =
-        "const quotesData = " +
+    document
+    .getElementById("generatedCode")
+    .value =
         JSON.stringify(
             data,
             null,
             4
-        ) +
-        ";\n";
-
-
-    const encoded =
-        btoa(
-            unescape(
-                encodeURIComponent(
-                    newContent
-                )
-            )
         );
 
 
-    const url =
-        `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/quotes-data.js`;
+    document
+    .getElementById("output")
+    .style.display =
+        "block";
 
 
-    await githubRequest(
-        url,
-        token,
-        {
+    message.innerText =
+        "✅ Quote Image तैयार है!";
 
-            method:"PUT",
-
-            body:
-                JSON.stringify({
-
-                    message:
-                        "Add new Shayari",
-
-                    content:
-                        encoded,
-
-                    sha:
-                        file.sha,
-
-                    branch:
-                        GITHUB_BRANCH
-
-                })
-
-        }
-    );
+    message.style.color =
+        "#188038";
 
 
-    return newId;
+    document
+    .getElementById("preview")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
 
-/* ==========================================
-   PUBLISH
-========================================== */
+/* =========================================
+   DOWNLOAD QUOTE IMAGE
+========================================= */
 
-async function publishQuote(){
-
-    const button =
-        document.getElementById(
-            "publishButton"
-        );
-
-
-    const token =
-        document
-        .getElementById("token")
-        .value
-        .trim();
-
+function downloadImage(){
 
     const title =
         document
@@ -967,266 +750,381 @@ async function publishQuote(){
         document
         .getElementById("author")
         .value
-        .trim()
-        ||
+        .trim() ||
         "Tehalka Quotes";
 
 
-    /* VALIDATION */
+    const canvas =
+        document.createElement("canvas");
 
-    if(!token){
 
-        showMessage(
-            "⚠️ GitHub Token डालें।",
-            "#d93025"
+    canvas.width = 1080;
+    canvas.height = 1080;
+
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    /* BACKGROUND */
+
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            1080,
+            1080
         );
 
-        return;
+
+    const colors = {
+
+        Love:
+            ["#ff416c","#ff4b2b"],
+
+        Sad:
+            ["#283048","#859398"],
+
+        Life:
+            ["#134e2a","#3c8d4e"],
+
+        Motivational:
+            ["#141e30","#243b55"],
+
+        Attitude:
+            ["#232526","#414345"],
+
+        Friendship:
+            ["#396afc","#2948ff"],
+
+        Shayari:
+            ["#42275a","#734b6d"]
+
+    };
+
+
+    const selected =
+        colors[category] ||
+        colors.Life;
+
+
+    gradient.addColorStop(
+        0,
+        selected[0]
+    );
+
+
+    gradient.addColorStop(
+        1,
+        selected[1]
+    );
+
+
+    ctx.fillStyle =
+        gradient;
+
+
+    ctx.fillRect(
+        0,
+        0,
+        1080,
+        1080
+    );
+
+
+    /* DECORATION */
+
+    ctx.fillStyle =
+        "rgba(255,255,255,.08)";
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        150,
+        150,
+        130,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        930,
+        900,
+        180,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    /* BRAND */
+
+    ctx.textAlign =
+        "center";
+
+
+    ctx.fillStyle =
+        "white";
+
+
+    ctx.font =
+        "bold 40px Arial";
+
+
+    ctx.fillText(
+        "TEHALKA QUOTES",
+        540,
+        130
+    );
+
+
+    /* CATEGORY */
+
+    ctx.font =
+        "bold 28px Arial";
+
+
+    ctx.fillStyle =
+        "rgba(255,255,255,.9)";
+
+
+    ctx.fillText(
+        category.toUpperCase(),
+        540,
+        220
+    );
+
+
+    /* QUOTE */
+
+    ctx.font =
+        "bold 44px Arial";
+
+
+    const maxWidth =
+        850;
+
+
+    const words =
+        text.split(/\s+/);
+
+
+    const lines = [];
+
+    let line = "";
+
+
+    words.forEach(function(word){
+
+        const test =
+            line
+            ? line + " " + word
+            : word;
+
+
+        if(
+            ctx.measureText(test).width
+            > maxWidth
+        ){
+
+            lines.push(line);
+
+            line =
+                word;
+
+        }else{
+
+            line =
+                test;
+
+        }
+
+    });
+
+
+    if(line){
+
+        lines.push(line);
 
     }
 
 
-    if(!title){
+    let startY =
+        440;
 
-        showMessage(
-            "⚠️ Title लिखें।",
-            "#d93025"
+
+    const lineHeight =
+        72;
+
+
+    lines.forEach(function(item){
+
+        ctx.fillText(
+            item,
+            540,
+            startY
         );
 
-        return;
+        startY +=
+            lineHeight;
 
-    }
+    });
 
 
-    if(!text){
+    /* AUTHOR */
 
-        showMessage(
-            "⚠️ Shayari लिखें।",
-            "#d93025"
+    ctx.font =
+        "24px Arial";
+
+
+    ctx.fillStyle =
+        "rgba(255,255,255,.85)";
+
+
+    ctx.fillText(
+        "— " + author,
+        540,
+        850
+    );
+
+
+    /* FOOTER */
+
+    ctx.font =
+        "20px Arial";
+
+
+    ctx.fillText(
+        "Tehalka Quotes",
+        540,
+        970
+    );
+
+
+    /* DOWNLOAD */
+
+    const link =
+        document.createElement("a");
+
+
+    link.download =
+        generatedFileName +
+        ".png";
+
+
+    link.href =
+        canvas.toDataURL(
+            "image/png"
         );
 
-        return;
 
-    }
-
-
-    if(!selectedImageData){
-
-        showMessage(
-            "⚠️ Quote की image चुनें।",
-            "#d93025"
-        );
-
-        return;
-
-    }
+    link.click();
 
 
-    try{
-
-        button.disabled = true;
-
-        button.innerText =
-            "⏳ Publishing...";
+    document
+    .getElementById("message")
+    .innerText =
+        "✅ Quote Image download हो गई!";
 
 
-        /* PREVIEW */
+    document
+    .getElementById("message")
+    .style.color =
+        "#188038";
 
+}
+
+
+/* =========================================
+   COPY DATA
+========================================= */
+
+function copyGenerated(){
+
+    const data =
         document
-        .getElementById("previewImage")
-        .src =
-            selectedImageData;
-
-        document
-        .getElementById("previewCategory")
-        .innerText =
-            category;
-
-        document
-        .getElementById("previewText")
-        .innerText =
-            text;
-
-        document
-        .getElementById("previewAuthor")
-        .innerText =
-            "— " + author;
-
-        document
-        .getElementById("preview")
-        .style.display =
-            "block";
+        .getElementById("generatedCode")
+        .value;
 
 
-        /* FILE NAME */
+    if(
+        navigator.clipboard
+    ){
 
-        const extension =
-            selectedFileName
-            .split(".")
-            .pop()
-            .toLowerCase();
+        navigator.clipboard
+        .writeText(data)
+        .then(function(){
 
+            document
+            .getElementById("message")
+            .innerText =
+                "📋 Quote Data copied!";
 
-        const safeName =
-            makeFileName(title);
+            document
+            .getElementById("message")
+            .style.color =
+                "#188038";
 
-
-        const imagePath =
-            "images/" +
-            safeName +
-            "." +
-            extension;
-
-
-        showMessage(
-            "⏳ Image GitHub पर upload हो रही है...",
-            "#6a11cb"
-        );
-
-
-        /* IMAGE */
-
-        await uploadImage(
-            token,
-            imagePath,
-            getBase64Data(
-                selectedImageData
-            )
-        );
-
-
-        showMessage(
-            "⏳ अब quote data update हो रहा है...",
-            "#6a11cb"
-        );
-
-
-        /* QUOTE */
-
-        const newQuote = {
-
-            title:
-                title,
-
-            category:
-                category,
-
-            text:
-                text,
-
-            author:
-                author,
-
-            image:
-                imagePath
-
-        };
-
-
-        const newId =
-            await updateQuotesData(
-                token,
-                newQuote
-            );
-
-
-        showMessage(
-            "🎉 Successfully Published! Quote ID: " +
-            newId,
-            "#188038"
-        );
-
-
-        button.innerText =
-            "✅ Published";
-
-
-        /*
-         * Security:
-         * token field को खाली कर दें।
-         */
-
-        document
-        .getElementById("token")
-        .value = "";
-
-
-    }catch(error){
-
-        console.error(error);
-
-        showMessage(
-            "❌ Error: " +
-            error.message,
-            "#d93025"
-        );
-
-        button.innerText =
-            "🚀 Publish Shayari";
-
-    }finally{
-
-        button.disabled = false;
+        });
 
     }
 
 }
 
 
-/* ==========================================
+/* =========================================
    CLEAR
-========================================== */
+========================================= */
 
 function clearForm(){
-
-    document
-    .getElementById("token")
-    .value = "";
 
     document
     .getElementById("title")
     .value = "";
 
+
     document
     .getElementById("shayari")
     .value = "";
+
 
     document
     .getElementById("author")
     .value = "";
 
-    document
-    .getElementById("quoteImage")
-    .value = "";
-
-    document
-    .getElementById("imagePreview")
-    .style.display =
-        "none";
 
     document
     .getElementById("preview")
     .style.display =
         "none";
 
+
+    document
+    .getElementById("output")
+    .style.display =
+        "none";
+
+
     document
     .getElementById("message")
     .innerText =
         "";
 
-    document
-    .getElementById("publishButton")
-    .innerText =
-        "🚀 Publish Shayari";
 
-    selectedImageData = "";
+    generatedImageData = "";
 
-    selectedFileName = "";
+    generatedFileName = "";
 
 }
 
 </script>
 
 </body>
-
-</html>
+    </html>
