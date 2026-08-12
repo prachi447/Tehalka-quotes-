@@ -47,9 +47,17 @@ jobs:
 
     steps:
 
+      # ==========================================
+      # CHECKOUT
+      # ==========================================
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
+
+      # ==========================================
+      # ADD SHAYARI + AUTOMATIC IMAGE
+      # ==========================================
 
       - name: Add Shayari and automatic image
 
@@ -61,642 +69,779 @@ jobs:
 
         run: |
 
-          python - <<'PY'
+          node <<'NODE'
 
-          import os
-          import re
-          import html
-          import sys
-          import subprocess
-          import json
+          const fs = require("fs");
+          const path = require("path");
+          const vm = require("vm");
 
 
-          DATA_FILE = "quotes-data.js"
-          IMAGE_FOLDER = "images"
+          // ==========================================
+          // FILES
+          // ==========================================
 
+          const DATA_FILE = "quotes-data.js";
+          const IMAGE_FOLDER = "images";
 
-          print("======================================")
-          print("       TEHALKA QUOTES")
-          print("       ADD NEW SHAYARI")
-          print("======================================")
 
+          console.log("======================================");
+          console.log("       TEHALKA QUOTES");
+          console.log("       ADD NEW SHAYARI");
+          console.log("======================================");
 
-          # ======================================
-          # CHECK DATA FILE
-          # ======================================
 
-          if not os.path.exists(DATA_FILE):
+          // ==========================================
+          // CHECK DATA FILE
+          // ==========================================
 
-              print("❌ quotes-data.js नहीं मिली।")
-              sys.exit(1)
+          if (!fs.existsSync(DATA_FILE)) {
 
+              console.error(
+                  "❌ quotes-data.js नहीं मिली।"
+              );
 
-          # ======================================
-          # READ CURRENT JAVASCRIPT DATA
-          # ======================================
-
-          with open(
-              DATA_FILE,
-              "r",
-              encoding="utf-8"
-          ) as f:
-
-              content = f.read()
-
-
-          # ======================================
-          # EXTRACT ARRAY
-          # Supports normal JavaScript syntax
-          # ======================================
-
-          match = re.search(
-              r'(?:window\.)?quotesData\s*=\s*(\[.*\])\s*;?\s*$',
-              content,
-              re.DOTALL
-          )
-
-
-          if not match:
-
-              print(
-                  "❌ quotesData array नहीं मिली।"
-              )
-
-              sys.exit(1)
-
-
-          array_text = match.group(1)
-
-
-          # ======================================
-          # CONVERT JAVASCRIPT ARRAY TO JSON
-          # ======================================
-
-          try:
-
-              data = json.loads(
-                  array_text
-              )
-
-          except Exception:
-
-              print(
-                  "⚠️ quotes-data.js strict JSON नहीं है।"
-              )
-
-              print(
-                  "JavaScript syntax को पढ़ने की कोशिश..."
-              )
-
-              # Temporary JS file
-              temp_file = "/tmp/read_quotes.js"
-
-              js_code = f"""
-const fs = require('fs');
-
-const content = fs.readFileSync(
-    '{DATA_FILE}',
-    'utf8'
-);
-
-globalThis.window = {{}};
-
-eval(content);
-
-if (
-    typeof window.quotesData !== 'undefined'
-) {{
-
-    console.log(
-        JSON.stringify(
-            window.quotesData
-        )
-    );
-
-}} else if (
-    typeof quotesData !== 'undefined'
-) {{
-
-    console.log(
-        JSON.stringify(
-            quotesData
-        )
-    );
-
-}} else {{
-
-    process.exit(2);
-
-}}
-"""
-
-              with open(
-                  temp_file,
-                  "w",
-                  encoding="utf-8"
-              ) as f:
-
-                  f.write(js_code)
-
-
-              result = subprocess.run(
-                  [
-                      "node",
-                      temp_file
-                  ],
-                  capture_output=True,
-                  text=True
-              )
-
-
-              if result.returncode != 0:
-
-                  print(
-                      "❌ quotes-data.js को JavaScript के रूप में भी पढ़ा नहीं जा सका।"
-                  )
-
-                  print(
-                      result.stderr
-                  )
-
-                  sys.exit(1)
-
-
-              try:
-
-                  data = json.loads(
-                      result.stdout.strip()
-                  )
-
-              except Exception as error:
-
-                  print(
-                      "❌ Data convert नहीं हो पाया।"
-                  )
-
-                  print(
-                      error
-                  )
-
-                  sys.exit(1)
-
-
-          # ======================================
-          # CHECK DATA
-          # ======================================
-
-          if not isinstance(
-              data,
-              list
-          ):
-
-              print(
-                  "❌ quotesData list नहीं है।"
-              )
-
-              sys.exit(1)
-
-
-          # ======================================
-          # INPUTS
-          # ======================================
-
-          title = os.environ.get(
-              "TITLE",
-              ""
-          ).strip()
-
-
-          category = os.environ.get(
-              "CATEGORY",
-              "Shayari"
-          ).strip()
-
-
-          text = os.environ.get(
-              "TEXT",
-              ""
-          ).strip()
-
-
-          author = os.environ.get(
-              "AUTHOR",
-              "Tehalka Quotes"
-          ).strip()
-
-
-          if not title:
-
-              print("❌ Title खाली है.")
-              sys.exit(1)
-
-
-          if not text:
-
-              print("❌ Shayari Text खाली है.")
-              sys.exit(1)
-
-
-          if not author:
-
-              author = "Tehalka Quotes"
-
-
-          # ======================================
-          # NEW ID
-          # ======================================
-
-          ids = []
-
-
-          for item in data:
-
-              if isinstance(
-                  item,
-                  dict
-              ):
-
-                  try:
-
-                      ids.append(
-                          int(
-                              item.get(
-                                  "id",
-                                  0
-                              )
-                          )
-                      )
-
-                  except:
-
-                      pass
-
-
-          new_id = max(
-              ids or [0]
-          ) + 1
-
-
-          # ======================================
-          # IMAGE
-          # ======================================
-
-          os.makedirs(
-              IMAGE_FOLDER,
-              exist_ok=True
-          )
-
-
-          image_filename = (
-              "quote-" +
-              str(new_id) +
-              ".svg"
-          )
-
-
-          image_path = (
-              IMAGE_FOLDER +
-              "/" +
-              image_filename
-          )
-
-
-          # ======================================
-          # ESCAPE TEXT
-          # ======================================
-
-          safe_category = html.escape(
-              category
-          )
-
-
-          safe_author = html.escape(
-              author
-          )
-
-
-          safe_title = html.escape(
-              title
-          )
-
-
-          # ======================================
-          # WRAP SHAYARI
-          # ======================================
-
-          words = text.split()
-
-          lines = []
-
-          line = ""
-
-
-          for word in words:
-
-              test = (
-                  word
-                  if not line
-                  else line + " " + word
-              )
-
-
-              if len(test) > 28:
-
-                  if line:
-
-                      lines.append(
-                          line
-                      )
-
-                  line = word
-
-              else:
-
-                  line = test
-
-
-          if line:
-
-              lines.append(
-                  line
-              )
-
-
-          if not lines:
-
-              lines = [text]
-
-
-          # ======================================
-          # SVG TEXT
-          # ======================================
-
-          text_elements = []
-
-
-          start_y = (
-              500 -
-              ((len(lines) - 1) * 32)
-          )
-
-
-          for i, line_text in enumerate(lines):
-
-              safe_line = html.escape(
-                  line_text
-              )
-
-
-              y = (
-                  start_y +
-                  i * 64
-              )
-
-
-              text_elements.append(
-                  f'''
-                  <text
-                      x="540"
-                      y="{y}"
-                      text-anchor="middle"
-                      class="quote"
-                  >{safe_line}</text>
-                  '''
-              )
-
-
-          quote_svg = "\n".join(
-              text_elements
-          )
-
-
-          # ======================================
-          # CREATE AUTOMATIC IMAGE
-          # ======================================
-
-          svg = f'''<?xml version="1.0" encoding="UTF-8"?>
-
-<svg
-xmlns="http://www.w3.org/2000/svg"
-width="1080"
-height="1080"
-viewBox="0 0 1080 1080">
-
-<defs>
-
-<linearGradient
-id="bg"
-x1="0%"
-y1="0%"
-x2="100%"
-y2="100%">
-
-<stop
-offset="0%"
-stop-color="#17181d"/>
-
-<stop
-offset="50%"
-stop-color="#6a11cb"/>
-
-<stop
-offset="100%"
-stop-color="#2575fc"/>
-
-</linearGradient>
-
-</defs>
-
-
-<rect
-width="1080"
-height="1080"
-fill="url(#bg)"/>
-
-
-<rect
-width="1080"
-height="1080"
-fill="rgba(0,0,0,0.35)"/>
-
-
-<text
-x="540"
-y="80"
-text-anchor="middle"
-class="brand">
-
-✨ Tehalka Quotes
-
-</text>
-
-
-<text
-x="540"
-y="135"
-text-anchor="middle"
-class="category">
-
-{safe_category}
-
-</text>
-
-
-{quote_svg}
-
-
-<text
-x="540"
-y="930"
-text-anchor="middle"
-class="author">
-
-— {safe_author}
-
-</text>
-
-
-<text
-x="540"
-y="985"
-text-anchor="middle"
-class="title">
-
-{safe_title}
-
-</text>
-
-
-<style>
-
-.brand {{
-font-family: Arial, sans-serif;
-font-size: 32px;
-font-weight: bold;
-fill: #ffd54a;
-}}
-
-.category {{
-font-family: Arial, sans-serif;
-font-size: 28px;
-font-weight: bold;
-fill: white;
-}}
-
-.quote {{
-font-family: Arial, sans-serif;
-font-size: 42px;
-font-weight: bold;
-fill: white;
-}}
-
-.author {{
-font-family: Arial, sans-serif;
-font-size: 25px;
-fill: #eeeeee;
-}}
-
-.title {{
-font-family: Arial, sans-serif;
-font-size: 20px;
-fill: #dddddd;
-}}
-
-</style>
-
-</svg>
-'''
-
-
-          with open(
-              image_path,
-              "w",
-              encoding="utf-8"
-          ) as f:
-
-              f.write(svg)
-
-
-          print(
-              "🖼️ Automatic image created:",
-              image_path
-          )
-
-
-          # ======================================
-          # ADD NEW QUOTE
-          # ======================================
-
-          new_quote = {
-
-              "id": new_id,
-
-              "title": title,
-
-              "category": category,
-
-              "text": text,
-
-              "author": author,
-
-              "image": image_path
+              process.exit(1);
 
           }
 
 
-          data.append(
-              new_quote
-          )
+          // ==========================================
+          // READ DATA FILE
+          // ==========================================
 
-
-          # ======================================
-          # SAVE DATA
-          # ======================================
-
-          new_content = (
-              "window.quotesData = "
-              +
-              json.dumps(
-                  data,
-                  ensure_ascii=False,
-                  indent=4
-              )
-              +
-              ";\n"
-          )
-
-
-          with open(
+          let content = fs.readFileSync(
               DATA_FILE,
-              "w",
-              encoding="utf-8"
-          ) as f:
-
-              f.write(
-                  new_content
-              )
+              "utf8"
+          );
 
 
-          print("")
-          print("======================================")
-          print("✅ SHAYARI ADDED SUCCESSFULLY")
-          print("======================================")
-          print("ID       :", new_id)
-          print("Title    :", title)
-          print("Category :", category)
-          print("Author   :", author)
-          print("Image    :", image_path)
-          print("======================================")
+          // ==========================================
+          // CREATE SAFE JS CONTEXT
+          // ==========================================
+
+          const context = {
+
+              window: {},
+
+              console: console
+
+          };
 
 
-          PY
+          vm.createContext(context);
+
+
+          // ==========================================
+          // SUPPORT BOTH:
+          //
+          // window.quotesData = [...]
+          //
+          // const quotesData = [...]
+          //
+          // ==========================================
+
+          content = content.replace(
+              /^\s*const\s+quotesData\s*=/m,
+              "window.quotesData ="
+          );
+
+
+          content = content.replace(
+              /^\s*let\s+quotesData\s*=/m,
+              "window.quotesData ="
+          );
+
+
+          content = content.replace(
+              /^\s*var\s+quotesData\s*=/m,
+              "window.quotesData ="
+          );
+
+
+          // ==========================================
+          // READ JAVASCRIPT
+          // ==========================================
+
+          try {
+
+              vm.runInContext(
+                  content,
+                  context
+              );
+
+          } catch (error) {
+
+              console.error(
+                  "❌ quotes-data.js पढ़ने में समस्या।"
+              );
+
+              console.error(
+                  error.message
+              );
+
+              process.exit(1);
+
+          }
+
+
+          // ==========================================
+          // GET QUOTES
+          // ==========================================
+
+          let data =
+              context.window.quotesData;
+
+
+          if (!Array.isArray(data)) {
+
+              console.error(
+                  "❌ quotesData array नहीं मिली।"
+              );
+
+              process.exit(1);
+
+          }
+
+
+          console.log(
+              "✅ Existing quotes:",
+              data.length
+          );
+
+
+          // ==========================================
+          // INPUTS
+          // ==========================================
+
+          const title =
+              (process.env.TITLE || "").trim();
+
+
+          const category =
+              (process.env.CATEGORY || "Shayari").trim();
+
+
+          const text =
+              (process.env.TEXT || "").trim();
+
+
+          let author =
+              (process.env.AUTHOR || "Tehalka Quotes").trim();
+
+
+          // ==========================================
+          // VALIDATION
+          // ==========================================
+
+          if (!title) {
+
+              console.error(
+                  "❌ Shayari Title खाली है।"
+              );
+
+              process.exit(1);
+
+          }
+
+
+          if (!text) {
+
+              console.error(
+                  "❌ Shayari Text खाली है।"
+              );
+
+              process.exit(1);
+
+          }
+
+
+          if (!author) {
+
+              author = "Tehalka Quotes";
+
+          }
+
+
+          // ==========================================
+          // FIND NEXT ID
+          // ==========================================
+
+          let maxId = 0;
+
+
+          for (const item of data) {
+
+              if (
+                  item &&
+                  typeof item === "object"
+              ) {
+
+                  const id =
+                      Number(item.id);
+
+
+                  if (
+                      Number.isFinite(id) &&
+                      id > maxId
+                  ) {
+
+                      maxId = id;
+
+                  }
+
+              }
+
+          }
+
+
+          const newId =
+              maxId + 1;
+
+
+          console.log(
+              "🆔 New ID:",
+              newId
+          );
+
+
+          // ==========================================
+          // CREATE IMAGES FOLDER
+          // ==========================================
+
+          fs.mkdirSync(
+              IMAGE_FOLDER,
+              {
+                  recursive: true
+              }
+          );
+
+
+          // ==========================================
+          // IMAGE FILE
+          // ==========================================
+
+          const imageFilename =
+              "quote-" +
+              newId +
+              ".svg";
+
+
+          const imagePath =
+              path.join(
+                  IMAGE_FOLDER,
+                  imageFilename
+              );
+
+
+          // ==========================================
+          // ESCAPE SVG TEXT
+          // ==========================================
+
+          function escapeXML(value) {
+
+              return String(value || "")
+                  .replace(/&/g, "&amp;")
+                  .replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;")
+                  .replace(/"/g, "&quot;")
+                  .replace(/'/g, "&apos;");
+
+          }
+
+
+          // ==========================================
+          // WRAP TEXT
+          // ==========================================
+
+          function wrapText(
+              value,
+              maxCharacters
+          ) {
+
+              const words =
+                  String(value || "")
+                  .split(/\s+/);
+
+
+              const lines = [];
+
+              let line = "";
+
+
+              for (const word of words) {
+
+                  const test =
+                      line
+                      ? line + " " + word
+                      : word;
+
+
+                  if (
+                      test.length >
+                      maxCharacters
+                  ) {
+
+                      if (line) {
+
+                          lines.push(line);
+
+                      }
+
+                      line = word;
+
+                  } else {
+
+                      line = test;
+
+                  }
+
+              }
+
+
+              if (line) {
+
+                  lines.push(line);
+
+              }
+
+
+              return lines.length
+                  ? lines
+                  : [String(value || "")];
+
+          }
+
+
+          const lines =
+              wrapText(
+                  text,
+                  32
+              );
+
+
+          // ==========================================
+          // CREATE SVG TEXT
+          // ==========================================
+
+          let quoteText = "";
+
+
+          const startY =
+              500 -
+              ((lines.length - 1) * 34);
+
+
+          lines.forEach(
+              function(line, index) {
+
+                  const y =
+                      startY +
+                      (index * 68);
+
+
+                  quoteText += `
+          <text
+              x="540"
+              y="${y}"
+              text-anchor="middle"
+              class="quote"
+          >${escapeXML(line)}</text>
+          `;
+
+              }
+          );
+
+
+          // ==========================================
+          // CATEGORY ICON
+          // ==========================================
+
+          const icons = {
+
+              Love: "❤️",
+
+              Sad: "😔",
+
+              Life: "🌿",
+
+              Motivational: "💪",
+
+              Attitude: "🔥",
+
+              Friendship: "🤝",
+
+              Shayari: "📝"
+
+          };
+
+
+          const categoryIcon =
+              icons[category] || "✨";
+
+
+          // ==========================================
+          // CREATE AUTOMATIC IMAGE
+          // ==========================================
+
+          const svg = `<?xml version="1.0" encoding="UTF-8"?>
+
+          <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1080"
+          height="1080"
+          viewBox="0 0 1080 1080">
+
+          <defs>
+
+          <linearGradient
+          id="background"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%">
+
+          <stop
+          offset="0%"
+          stop-color="#17181d"/>
+
+          <stop
+          offset="50%"
+          stop-color="#6a11cb"/>
+
+          <stop
+          offset="100%"
+          stop-color="#2575fc"/>
+
+          </linearGradient>
+
+          <linearGradient
+          id="overlay"
+          x1="0%"
+          y1="0%"
+          x2="0%"
+          y2="100%">
+
+          <stop
+          offset="0%"
+          stop-color="#000000"
+          stop-opacity="0.10"/>
+
+          <stop
+          offset="100%"
+          stop-color="#000000"
+          stop-opacity="0.65"/>
+
+          </linearGradient>
+
+          </defs>
+
+
+          <rect
+          width="1080"
+          height="1080"
+          fill="url(#background)"/>
+
+
+          <rect
+          width="1080"
+          height="1080"
+          fill="url(#overlay)"/>
+
+
+          <text
+          x="540"
+          y="85"
+          text-anchor="middle"
+          class="brand">
+
+          Tehalka Quotes
+
+          </text>
+
+
+          <text
+          x="540"
+          y="145"
+          text-anchor="middle"
+          class="category">
+
+          ${escapeXML(categoryIcon)}
+          ${escapeXML(category)}
+
+          </text>
+
+
+          ${quoteText}
+
+
+          <line
+          x1="350"
+          y1="820"
+          x2="730"
+          y2="820"
+          stroke="#ffffff"
+          stroke-opacity="0.35"
+          stroke-width="2"/>
+
+
+          <text
+          x="540"
+          y="880"
+          text-anchor="middle"
+          class="author">
+
+          — ${escapeXML(author)}
+
+          </text>
+
+
+          <text
+          x="540"
+          y="945"
+          text-anchor="middle"
+          class="title">
+
+          ${escapeXML(title)}
+
+          </text>
+
+
+          <text
+          x="540"
+          y="1015"
+          text-anchor="middle"
+          class="website">
+
+          Tehalka Quotes
+
+          </text>
+
+
+          <style>
+
+          .brand {
+
+              font-family:
+                  Arial,
+                  "Noto Sans Devanagari",
+                  sans-serif;
+
+              font-size:
+                  36px;
+
+              font-weight:
+                  bold;
+
+              fill:
+                  #ffd54a;
+
+          }
+
+
+          .category {
+
+              font-family:
+                  Arial,
+                  "Noto Sans Devanagari",
+                  sans-serif;
+
+              font-size:
+                  28px;
+
+              font-weight:
+                  bold;
+
+              fill:
+                  #ffffff;
+
+          }
+
+
+          .quote {
+
+              font-family:
+                  Arial,
+                  "Noto Sans Devanagari",
+                  sans-serif;
+
+              font-size:
+                  42px;
+
+              font-weight:
+                  bold;
+
+              fill:
+                  #ffffff;
+
+          }
+
+
+          .author {
+
+              font-family:
+                  Arial,
+                  "Noto Sans Devanagari",
+                  sans-serif;
+
+              font-size:
+                  26px;
+
+              fill:
+                  #eeeeee;
+
+          }
+
+
+          .title {
+
+              font-family:
+                  Arial,
+                  "Noto Sans Devanagari",
+                  sans-serif;
+
+              font-size:
+                  22px;
+
+              fill:
+                  #dddddd;
+
+          }
+
+
+          .website {
+
+              font-family:
+                  Arial,
+                  sans-serif;
+
+              font-size:
+                  18px;
+
+              fill:
+                  #bbbbbb;
+
+          }
+
+          </style>
+
+          </svg>`;
+
+
+          fs.writeFileSync(
+              imagePath,
+              svg,
+              "utf8"
+          );
+
+
+          console.log(
+              "🖼️ Automatic image created:",
+              imagePath
+          );
+
+
+          // ==========================================
+          // CREATE NEW QUOTE
+          // ==========================================
+
+          const newQuote = {
+
+              id: newId,
+
+              title: title,
+
+              category: category,
+
+              text: text,
+
+              author: author,
+
+              image:
+                  "images/" +
+                  imageFilename
+
+          };
+
+
+          // ==========================================
+          // ADD QUOTE
+          // ==========================================
+
+          data.push(
+              newQuote
+          );
+
+
+          // ==========================================
+          // SAVE quotes-data.js
+          // ==========================================
+
+          const newContent =
+              "window.quotesData = " +
+              JSON.stringify(
+                  data,
+                  null,
+                  4
+              ) +
+              ";\n";
+
+
+          fs.writeFileSync(
+              DATA_FILE,
+              newContent,
+              "utf8"
+          );
+
+
+          // ==========================================
+          // SUCCESS
+          // ==========================================
+
+          console.log("");
+          console.log("======================================");
+          console.log("✅ SHAYARI ADDED SUCCESSFULLY");
+          console.log("======================================");
+          console.log("ID       :", newId);
+          console.log("Title    :", title);
+          console.log("Category :", category);
+          console.log("Author   :", author);
+          console.log(
+              "Image    :",
+              "images/" + imageFilename
+          );
+          console.log("======================================");
+
+          NODE
 
 
       # ==========================================
-      # COMMIT
+      # CHECK FILES
       # ==========================================
 
-      - name: Commit changes
+      - name: Check generated files
+
+        run: |
+
+          echo "Checking files..."
+
+          echo ""
+          echo "quotes-data.js:"
+          ls -lh quotes-data.js
+
+          echo ""
+          echo "images folder:"
+          ls -lh images/
+
+          echo ""
+          echo "Git status:"
+          git status
+
+
+      # ==========================================
+      # COMMIT AND PUSH
+      # ==========================================
+
+      - name: Commit and push changes
 
         run: |
 
@@ -712,7 +857,7 @@ fill: #dddddd;
 
           if git diff --cached --quiet; then
 
-            echo "⚠️ कोई बदलाव नहीं मिला."
+            echo "⚠️ कोई नया बदलाव नहीं मिला।"
 
             exit 0
 
@@ -720,30 +865,27 @@ fill: #dddddd;
 
 
           git commit \
-            -m "Add new Shayari with automatic image"
+            -m "Add new Shayari and automatic image"
 
 
           git push
 
 
       # ==========================================
-      # COMPLETE
+      # FINISHED
       # ==========================================
 
       - name: Finished
 
         run: |
 
+          echo ""
           echo "======================================"
-
           echo "🎉 TEHALKA QUOTES UPDATE COMPLETE"
-
+          echo "======================================"
           echo "✅ Shayari added"
-
           echo "✅ Automatic image created"
-
           echo "✅ quotes-data.js updated"
-
           echo "✅ Image saved"
-
+          echo "✅ Changes pushed to main"
           echo "======================================"
