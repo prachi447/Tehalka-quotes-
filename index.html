@@ -13,20 +13,28 @@ Tehalka Quotes | Hindi Quotes & Shayari
 </title>
 
 <meta name="description"
-content="Tehalka Quotes पर पढ़ें खूबसूरत Hindi Quotes, Shayari, Love, Life, Sad, Motivation और Attitude Quotes.">
+content="Tehalka Quotes पर पढ़ें खूबसूरत Hindi Quotes, Shayari, Love, Life, Sad, Motivational, Attitude और Friendship Quotes.">
 
 <meta name="keywords"
-content="Hindi Quotes, Hindi Shayari, Love Quotes, Sad Shayari, Life Quotes, Motivational Quotes, Attitude Shayari">
+content="Hindi Quotes, Hindi Shayari, Love Quotes, Sad Shayari, Life Quotes, Motivational Quotes, Attitude Shayari, Friendship Quotes">
 
 <meta name="author"
 content="Tehalka Quotes">
 
+<meta name="robots"
+content="index, follow">
+
+<meta property="og:title"
+content="Tehalka Quotes | Hindi Quotes & Shayari">
+
+<meta property="og:description"
+content="Beautiful Hindi Quotes and Shayari">
+
+<meta property="og:type"
+content="website">
+
 
 <style>
-
-/* ==========================================
-   RESET
-========================================== */
 
 *{
     margin:0;
@@ -39,40 +47,24 @@ html{
 }
 
 body{
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:#f4f5f7;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f5f7;
     color:#222;
 }
-
-
-/* ==========================================
-   HEADER
-========================================== */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-
     background:#17181d;
     color:white;
-
-    box-shadow:
-        0 3px 15px
-        rgba(0,0,0,.20);
+    box-shadow:0 3px 15px rgba(0,0,0,.2);
 }
 
 .header-inner{
     max-width:1150px;
     margin:auto;
-
-    padding:
-        15px 18px;
-
+    padding:15px 18px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -95,7 +87,6 @@ header{
 .nav a{
     color:white;
     text-decoration:none;
-
     font-size:14px;
     font-weight:bold;
 }
@@ -104,32 +95,16 @@ header{
     color:#ffd54a;
 }
 
-
-/* ==========================================
-   HERO
-========================================== */
-
 .hero{
-
-    background:
-        linear-gradient(
-            135deg,
-            #17181d,
-            #6a11cb
-        );
-
+    background:linear-gradient(135deg,#17181d,#6a11cb);
     color:white;
-
     text-align:center;
-
-    padding:
-        65px 20px
-        75px;
+    padding:65px 20px 75px;
 }
 
 .hero-icon{
-    font-size:58px;
-    margin-bottom:12px;
+    font-size:55px;
+    margin-bottom:10px;
 }
 
 .hero h1{
@@ -142,146 +117,73 @@ header{
     color:#eee;
 }
 
-
-/* ==========================================
-   SEARCH
-========================================== */
-
 .search-wrapper{
     max-width:720px;
-
-    margin:
-        -30px auto
-        35px;
-
-    padding:
-        0 18px;
+    margin:-30px auto 35px;
+    padding:0 18px;
 }
 
 .search-box{
-
     display:flex;
-
     background:white;
-
     padding:6px;
-
     border-radius:35px;
-
-    box-shadow:
-        0 7px 25px
-        rgba(0,0,0,.15);
+    box-shadow:0 7px 25px rgba(0,0,0,.15);
 }
 
 .search-box input{
-
     flex:1;
-
     border:0;
     outline:0;
-
-    padding:
-        15px 18px;
-
+    padding:15px 18px;
     font-size:16px;
-
-    border-radius:30px;
 }
 
 .search-box button{
-
     border:0;
-
     background:#6a11cb;
     color:white;
-
     border-radius:30px;
-
-    padding:
-        0 22px;
-
+    padding:0 22px;
     cursor:pointer;
-
-    font-size:14px;
     font-weight:bold;
 }
 
-
-/* ==========================================
-   CATEGORIES
-========================================== */
-
 .categories{
-
     max-width:1100px;
-
     margin:auto;
-
-    padding:
-        0 18px
-        20px;
-
+    padding:0 18px 25px;
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     flex-wrap:wrap;
 }
 
 .category-btn{
-
     border:0;
-
     background:white;
-
-    padding:
-        9px 16px;
-
+    padding:9px 16px;
     border-radius:25px;
-
     cursor:pointer;
-
-    font-size:13px;
-
     font-weight:bold;
-
-    box-shadow:
-        0 2px 10px
-        rgba(0,0,0,.06);
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
 }
 
+.category-btn.active,
 .category-btn:hover{
-
     background:#6a11cb;
-
     color:white;
 }
 
-
-/* ==========================================
-   MAIN
-========================================== */
-
 .container{
-
     max-width:1150px;
-
     margin:auto;
-
-    padding:
-        10px 18px
-        70px;
+    padding:10px 18px 70px;
 }
 
 .title{
-
     text-align:center;
-
-    margin:
-        20px 0
-        30px;
+    margin:20px 0 30px;
 }
 
 .title h2{
@@ -289,285 +191,139 @@ header{
 }
 
 .title p{
-
     color:#777;
-
     margin-top:7px;
 }
 
-
-/* ==========================================
-   QUOTES GRID
-========================================== */
-
 .quotes{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:25px;
 }
 
-
-/* ==========================================
-   QUOTE CARD
-========================================== */
-
 .quote-card{
-
     background:white;
-
     border-radius:20px;
-
     overflow:hidden;
-
-    box-shadow:
-        0 6px 25px
-        rgba(0,0,0,.08);
-
-    border:
-        1px solid #eee;
-
-    transition:
-        .25s;
+    box-shadow:0 6px 25px rgba(0,0,0,.08);
+    border:1px solid #eee;
+    transition:.25s;
 }
 
 .quote-card:hover{
-
-    transform:
-        translateY(-5px);
-
-    box-shadow:
-        0 12px 30px
-        rgba(0,0,0,.14);
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.14);
 }
 
-
-/* ==========================================
-   IMAGE
-========================================== */
-
 .quote-image{
-
     position:relative;
-
     width:100%;
-
-    aspect-ratio:
-        1 / 1;
-
+    aspect-ratio:1/1;
     overflow:hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            #6a11cb,
-            #2575fc
-        );
+    background:#6a11cb;
 }
 
 .quote-image img{
-
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
 }
 
 .quote-image::after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.82),
-            rgba(0,0,0,.05) 70%
-        );
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.86),
+        rgba(0,0,0,.05) 75%
+    );
 }
 
-
-/* ==========================================
-   QUOTE TEXT ON IMAGE
-========================================== */
-
 .image-quote{
-
     position:absolute;
-
     z-index:2;
-
-    left:22px;
-    right:22px;
-
-    bottom:55px;
-
+    left:20px;
+    right:20px;
+    bottom:52px;
     color:white;
-
     text-align:center;
-
     font-size:20px;
-
     line-height:1.7;
-
     font-weight:bold;
-
-    text-shadow:
-        0 2px 5px
-        rgba(0,0,0,.7);
+    text-shadow:0 2px 5px rgba(0,0,0,.8);
 }
 
 .image-author{
-
     position:absolute;
-
     z-index:2;
-
-    bottom:20px;
-
+    bottom:18px;
     left:0;
     right:0;
-
     text-align:center;
-
     color:white;
-
     font-size:12px;
 }
 
-
-/* ==========================================
-   QUOTE INFO
-========================================== */
-
 .quote-info{
-
-    padding:
-        15px 17px
-        17px;
+    padding:15px 17px 17px;
 }
 
 .badge{
-
     display:inline-block;
-
     background:#f0e7ff;
-
     color:#6a11cb;
-
-    padding:
-        6px 11px;
-
+    padding:6px 11px;
     border-radius:20px;
-
     font-size:12px;
-
     font-weight:bold;
 }
 
 .quote-title{
-
     margin-top:10px;
-
     font-size:17px;
-
     font-weight:bold;
 }
 
-
-/* ==========================================
-   ACTION BUTTONS
-========================================== */
-
 .actions{
-
     display:flex;
-
     justify-content:center;
-
     gap:7px;
-
     flex-wrap:wrap;
-
     margin-top:15px;
 }
 
 .actions button{
-
     border:0;
-
     background:#f0f1f3;
-
     color:#333;
-
-    padding:
-        9px 12px;
-
+    padding:9px 12px;
     border-radius:20px;
-
     cursor:pointer;
-
     font-size:12px;
-
-    transition:.2s;
 }
 
 .actions button:hover{
-
     background:#6a11cb;
-
     color:white;
 }
 
-
-/* ==========================================
-   NO RESULTS
-========================================== */
-
 #noResults{
-
     display:none;
-
     text-align:center;
-
-    padding:
-        55px 20px;
-
+    padding:55px 20px;
     color:#777;
 }
 
-
-/* ==========================================
-   ABOUT
-========================================== */
-
 .info{
-
     background:white;
-
     border-radius:20px;
-
-    padding:
-        30px 22px;
-
+    padding:30px 22px;
     margin-top:55px;
-
     text-align:center;
-
-    border:
-        1px solid #eee;
-
-    box-shadow:
-        0 5px 20px
-        rgba(0,0,0,.05);
+    border:1px solid #eee;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
 }
 
 .info h2{
@@ -575,135 +331,72 @@ header{
 }
 
 .info p{
-
     color:#666;
-
     max-width:850px;
-
-    margin:
-        8px auto;
-
+    margin:8px auto;
     line-height:1.8;
 }
 
-
-/* ==========================================
-   FOOTER
-========================================== */
-
 footer{
-
     background:#17181d;
-
     color:#ccc;
-
     text-align:center;
-
-    padding:
-        35px 15px;
+    padding:35px 15px;
 }
 
 footer h3{
-
     color:white;
-
     margin-bottom:8px;
-
     font-size:21px;
 }
 
 .footer-links{
-
     margin-top:15px;
 }
 
 .footer-links a{
-
     color:#bbb;
-
     text-decoration:none;
-
-    margin:
-        0 8px;
-
+    margin:0 8px;
     font-size:13px;
 }
 
 .footer-links a:hover{
-
     color:#ffd54a;
 }
 
 .copy{
-
     margin-top:18px;
-
     color:#777;
-
     font-size:12px;
 }
 
-
-/* ==========================================
-   TOAST
-========================================== */
-
 .toast{
-
     position:fixed;
-
     bottom:25px;
-
     left:50%;
-
-    transform:
-        translate(
-            -50%,
-            100px
-        );
-
+    transform:translate(-50%,100px);
     background:#222;
-
     color:white;
-
-    padding:
-        12px 20px;
-
+    padding:12px 20px;
     border-radius:25px;
-
     opacity:0;
-
     transition:.3s;
-
     z-index:3000;
 }
 
 .toast.show{
-
-    transform:
-        translate(
-            -50%,
-            0
-        );
-
+    transform:translate(-50%,0);
     opacity:1;
 }
-
-
-/* ==========================================
-   MOBILE
-========================================== */
 
 @media(max-width:900px){
 
     .quotes{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
-
 
 @media(max-width:600px){
 
@@ -712,16 +405,11 @@ footer h3{
     }
 
     .quotes{
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
 
     .hero{
-
-        padding:
-            50px 15px
-            65px;
+        padding:50px 15px 65px;
     }
 
     .hero h1{
@@ -729,18 +417,7 @@ footer h3{
     }
 
     .image-quote{
-        font-size:19px;
-    }
-
-}
-
-
-@media(max-width:380px){
-
-    .actions button{
-
-        padding:
-            8px 10px;
+        font-size:18px;
     }
 
 }
@@ -749,43 +426,22 @@ footer h3{
 
 </head>
 
-
 <body>
-
-
-<!-- ==========================================
-     HEADER
-========================================== -->
 
 <header>
 
 <div class="header-inner">
 
 <div class="logo">
-
-Tehalka
-<span>Quotes</span>
-
+Tehalka <span>Quotes</span>
 </div>
-
 
 <nav class="nav">
 
-<a href="index.html">
-Home
-</a>
-
-<a href="#quotes">
-Quotes
-</a>
-
-<a href="#categories">
-Categories
-</a>
-
-<a href="#about">
-About
-</a>
+<a href="#home">Home</a>
+<a href="#quotes">Quotes</a>
+<a href="#categories">Categories</a>
+<a href="#about">About</a>
 
 </nav>
 
@@ -794,19 +450,11 @@ About
 </header>
 
 
-<!-- ==========================================
-     HERO
-========================================== -->
+<section class="hero" id="home">
 
-<section class="hero">
+<div class="hero-icon">✨</div>
 
-<div class="hero-icon">
-✨
-</div>
-
-<h1>
-Tehalka Quotes
-</h1>
+<h1>Tehalka Quotes</h1>
 
 <p>
 हर एहसास को खूबसूरत शब्दों में महसूस कीजिए ❤️
@@ -815,25 +463,19 @@ Tehalka Quotes
 </section>
 
 
-<!-- ==========================================
-     SEARCH
-========================================== -->
-
 <div class="search-wrapper">
 
 <div class="search-box">
 
 <input
-type="text"
+type="search"
 id="searchInput"
 placeholder="🔍 Quote या Shayari खोजें..."
+oninput="searchQuotes()"
 >
 
-<button
-onclick="searchQuotes()">
-
+<button onclick="searchQuotes()">
 Search
-
 </button>
 
 </div>
@@ -841,196 +483,113 @@ Search
 </div>
 
 
-<!-- ==========================================
-     CATEGORIES
-========================================== -->
+<div class="categories" id="categories">
 
-<div
-class="categories"
-id="categories">
-
-
-<button
-class="category-btn"
-onclick="filterCategory('All')">
-
+<button class="category-btn active"
+onclick="filterCategory('All',this)">
 ✨ All
-
 </button>
 
-
-<button
-class="category-btn"
-onclick="filterCategory('Love')">
-
+<button class="category-btn"
+onclick="filterCategory('Love',this)">
 ❤️ Love
-
 </button>
 
-
-<button
-class="category-btn"
-onclick="filterCategory('Sad')">
-
+<button class="category-btn"
+onclick="filterCategory('Sad',this)">
 😔 Sad
-
 </button>
 
-
-<button
-class="category-btn"
-onclick="filterCategory('Life')">
-
+<button class="category-btn"
+onclick="filterCategory('Life',this)">
 🌿 Life
-
 </button>
 
-
-<button
-class="category-btn"
-onclick="filterCategory('Motivational')">
-
+<button class="category-btn"
+onclick="filterCategory('Motivational',this)">
 💪 Motivation
-
 </button>
 
-
-<button
-class="category-btn"
-onclick="filterCategory('Attitude')">
-
+<button class="category-btn"
+onclick="filterCategory('Attitude',this)">
 🔥 Attitude
-
 </button>
 
-
-<button
-class="category-btn"
-onclick="filterCategory('Friendship')">
-
+<button class="category-btn"
+onclick="filterCategory('Friendship',this)">
 🤝 Friendship
-
 </button>
 
-
-<button
-class="category-btn"
-onclick="filterCategory('Shayari')">
-
+<button class="category-btn"
+onclick="filterCategory('Shayari',this)">
 📝 Shayari
-
 </button>
-
 
 </div>
 
 
-<!-- ==========================================
-     MAIN
-========================================== -->
-
-<main
-class="container"
-id="quotes">
-
+<main class="container" id="quotes">
 
 <div class="title">
 
-<h2>
-💫 Latest Quotes & Shayari
-</h2>
+<h2>💫 Latest Quotes & Shayari</h2>
 
 <p>
-हर Quote को पढ़ें, Copy करें, Share करें और Download करें।
+Quote पढ़ें, Copy करें, Share करें और Image Download करें।
 </p>
 
 </div>
 
+<div class="quotes" id="quotesContainer"></div>
 
-<div
-class="quotes"
-id="quotesContainer">
-</div>
+<div id="noResults">
 
+<h3>😔 Quote नहीं मिला</h3>
 
-<div
-id="noResults">
-
-<h3>
-😔 Quote नहीं मिला
-</h3>
-
-<p>
-कोई दूसरा शब्द search करके देखें।
-</p>
+<p>कोई दूसरा शब्द search करके देखें।</p>
 
 </div>
 
 
-<!-- ==========================================
-     ABOUT
-========================================== -->
+<section class="info" id="about">
 
-<section
-class="info"
-id="about">
-
-<h2>
-✨ About Tehalka Quotes
-</h2>
+<h2>✨ About Tehalka Quotes</h2>
 
 <p>
 Tehalka Quotes पर आपको Love, Life, Sad,
-Motivational, Attitude, Friendship और
-Hindi Shayari से जुड़े खूबसूरत Quotes मिलेंगे।
+Motivational, Attitude, Friendship और Hindi
+Shayari से जुड़े खूबसूरत Quotes मिलेंगे।
 </p>
 
 <p>
-हर Quote को उसकी theme के अनुसार प्रस्तुत किया जाता है।
-आप Quote को Copy, Share और image के रूप में Download कर सकते हैं।
+हर Quote को उसकी theme के अनुसार image के साथ
+प्रस्तुत किया जाता है।
 </p>
 
 </section>
 
-
 </main>
 
 
-<!-- ==========================================
-     FOOTER
-========================================== -->
-
 <footer>
 
-<h3>
-Tehalka Quotes
-</h3>
+<h3>Tehalka Quotes</h3>
 
 <p>
 Love • Life • Motivation • Attitude • Shayari
 </p>
 
-
 <div class="footer-links">
 
-<a href="index.html">
-Home
-</a>
+<a href="#home">Home</a>
 
-<a href="#quotes">
-Quotes
-</a>
+<a href="#quotes">Quotes</a>
 
-<a href="#categories">
-Categories
-</a>
+<a href="#categories">Categories</a>
 
-<a href="#about">
-About
-</a>
+<a href="#about">About</a>
 
 </div>
-
 
 <div class="copy">
 © 2026 Tehalka Quotes. All Rights Reserved.
@@ -1039,142 +598,75 @@ About
 </footer>
 
 
-<!-- ==========================================
-     TOAST
-========================================== -->
-
-<div
-class="toast"
-id="toast">
-</div>
+<div class="toast" id="toast"></div>
 
 
-<!-- ==========================================
-     QUOTES DATA
-========================================== -->
-
-<script src="./quotes-data.js"></script>
+<script src="quotes-data.js"></script>
 
 
 <script>
-
-/* ==========================================
-   GET QUOTES DATA
-========================================== */
 
 const quotesData =
     window.quotesData || [];
 
 
-/* ==========================================
-   TOAST
-========================================== */
-
 function showToast(message){
 
     const toast =
-        document.getElementById(
-            "toast"
-        );
+        document.getElementById("toast");
 
-    toast.innerText =
-        message;
+    toast.innerText = message;
 
-    toast.classList.add(
-        "show"
-    );
+    toast.classList.add("show");
 
+    setTimeout(function(){
 
-    setTimeout(
-        function(){
+        toast.classList.remove("show");
 
-            toast.classList.remove(
-                "show"
-            );
-
-        },
-        2200
-    );
+    },2200);
 
 }
 
-
-/* ==========================================
-   CATEGORY ICON
-========================================== */
 
 function getCategoryIcon(category){
 
     const icons = {
 
         Love:"❤️",
-
         Sad:"😔",
-
         Life:"🌿",
-
         Motivational:"💪",
-
         Attitude:"🔥",
-
         Friendship:"🤝",
-
         Shayari:"📝"
 
     };
 
-
-    return (
-        icons[category] ||
-        "✨"
-    );
+    return icons[category] || "✨";
 
 }
 
 
-/* ==========================================
-   ESCAPE HTML
-========================================== */
-
 function escapeHTML(text){
 
     const div =
-        document.createElement(
-            "div"
-        );
-
+        document.createElement("div");
 
     div.innerText =
-        text == null
-        ? ""
-        : String(text);
-
+        text == null ? "" : String(text);
 
     return div.innerHTML;
 
 }
 
 
-/* ==========================================
-   FORMAT TEXT
-========================================== */
-
 function formatText(text){
 
-    return escapeHTML(
-        text
-    )
-    .replace(
-        /\n/g,
-        "<br>"
-    );
+    return escapeHTML(text)
+        .replace(/\n/g,"<br>");
 
 }
 
-
-/* ==========================================
-   RENDER QUOTES
-========================================== */
 
 function renderQuotes(list){
 
@@ -1183,204 +675,131 @@ function renderQuotes(list){
             "quotesContainer"
         );
 
+    container.innerHTML = "";
 
-    container.innerHTML =
-        "";
+    if(!list.length){
 
-
-    if(
-        !list ||
-        list.length === 0
-    ){
-
-        document
-        .getElementById(
+        document.getElementById(
             "noResults"
-        )
-        .style.display =
-            "block";
+        ).style.display = "block";
 
         return;
 
     }
 
-
-    document
-    .getElementById(
+    document.getElementById(
         "noResults"
-    )
-    .style.display =
-        "none";
+    ).style.display = "none";
 
 
-    list.forEach(
-        function(quote){
+    list.forEach(function(quote){
 
-            const card =
-                document.createElement(
-                    "div"
-                );
+        const card =
+            document.createElement("article");
 
-
-            card.className =
-                "quote-card";
+        card.className = "quote-card";
 
 
-            let imageHTML =
-                "";
+        const image =
+            quote.image
+            ? quote.image
+            : "";
 
 
-            if(
-                quote.image
-            ){
+        card.innerHTML = `
 
-                imageHTML = `
+            <div class="quote-image">
 
+                ${
+                    image
+                    ? `
                     <img
-                        src="${escapeHTML(
-                            quote.image
-                        )}"
+                        src="${escapeHTML(image)}"
                         alt="${escapeHTML(
-                            quote.title ||
-                            "Tehalka Quote"
+                            quote.title || "Hindi Quote"
                         )}"
+                        loading="lazy"
+                        onerror="this.style.display='none'"
                     >
+                    `
+                    : ""
+                }
 
-                `;
+                <div class="image-quote">
+                    ${formatText(quote.text)}
+                </div>
 
-            }
+                <div class="image-author">
+                    — ${escapeHTML(
+                        quote.author || "Tehalka Quotes"
+                    )}
+                </div>
 
-
-            card.innerHTML = `
-
-                <div
-                    class="quote-image"
-                >
-
-                    ${imageHTML}
-
-
-                    <div
-                        class="image-quote"
-                    >
-
-                        ${formatText(
-                            quote.text
-                        )}
-
-                    </div>
+            </div>
 
 
-                    <div
-                        class="image-author"
-                    >
+            <div class="quote-info">
 
-                        —
-                        ${escapeHTML(
-                            quote.author ||
-                            "Tehalka Quotes"
-                        )}
+                <span class="badge">
+                    ${getCategoryIcon(
+                        quote.category
+                    )}
+                    ${escapeHTML(
+                        quote.category || "Shayari"
+                    )}
+                </span>
 
-                    </div>
+                <div class="quote-title">
+                    ${escapeHTML(
+                        quote.title || "Tehalka Quote"
+                    )}
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        onclick="copyQuote(${quote.id})">
+                        📋 Copy
+                    </button>
+
+                    <button
+                        onclick="shareQuote(${quote.id})">
+                        📤 Share
+                    </button>
+
+                    <button
+                        onclick="downloadQuote(${quote.id})">
+                        ⬇️ Download
+                    </button>
 
                 </div>
 
-
-                <div
-                    class="quote-info"
-                >
-
-                    <span
-                        class="badge"
-                    >
-
-                        ${getCategoryIcon(
-                            quote.category
-                        )}
-
-                        ${escapeHTML(
-                            quote.category ||
-                            "Shayari"
-                        )}
-
-                    </span>
+            </div>
+        `;
 
 
-                    <div
-                        class="quote-title"
-                    >
+        container.appendChild(card);
 
-                        ${escapeHTML(
-                            quote.title ||
-                            "Tehalka Quote"
-                        )}
-
-                    </div>
-
-
-                    <div
-                        class="actions"
-                    >
-
-                        <button
-                            onclick="copyQuote(${quote.id})"
-                        >
-                            📋 Copy
-                        </button>
-
-
-                        <button
-                            onclick="shareQuote(${quote.id})"
-                        >
-                            📤 Share
-                        </button>
-
-
-                        <button
-                            onclick="downloadQuote(${quote.id})"
-                        >
-                            ⬇️ Download
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
+    });
 
 }
 
 
-/* ==========================================
-   SEARCH
-========================================== */
-
 function searchQuotes(){
 
     const input =
-        document
-        .getElementById(
+        document.getElementById(
             "searchInput"
-        )
-        .value
+        ).value
         .toLowerCase()
         .trim();
 
 
     const filtered =
-        quotesData.filter(
-            function(quote){
+        quotesData.filter(function(quote){
 
-                const searchable = (
-
+            const searchable =
+                (
                     (quote.title || "") +
                     " " +
                     (quote.category || "") +
@@ -1388,438 +807,166 @@ function searchQuotes(){
                     (quote.text || "") +
                     " " +
                     (quote.author || "")
-
                 ).toLowerCase();
 
+            return searchable.includes(input);
 
-                return searchable.includes(
-                    input
-                );
-
-            }
-        );
+        });
 
 
-    renderQuotes(
-        filtered
-    );
+    renderQuotes(filtered);
 
 }
 
 
-/* ==========================================
-   CATEGORY FILTER
-========================================== */
+function filterCategory(category,button){
 
-function filterCategory(category){
+    document
+        .querySelectorAll(".category-btn")
+        .forEach(function(btn){
 
-    if(
-        category === "All"
-    ){
+            btn.classList.remove("active");
 
-        renderQuotes(
-            quotesData
-        );
+        });
+
+
+    if(button){
+        button.classList.add("active");
+    }
+
+
+    if(category === "All"){
+
+        renderQuotes(quotesData);
 
         return;
 
     }
 
 
-    const filtered =
-        quotesData.filter(
-            function(quote){
-
-                return (
-                    quote.category ===
-                    category
-                );
-
-            }
-        );
-
-
     renderQuotes(
-        filtered
+        quotesData.filter(function(quote){
+
+            return quote.category === category;
+
+        })
     );
 
 }
 
 
-/* ==========================================
-   COPY QUOTE
-========================================== */
+function findQuote(id){
+
+    return quotesData.find(function(item){
+
+        return item.id == id;
+
+    });
+
+}
+
 
 function copyQuote(id){
 
-    const quote =
-        quotesData.find(
-            function(item){
+    const quote = findQuote(id);
 
-                return (
-                    item.id == id
-                );
-
-            }
-        );
-
-
-    if(!quote){
-        return;
-    }
+    if(!quote) return;
 
 
     const text =
         quote.text +
         "\n\n— " +
-        (
-            quote.author ||
-            "Tehalka Quotes"
-        );
+        (quote.author || "Tehalka Quotes");
 
 
-    if(
-        navigator.clipboard
-    ){
+    if(navigator.clipboard){
 
-        navigator.clipboard
-        .writeText(text)
-        .then(
-            function(){
+        navigator.clipboard.writeText(text)
+        .then(function(){
 
-                showToast(
-                    "Quote copied! 📋"
-                );
+            showToast("Quote copied! 📋");
 
-            }
-        )
-        .catch(
-            function(){
+        })
+        .catch(function(){
 
-                showToast(
-                    "Copy नहीं हो पाया ❌"
-                );
+            showToast("Copy नहीं हो पाया ❌");
 
-            }
-        );
+        });
 
     }
 
 }
 
 
-/* ==========================================
-   SHARE
-========================================== */
-
 function shareQuote(id){
 
-    const quotes =
-            quotesData.find(
-            function(item){
+    const quote = findQuote(id);
 
-                return (
-                    item.id == id
-                );
-
-            }
-        );
+    if(!quote) return;
 
 
-    if(!q){
-        return;
-    }
-
-
-    const text =
-        q.text +
+    const shareText =
+        quote.text +
         "\n\n— " +
-        (
-            q.author ||
-            "Tehalka Quotes"
-        );
+        (quote.author || "Tehalka Quotes");
 
 
-    if(
-        navigator.share
-    ){
+    if(navigator.share){
 
         navigator.share({
 
             title:
-                q.title ||
-                "Tehalka Quotes",
+                quote.title || "Tehalka Quotes",
 
             text:
-                text,
+                shareText,
 
             url:
                 window.location.href
 
         })
-        .catch(
-            function(){}
-        );
+        .catch(function(){});
 
     }else{
 
-        if(
-            navigator.clipboard
-        ){
+        copyQuote(id);
 
-            navigator.clipboard
-            .writeText(text)
-            .then(
-                function(){
-
-                    showToast(
-                        "Quote copied! अब share करें 📤"
-                    );
-
-                }
-            );
-
-        }else{
-
-            showToast(
-                "Share option उपलब्ध नहीं है ❌"
-            );
-
-        }
+        showToast(
+            "Share option नहीं है, text copied! 📋"
+        );
 
     }
 
 }
 
 
-/* ==========================================
-   DOWNLOAD QUOTE
-========================================== */
+async function downloadQuote(id){
 
-function downloadQuote(id){
+    const quote = findQuote(id);
 
-    const quote =
-        quotesData.find(
-            function(item){
-
-                return (
-                    item.id == id
-                );
-
-            }
-        );
+    if(!quote) return;
 
 
-    if(!quote){
-
-        showToast(
-            "Quote नहीं मिला ❌"
-        );
-
-        return;
-
-    }
+    showToast("Image तैयार हो रही है... ⏳");
 
 
     const canvas =
-        document.createElement(
-            "canvas"
-        );
+        document.createElement("canvas");
 
 
-    const size = 1080;
+    const width = 1080;
+    const height = 1080;
 
 
-    canvas.width =
-        size;
-
-    canvas.height =
-        size;
+    canvas.width = width;
+    canvas.height = height;
 
 
     const ctx =
-        canvas.getContext(
-            "2d"
-        );
+        canvas.getContext("2d");
 
 
-    if(
-        quote.image
-    ){
-
-        const img =
-            new Image();
-
-
-        img.crossOrigin =
-            "anonymous";
-
-
-        img.onload =
-            function(){
-
-                drawQuoteImage(
-                    ctx,
-                    img,
-                    quote
-                );
-
-            };
-
-
-        img.onerror =
-            function(){
-
-                drawQuoteImage(
-                    ctx,
-                    null,
-                    quote
-                );
-
-            };
-
-
-        img.src =
-            quote.image;
-
-    }else{
-
-        drawQuoteImage(
-            ctx,
-            null,
-            quote
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   DRAW QUOTE IMAGE
-========================================== */
-
-function drawQuoteImage(
-    ctx,
-    img,
-    quote
-){
-
-    const width =
-        1080;
-
-    const height =
-        1080;
-
-
-    /* ======================================
-       BACKGROUND
-    ====================================== */
-
-    if(img){
-
-        const scale =
-            Math.max(
-                width / img.width,
-                height / img.height
-            );
-
-
-        const imgWidth =
-            img.width * scale;
-
-
-        const imgHeight =
-            img.height * scale;
-
-
-        const x =
-            (width - imgWidth) / 2;
-
-
-        const y =
-            (height - imgHeight) / 2;
-
-
-        ctx.drawImage(
-            img,
-            x,
-            y,
-            imgWidth,
-            imgHeight
-        );
-
-    }else{
-
-        const gradient =
-            ctx.createLinearGradient(
-                0,
-                0,
-                width,
-                height
-            );
-
-
-        gradient.addColorStop(
-            0,
-            "#6a11cb"
-        );
-
-
-        gradient.addColorStop(
-            1,
-            "#2575fc"
-        );
-
-
-        ctx.fillStyle =
-            gradient;
-
-
-        ctx.fillRect(
-            0,
-            0,
-            width,
-            height
-        );
-
-    }
-
-
-    /* ======================================
-       DARK OVERLAY
-    ====================================== */
-
-    const overlay =
-        ctx.createLinearGradient(
-            0,
-            0,
-            0,
-            height
-        );
-
-
-    overlay.addColorStop(
-        0,
-        "rgba(0,0,0,.15)"
-    );
-
-
-    overlay.addColorStop(
-        .45,
-        "rgba(0,0,0,.35)"
-    );
-
-
-    overlay.addColorStop(
-        1,
-        "rgba(0,0,0,.82)"
-    );
-
-
-    ctx.fillStyle =
-        overlay;
-
+    ctx.fillStyle = "#17181d";
 
     ctx.fillRect(
         0,
@@ -1829,319 +976,348 @@ function drawQuoteImage(
     );
 
 
-    /* ======================================
-       CATEGORY
-    ====================================== */
+    if(quote.image){
 
-    ctx.textAlign =
-        "center";
+        try{
 
-
-    ctx.fillStyle =
-        "rgba(255,255,255,.95)";
-
-
-    ctx.font =
-        "bold 30px Arial";
-
-
-    ctx.fillText(
-
-        getCategoryIcon(
-            quote.category
-        ) +
-        " " +
-        (
-            quote.category ||
-            "Shayari"
-        ),
-
-        width / 2,
-        100
-
-    );
-
-
-    /* ======================================
-       QUOTE TEXT
-    ====================================== */
-
-    ctx.fillStyle =
-        "#ffffff";
-
-
-    ctx.font =
-        "bold 48px Arial";
-
-
-    const maxWidth =
-        900;
-
-
-    const lineHeight =
-        75;
-
-
-    const words =
-        String(
-            quote.text || ""
-        )
-        .replace(
-            /\n/g,
-            " "
-        )
-        .split(
-            /\s+/
-        );
-
-
-    const lines =
-        [];
-
-
-    let line =
-        "";
-
-
-    words.forEach(
-        function(word){
-
-            const testLine =
-                line
-                ? line + " " + word
-                : word;
-
-
-            const metrics =
-                ctx.measureText(
-                    testLine
+            const img =
+                await loadImage(
+                    quote.image
                 );
 
 
-            if(
-                metrics.width >
-                maxWidth &&
-                line
-            ){
-
-                lines.push(
-                    line
+            const scale =
+                Math.max(
+                    width / img.width,
+                    height / img.height
                 );
 
 
-                line =
-                    word;
+            const w =
+                img.width * scale;
 
-            }else{
 
-                line =
-                    testLine;
+            const h =
+                img.height * scale;
 
-            }
+
+            const x =
+                (width - w) / 2;
+
+
+            const y =
+                (height - h) / 2;
+
+
+            ctx.drawImage(
+                img,
+                x,
+                y,
+                w,
+                h
+            );
+
+
+        }catch(error){
+
+            drawBackground(ctx,width,height);
 
         }
-    );
 
+    }else{
 
-    if(line){
-
-        lines.push(
-            line
-        );
+        drawBackground(ctx,width,height);
 
     }
 
 
-    let startY =
-        500 -
-        (
-            (lines.length - 1)
-            *
-            lineHeight
-            /
-            2
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            0,
+            height
         );
 
 
-    lines.forEach(
-        function(currentLine){
-
-            ctx.fillText(
-                currentLine,
-                width / 2,
-                startY
-            );
-
-
-            startY +=
-                lineHeight;
-
-        }
+    gradient.addColorStop(
+        0,
+        "rgba(0,0,0,.15)"
     );
 
 
-    /* ======================================
-       AUTHOR
-    ====================================== */
+    gradient.addColorStop(
+        1,
+        "rgba(0,0,0,.90)"
+    );
+
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    ctx.fillStyle = "white";
+
+    ctx.textAlign = "center";
+
+    ctx.font =
+        "bold 28px Arial";
+
+
+    ctx.fillText(
+        getCategoryIcon(
+            quote.category
+        ) +
+        " " +
+        (quote.category || "Shayari"),
+        width / 2,
+        100
+    );
+
+
+    const lines =
+        wrapText(
+            ctx,
+            quote.text,
+            850,
+            42
+        );
+
+
+    let y =
+        height / 2 -
+        (lines.length * 28);
+
+
+    ctx.font =
+        "bold 42px Arial";
+
+
+    lines.forEach(function(line){
+
+        ctx.fillText(
+            line,
+            width / 2,
+            y
+        );
+
+        y += 60;
+
+    });
+
 
     ctx.font =
         "24px Arial";
 
 
     ctx.fillStyle =
-        "rgba(255,255,255,.95)";
+        "#eeeeee";
 
 
     ctx.fillText(
-
         "— " +
-        (
-            quote.author ||
-            "Tehalka Quotes"
-        ),
-
+        (quote.author || "Tehalka Quotes"),
         width / 2,
-        950
-
+        height - 90
     );
 
 
-    /* ======================================
-       WEBSITE NAME
-    ====================================== */
+    canvas.toBlob(function(blob){
 
-    ctx.font =
-        "bold 22px Arial";
+        if(!blob){
 
-
-    ctx.fillStyle =
-        "rgba(255,255,255,.75)";
-
-
-    ctx.fillText(
-        "Tehalka Quotes",
-        width / 2,
-        1015
-    );
-
-
-    /* ======================================
-       DOWNLOAD
-    ====================================== */
-
-    try{
-
-        const link =
-            document.createElement(
-                "a"
+            showToast(
+                "Download नहीं हो पाया ❌"
             );
 
+            return;
 
-        link.download =
-            (
-                quote.title ||
-                "tehalka-quote"
-            )
-            .replace(
-                /[^a-zA-Z0-9\u0900-\u097F_-]/g,
-                "-"
-            )
-            +
+        }
+
+
+        const url =
+            URL.createObjectURL(blob);
+
+
+        const a =
+            document.createElement("a");
+
+
+        a.href = url;
+
+
+        a.download =
+            safeFileName(
+                quote.title || "tehalka-quote"
+            ) +
             ".png";
 
 
-        link.href =
-            canvas.toDataURL(
-                "image/png"
-            );
+        document.body.appendChild(a);
+
+        a.click();
+
+        a.remove();
 
 
-        document.body.appendChild(
-            link
-        );
-
-
-        link.click();
-
-
-        document.body.removeChild(
-            link
-        );
+        URL.revokeObjectURL(url);
 
 
         showToast(
-            "Quote image download हो गई! ⬇️"
+            "Quote Download हो गया! ⬇️"
         );
 
-
-    }catch(error){
-
-        showToast(
-            "Download नहीं हो पाया ❌"
-        );
-
-    }
+    },"image/png");
 
 }
 
 
-/* ==========================================
-   PAGE LOAD
-========================================== */
+function loadImage(src){
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+    return new Promise(function(resolve,reject){
+
+        const img =
+            new Image();
+
+
+        img.crossOrigin = "anonymous";
+
+
+        img.onload = function(){
+
+            resolve(img);
+
+        };
+
+
+        img.onerror = function(){
+
+            reject();
+
+        };
+
+
+        img.src = src;
+
+    });
+
+}
+
+
+function drawBackground(ctx,width,height){
+
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+    gradient.addColorStop(
+        0,
+        "#6a11cb"
+    );
+
+
+    gradient.addColorStop(
+        1,
+        "#2575fc"
+    );
+
+
+    ctx.fillStyle =
+        gradient;
+
+
+    ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+}
+
+
+function wrapText(ctx,text,maxWidth,fontSize){
+
+    ctx.font =
+        "bold " +
+        fontSize +
+        "px Arial";
+
+
+    const words =
+        String(text || "").split(/\s+/);
+
+
+    const lines = [];
+
+    let line = "";
+
+
+    words.forEach(function(word){
+
+        const test =
+            line
+            ? line + " " + word
+            : word;
+
 
         if(
-            quotesData &&
-            quotesData.length > 0
+            ctx.measureText(test).width
+            > maxWidth &&
+            line
         ){
 
-            renderQuotes(
-                quotesData
-            );
+            lines.push(line);
+
+            line = word;
 
         }else{
 
-            document
-            .getElementById(
-                "noResults"
-            )
-            .style.display =
-                "block";
+            line = test;
 
         }
 
-    }
-);
+    });
 
 
-/* ==========================================
-   SEARCH ENTER KEY
-========================================== */
+    if(line){
 
-document
-.getElementById(
-    "searchInput"
-)
-.addEventListener(
-    "keydown",
-    function(event){
-
-        if(
-            event.key === "Enter"
-        ){
-
-            searchQuotes();
-
-        }
+        lines.push(line);
 
     }
-);
+
+
+    return lines;
+
+}
+
+
+function safeFileName(name){
+
+    return String(name)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/gi,"-")
+        .replace(/^-+|-+$/g,"")
+        .substring(0,60)
+        || "tehalka-quote";
+
+}
+
+
+renderQuotes(quotesData);
 
 </script>
 
 </body>
-
-</html>
+   </html>
