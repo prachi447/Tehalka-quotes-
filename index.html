@@ -5,7 +5,8 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Tehalka Quotes | Hindi Quotes & Shayari</title>
 
@@ -15,9 +16,11 @@ content="Tehalka Quotes पर पढ़ें खूबसूरत Hindi Quote
 <meta name="keywords"
 content="Hindi Quotes, Hindi Shayari, Love Quotes, Sad Shayari, Life Quotes, Motivational Quotes, Attitude Shayari, Friendship Quotes">
 
-<meta name="author" content="Tehalka Quotes">
+<meta name="author"
+content="Tehalka Quotes">
 
-<meta name="robots" content="index, follow">
+<meta name="robots"
+content="index, follow">
 
 <meta property="og:title"
 content="Tehalka Quotes | Hindi Quotes & Shayari">
@@ -25,7 +28,8 @@ content="Tehalka Quotes | Hindi Quotes & Shayari">
 <meta property="og:description"
 content="Beautiful Hindi Quotes and Shayari">
 
-<meta property="og:type" content="website">
+<meta property="og:type"
+content="website">
 
 
 <style>
@@ -45,6 +49,9 @@ body{
     background:#f5f5f7;
     color:#222;
 }
+
+
+/* HEADER */
 
 header{
     position:sticky;
@@ -89,8 +96,16 @@ header{
     color:#ffd54a;
 }
 
+
+/* HERO */
+
 .hero{
-    background:linear-gradient(135deg,#17181d,#6a11cb);
+    background:linear-gradient(
+        135deg,
+        #17181d,
+        #6a11cb
+    );
+
     color:white;
     text-align:center;
     padding:65px 20px 75px;
@@ -110,6 +125,9 @@ header{
     font-size:17px;
     color:#eee;
 }
+
+
+/* SEARCH */
 
 .search-wrapper{
     max-width:720px;
@@ -143,6 +161,9 @@ header{
     font-weight:bold;
 }
 
+
+/* CATEGORIES */
+
 .categories{
     max-width:1100px;
     margin:auto;
@@ -169,6 +190,9 @@ header{
     color:white;
 }
 
+
+/* CONTAINER */
+
 .container{
     max-width:1150px;
     margin:auto;
@@ -189,11 +213,17 @@ header{
     margin-top:7px;
 }
 
+
+/* QUOTES GRID */
+
 .quotes{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
 }
+
+
+/* QUOTE CARD */
 
 .quote-card{
     background:white;
@@ -209,12 +239,21 @@ header{
     box-shadow:0 12px 30px rgba(0,0,0,.14);
 }
 
+
+/* QUOTE IMAGE */
+
 .quote-image{
     position:relative;
     width:100%;
     aspect-ratio:1/1;
     overflow:hidden;
-    background:#6a11cb;
+    background:
+        linear-gradient(
+            135deg,
+            #17181d,
+            #6a11cb,
+            #2575fc
+        );
 }
 
 .quote-image img{
@@ -222,7 +261,51 @@ header{
     height:100%;
     object-fit:cover;
     display:block;
+    position:relative;
+    z-index:1;
 }
+
+
+/* FALLBACK QUOTE */
+
+.fallback-quote{
+    background:
+        linear-gradient(
+            135deg,
+            #17181d,
+            #6a11cb,
+            #2575fc
+        );
+}
+
+.image-quote{
+    position:absolute;
+    z-index:2;
+    left:20px;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    text-align:center;
+    font-size:20px;
+    line-height:1.7;
+    font-weight:bold;
+    text-shadow:0 2px 5px rgba(0,0,0,.8);
+}
+
+.image-author{
+    position:absolute;
+    z-index:2;
+    bottom:18px;
+    left:0;
+    right:0;
+    text-align:center;
+    color:white;
+    font-size:12px;
+}
+
+
+/* QUOTE INFO */
 
 .quote-info{
     padding:15px 17px 17px;
@@ -243,6 +326,9 @@ header{
     font-size:17px;
     font-weight:bold;
 }
+
+
+/* ACTIONS */
 
 .actions{
     display:flex;
@@ -267,12 +353,18 @@ header{
     color:white;
 }
 
+
+/* NO RESULTS */
+
 #noResults{
     display:none;
     text-align:center;
     padding:55px 20px;
     color:#777;
 }
+
+
+/* ABOUT */
 
 .info{
     background:white;
@@ -294,6 +386,9 @@ header{
     margin:8px auto;
     line-height:1.8;
 }
+
+
+/* FOOTER */
 
 footer{
     background:#17181d;
@@ -329,6 +424,9 @@ footer h3{
     font-size:12px;
 }
 
+
+/* TOAST */
+
 .toast{
     position:fixed;
     bottom:25px;
@@ -347,6 +445,9 @@ footer h3{
     transform:translate(-50%,0);
     opacity:1;
 }
+
+
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
@@ -374,6 +475,10 @@ footer h3{
         font-size:32px;
     }
 
+    .image-quote{
+        font-size:18px;
+    }
+
 }
 
 </style>
@@ -381,6 +486,7 @@ footer h3{
 </head>
 
 <body>
+
 
 <header>
 
@@ -406,9 +512,13 @@ Tehalka <span>Quotes</span>
 
 <section class="hero" id="home">
 
-<div class="hero-icon">✨</div>
+<div class="hero-icon">
+✨
+</div>
 
-<h1>Tehalka Quotes</h1>
+<h1>
+Tehalka Quotes
+</h1>
 
 <p>
 हर एहसास को खूबसूरत शब्दों में महसूस कीजिए ❤️
@@ -439,42 +549,50 @@ Search
 
 <div class="categories" id="categories">
 
-<button class="category-btn active"
+<button
+class="category-btn active"
 onclick="filterCategory('All',this)">
 ✨ All
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Love',this)">
 ❤️ Love
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Sad',this)">
 😔 Sad
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Life',this)">
 🌿 Life
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Motivational',this)">
 💪 Motivation
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Attitude',this)">
 🔥 Attitude
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Friendship',this)">
 🤝 Friendship
 </button>
 
-<button class="category-btn"
+<button
+class="category-btn"
 onclick="filterCategory('Shayari',this)">
 📝 Shayari
 </button>
@@ -486,7 +604,9 @@ onclick="filterCategory('Shayari',this)">
 
 <div class="title">
 
-<h2>💫 Latest Quotes & Shayari</h2>
+<h2>
+💫 Latest Quotes & Shayari
+</h2>
 
 <p>
 Quote पढ़ें, Copy करें, Share करें और Image Download करें।
@@ -494,19 +614,33 @@ Quote पढ़ें, Copy करें, Share करें और Image Downlo
 
 </div>
 
-<div class="quotes" id="quotesContainer"></div>
+
+<div
+class="quotes"
+id="quotesContainer">
+</div>
+
 
 <div id="noResults">
 
-<h3>😔 Quote नहीं मिला</h3>
+<h3>
+😔 Quote नहीं मिला
+</h3>
 
-<p>कोई दूसरा शब्द search करके देखें।</p>
+<p>
+कोई दूसरा शब्द search करके देखें।
+</p>
 
 </div>
 
-<section class="info" id="about">
 
-<h2>✨ About Tehalka Quotes</h2>
+<section
+class="info"
+id="about">
+
+<h2>
+✨ About Tehalka Quotes
+</h2>
 
 <p>
 Tehalka Quotes पर आपको Love, Life, Sad,
@@ -526,7 +660,9 @@ Shayari से जुड़े खूबसूरत Quotes मिलेंग�
 
 <footer>
 
-<h3>Tehalka Quotes</h3>
+<h3>
+Tehalka Quotes
+</h3>
 
 <p>
 Love • Life • Motivation • Attitude • Shayari
@@ -548,22 +684,31 @@ Love • Life • Motivation • Attitude • Shayari
 </footer>
 
 
-<div class="toast" id="toast"></div>
+<div
+class="toast"
+id="toast">
+</div>
 
 
 <script src="quotes-data.js"></script>
-
-
 <script>
 
-const quotesData =
-    window.quotesData || [];
+/* ==========================================
+   DATA
+========================================== */
 
+const quotesData = window.quotesData || [];
+
+
+/* ==========================================
+   TOAST
+========================================== */
 
 function showToast(message){
 
-    const toast =
-        document.getElementById("toast");
+    const toast = document.getElementById("toast");
+
+    if(!toast) return;
 
     toast.innerText = message;
 
@@ -577,6 +722,10 @@ function showToast(message){
 
 }
 
+
+/* ==========================================
+   CATEGORY ICON
+========================================== */
 
 function getCategoryIcon(category){
 
@@ -597,10 +746,13 @@ function getCategoryIcon(category){
 }
 
 
+/* ==========================================
+   ESCAPE HTML
+========================================== */
+
 function escapeHTML(text){
 
-    const div =
-        document.createElement("div");
+    const div = document.createElement("div");
 
     div.innerText =
         text == null ? "" : String(text);
@@ -610,6 +762,10 @@ function escapeHTML(text){
 }
 
 
+/* ==========================================
+   FORMAT TEXT
+========================================== */
+
 function formatText(text){
 
     return escapeHTML(text)
@@ -618,26 +774,32 @@ function formatText(text){
 }
 
 
+/* ==========================================
+   RENDER QUOTES
+========================================== */
+
 function renderQuotes(list){
 
     const container =
         document.getElementById("quotesContainer");
 
+    const noResults =
+        document.getElementById("noResults");
+
+
     container.innerHTML = "";
 
 
-    if(!list.length){
+    if(!Array.isArray(list) || !list.length){
 
-        document.getElementById("noResults")
-            .style.display = "block";
+        noResults.style.display = "block";
 
         return;
 
     }
 
 
-    document.getElementById("noResults")
-        .style.display = "none";
+    noResults.style.display = "none";
 
 
     list.forEach(function(quote){
@@ -647,6 +809,12 @@ function renderQuotes(list){
 
         card.className = "quote-card";
 
+
+        /*
+        ======================================
+        IMAGE AVAILABLE
+        ======================================
+        */
 
         if(quote.image){
 
@@ -662,11 +830,17 @@ function renderQuotes(list){
                         )}"
                         loading="lazy"
                         onerror="
+                            this.parentElement.classList.add('fallback-quote');
                             this.style.display='none';
+                            this.parentElement.insertAdjacentHTML(
+                                'beforeend',
+                                '<div class=&quot;image-quote&quot;>${formatText(quote.text)}</div><div class=&quot;image-author&quot;>— ${escapeHTML(quote.author || "Tehalka Quotes")}</div>'
+                            );
                         "
                     >
 
                 </div>
+
 
                 <div class="quote-info">
 
@@ -683,6 +857,7 @@ function renderQuotes(list){
 
                     </span>
 
+
                     <div class="quote-title">
 
                         ${escapeHTML(
@@ -692,21 +867,33 @@ function renderQuotes(list){
 
                     </div>
 
+
                     <div class="actions">
 
                         <button
+                            type="button"
                             onclick="copyQuote(${quote.id})">
+
                             📋 Copy
+
                         </button>
 
+
                         <button
+                            type="button"
                             onclick="shareQuote(${quote.id})">
+
                             📤 Share
+
                         </button>
 
+
                         <button
+                            type="button"
                             onclick="downloadQuote(${quote.id})">
+
                             ⬇️ Download
+
                         </button>
 
                     </div>
@@ -715,17 +902,29 @@ function renderQuotes(list){
 
             `;
 
-        }else{
+        }
+
+
+        /*
+        ======================================
+        NO IMAGE
+        ======================================
+        */
+
+        else{
 
             card.innerHTML = `
 
-                <div class="quote-image">
+                <div class="quote-image fallback-quote">
 
                     <div class="image-quote">
 
-                        ${formatText(quote.text)}
+                        ${formatText(
+                            quote.text
+                        )}
 
                     </div>
+
 
                     <div class="image-author">
 
@@ -739,6 +938,7 @@ function renderQuotes(list){
 
                 </div>
 
+
                 <div class="quote-info">
 
                     <span class="badge">
@@ -754,6 +954,7 @@ function renderQuotes(list){
 
                     </span>
 
+
                     <div class="quote-title">
 
                         ${escapeHTML(
@@ -763,21 +964,33 @@ function renderQuotes(list){
 
                     </div>
 
+
                     <div class="actions">
 
                         <button
+                            type="button"
                             onclick="copyQuote(${quote.id})">
+
                             📋 Copy
+
                         </button>
 
+
                         <button
+                            type="button"
                             onclick="shareQuote(${quote.id})">
+
                             📤 Share
+
                         </button>
 
+
                         <button
+                            type="button"
                             onclick="downloadQuote(${quote.id})">
+
                             ⬇️ Download
+
                         </button>
 
                     </div>
@@ -796,10 +1009,16 @@ function renderQuotes(list){
 }
 
 
+/* ==========================================
+   SEARCH
+========================================== */
+
 function searchQuotes(){
 
     const input =
-        document.getElementById("searchInput")
+        document.getElementById(
+            "searchInput"
+        )
         .value
         .toLowerCase()
         .trim();
@@ -808,16 +1027,17 @@ function searchQuotes(){
     const filtered =
         quotesData.filter(function(quote){
 
-            const searchable =
-                (
-                    (quote.title || "") +
-                    " " +
-                    (quote.category || "") +
-                    " " +
-                    (quote.text || "") +
-                    " " +
-                    (quote.author || "")
-                ).toLowerCase();
+            const searchable = (
+
+                (quote.title || "") +
+                " " +
+                (quote.category || "") +
+                " " +
+                (quote.text || "") +
+                " " +
+                (quote.author || "")
+
+            ).toLowerCase();
 
 
             return searchable.includes(input);
@@ -829,6 +1049,10 @@ function searchQuotes(){
 
 }
 
+
+/* ==========================================
+   CATEGORY FILTER
+========================================== */
 
 function filterCategory(category,button){
 
@@ -857,29 +1081,43 @@ function filterCategory(category,button){
     }
 
 
-    renderQuotes(
-
+    const filtered =
         quotesData.filter(function(quote){
 
-            return quote.category === category;
+            return String(
+                quote.category || ""
+            ).toLowerCase()
+            ===
+            String(category).toLowerCase();
 
-        })
+        });
 
+
+    renderQuotes(filtered);
+
+}
+
+
+/* ==========================================
+   FIND QUOTE
+========================================== */
+
+function findQuote(id){
+
+    return quotesData.find(
+        function(item){
+
+            return String(item.id) === String(id);
+
+        }
     );
 
 }
 
 
-function findQuote(id){
-
-    return quotesData.find(function(item){
-
-        return item.id == id;
-
-    });
-
-}
-
+/* ==========================================
+   COPY QUOTE
+========================================== */
 
 function copyQuote(id){
 
@@ -889,30 +1127,79 @@ function copyQuote(id){
 
 
     const text =
-        quote.text +
+        (quote.text || "") +
         "\n\n— " +
         (quote.author || "Tehalka Quotes");
 
 
-    if(navigator.clipboard){
+    if(
+        navigator.clipboard &&
+        window.isSecureContext
+    ){
 
         navigator.clipboard
             .writeText(text)
             .then(function(){
 
-                showToast("Quote copied! 📋");
+                showToast(
+                    "Quote copied! 📋"
+                );
 
             })
             .catch(function(){
 
-                showToast("Copy नहीं हो पाया ❌");
+                fallbackCopy(text);
 
             });
+
+    }else{
+
+        fallbackCopy(text);
 
     }
 
 }
 
+
+function fallbackCopy(text){
+
+    const textarea =
+        document.createElement("textarea");
+
+    textarea.value = text;
+
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try{
+
+        document.execCommand("copy");
+
+        showToast(
+            "Quote copied! 📋"
+        );
+
+    }catch(error){
+
+        showToast(
+            "Copy नहीं हो पाया ❌"
+        );
+
+    }
+
+    textarea.remove();
+
+}
+
+
+/* ==========================================
+   SHARE QUOTE
+========================================== */
 
 function shareQuote(id){
 
@@ -922,7 +1209,7 @@ function shareQuote(id){
 
 
     const shareText =
-        quote.text +
+        (quote.text || "") +
         "\n\n— " +
         (quote.author || "Tehalka Quotes");
 
@@ -941,122 +1228,22 @@ function shareQuote(id){
             url:
                 window.location.href
 
-        }).catch(function(){});
+        })
+        .then(function(){
+
+            showToast(
+                "Share किया गया! 📤"
+            );
+
+        })
+        .catch(function(){});
 
     }else{
 
         copyQuote(id);
 
         showToast(
-            "Share option नहीं है, text copied! 📋"
-        );
-
-    }
-
-}
-function downloadQuote(id){
-
-    const quote = findQuote(id);
-
-    if(!quote){
-
-        showToast("Quote नहीं मिला ❌");
-        return;
-
-    }
-
-
-    showToast("Image तैयार हो रही है... ⏳");
-
-
-    const canvas =
-        document.createElement("canvas");
-
-    const width = 1080;
-    const height = 1080;
-
-    canvas.width = width;
-    canvas.height = height;
-
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    /*
-    ==========================================
-    BACKGROUND
-    ==========================================
-    */
-
-    drawBackground(
-        ctx,
-        width,
-        height
-    );
-
-
-    /*
-    ==========================================
-    IMAGE LOAD
-    ==========================================
-    */
-
-    if(quote.image){
-
-        loadImage(quote.image)
-
-        .then(function(img){
-
-            drawImageCover(
-                ctx,
-                img,
-                width,
-                height
-            );
-
-            drawQuoteOverlay(
-                ctx,
-                quote,
-                width,
-                height
-            );
-
-            saveCanvas(
-                canvas,
-                quote.title
-            );
-
-        })
-
-        .catch(function(){
-
-            drawQuoteOverlay(
-                ctx,
-                quote,
-                width,
-                height
-            );
-
-            saveCanvas(
-                canvas,
-                quote.title
-            );
-
-        });
-
-    }else{
-
-        drawQuoteOverlay(
-            ctx,
-            quote,
-            width,
-            height
-        );
-
-        saveCanvas(
-            canvas,
-            quote.title
+            "Text copied — अब share करें 📋"
         );
 
     }
@@ -1064,11 +1251,40 @@ function downloadQuote(id){
 }
 
 
-/*
-==========================================
-DRAW BACKGROUND
-==========================================
-*/
+/* ==========================================
+   LOAD IMAGE
+========================================== */
+
+function loadImage(src){
+
+    return new Promise(function(resolve,reject){
+
+        const img = new Image();
+
+        img.onload = function(){
+
+            resolve(img);
+
+        };
+
+        img.onerror = function(){
+
+            reject(
+                new Error("Image load failed")
+            );
+
+        };
+
+        img.src = src;
+
+    });
+
+}
+
+
+/* ==========================================
+   DRAW BACKGROUND
+========================================== */
 
 function drawBackground(
     ctx,
@@ -1103,9 +1319,7 @@ function drawBackground(
     );
 
 
-    ctx.fillStyle =
-        gradient;
-
+    ctx.fillStyle = gradient;
 
     ctx.fillRect(
         0,
@@ -1117,53 +1331,213 @@ function drawBackground(
 }
 
 
-/*
-==========================================
-DRAW IMAGE COVER
-==========================================
-*/
+/* ==========================================
+   WRAP TEXT
+========================================== */
 
-function drawImageCover(
+function wrapText(
     ctx,
-    img,
-    width,
-    height
+    text,
+    maxWidth
 ){
 
-    const scale =
-        Math.max(
-            width / img.width,
-            height / img.height
-        );
+    const words =
+        String(text || "")
+        .split(/\s+/);
 
 
-    const imageWidth =
-        img.width * scale;
+    const lines = [];
+
+    let line = "";
 
 
-    const imageHeight =
-        img.height * scale;
+    words.forEach(function(word){
+
+        const test =
+            line
+            ? line + " " + word
+            : word;
 
 
-    const x =
-        (width - imageWidth) / 2;
+        if(
+            ctx.measureText(test).width >
+            maxWidth
+        ){
+
+            if(line){
+
+                lines.push(line);
+
+            }
+
+            line = word;
+
+        }else{
+
+            line = test;
+
+        }
+
+    });
 
 
-    const y =
-        (height - imageHeight) / 2;
+    if(line){
+
+        lines.push(line);
+
+    }
 
 
-    ctx.drawImage(
-        img,
-        x,
-        y,
-        imageWidth,
-        imageHeight
+    return lines;
+
+}
+
+
+/* ==========================================
+   SAFE FILE NAME
+========================================== */
+
+function safeFileName(name){
+
+    return String(name)
+
+        .toLowerCase()
+
+        .replace(
+            /[^a-z0-9]+/gi,
+            "-"
+        )
+
+        .replace(
+            /^-+|-+$/g,
+            ""
+        )
+
+        .substring(
+            0,
+            60
+        )
+
+        || "tehalka-quote";
+
+}
+
+
+/* ==========================================
+   DOWNLOAD QUOTE IMAGE
+========================================== */
+
+async function downloadQuote(id){
+
+    const quote = findQuote(id);
+
+    if(!quote) return;
+
+
+    showToast(
+        "Image तैयार हो रही है... ⏳"
+    );
+
+
+    const canvas =
+        document.createElement("canvas");
+
+
+    const width = 1080;
+    const height = 1080;
+
+
+    canvas.width = width;
+    canvas.height = height;
+
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    /*
+    ======================================
+    BACKGROUND
+    ======================================
+    */
+
+    drawBackground(
+        ctx,
+        width,
+        height
     );
 
 
     /*
-    Dark overlay
+    ======================================
+    IMAGE
+    ======================================
+    */
+
+    if(quote.image){
+
+        try{
+
+            const img =
+                await loadImage(
+                    quote.image
+                );
+
+
+            const scale =
+                Math.max(
+                    width / img.width,
+                    height / img.height
+                );
+
+
+            const imageWidth =
+                img.width * scale;
+
+
+            const imageHeight =
+                img.height * scale;
+
+
+            const x =
+                (width - imageWidth) / 2;
+
+
+            const y =
+                (height - imageHeight) / 2;
+
+
+            ctx.drawImage(
+                img,
+                x,
+                y,
+                imageWidth,
+                imageHeight
+            );
+
+
+        }catch(error){
+
+            /*
+            Image load fail होने पर
+            gradient background रहेगा
+            */
+
+            drawBackground(
+                ctx,
+                width,
+                height
+            );
+
+        }
+
+    }
+
+
+    /*
+    ======================================
+    DARK OVERLAY
+    ======================================
     */
 
     const overlay =
@@ -1182,20 +1556,18 @@ function drawImageCover(
 
 
     overlay.addColorStop(
-        0.5,
-        "rgba(0,0,0,.30)"
+        0.45,
+        "rgba(0,0,0,.35)"
     );
 
 
     overlay.addColorStop(
         1,
-        "rgba(0,0,0,.88)"
+        "rgba(0,0,0,.90)"
     );
 
 
-    ctx.fillStyle =
-        overlay;
-
+    ctx.fillStyle = overlay;
 
     ctx.fillRect(
         0,
@@ -1204,84 +1576,19 @@ function drawImageCover(
         height
     );
 
-}
-
-
-/*
-==========================================
-LOAD IMAGE
-==========================================
-*/
-
-function loadImage(src){
-
-    return new Promise(
-        function(resolve,reject){
-
-            const img =
-                new Image();
-
-
-            img.crossOrigin =
-                "anonymous";
-
-
-            img.onload =
-                function(){
-
-                    resolve(img);
-
-                };
-
-
-            img.onerror =
-                function(){
-
-                    reject(
-                        new Error(
-                            "Image load failed"
-                        )
-                    );
-
-                };
-
-
-            img.src = src;
-
-        }
-    );
-
-}
-
-
-/*
-==========================================
-DRAW QUOTE OVERLAY
-==========================================
-*/
-
-function drawQuoteOverlay(
-    ctx,
-    quote,
-    width,
-    height
-){
 
     /*
-    Brand
+    ======================================
+    BRAND
+    ======================================
     */
 
-    ctx.textAlign =
-        "center";
+    ctx.textAlign = "center";
 
-
-    ctx.fillStyle =
-        "#ffd54a";
-
+    ctx.fillStyle = "#ffd54a";
 
     ctx.font =
         "bold 34px Arial";
-
 
     ctx.fillText(
         "✨ Tehalka Quotes",
@@ -1291,18 +1598,18 @@ function drawQuoteOverlay(
 
 
     /*
-    Category
+    ======================================
+    CATEGORY
+    ======================================
     */
 
-    ctx.fillStyle =
-        "white";
-
+    ctx.fillStyle = "white";
 
     ctx.font =
         "bold 28px Arial";
 
-
     ctx.fillText(
+
         getCategoryIcon(
             quote.category
         ) +
@@ -1311,309 +1618,96 @@ function drawQuoteOverlay(
             quote.category ||
             "Shayari"
         ),
+
         width / 2,
         125
+
     );
 
 
     /*
-    Quote
+    ======================================
+    QUOTE TEXT
+    ======================================
     */
 
-    const maxWidth =
-        850;
-
-
-    const fontSize =
-        42;
-
-
     ctx.font =
-        "bold " +
-        fontSize +
-        "px Arial";
+        "bold 42px Arial";
 
 
     const lines =
         wrapText(
             ctx,
             quote.text,
-            maxWidth,
-            fontSize
+            850
         );
 
 
-    let lineHeight =
-        65;
-
-
-    let totalHeight =
-        lines.length *
-        lineHeight;
+    const lineHeight = 62;
 
 
     let startY =
-        (height / 2) -
-        (totalHeight / 2);
+        (height / 2)
+        -
+        (
+            (lines.length - 1)
+            *
+            lineHeight
+            /
+            2
+        );
+
+
+    ctx.fillStyle = "white";
+
+
+    lines.forEach(function(line){
+
+        ctx.fillText(
+            line,
+            width / 2,
+            startY
+        );
+
+
+        startY += lineHeight;
+
+    });
 
 
     /*
-    Quote box
+    ======================================
+    AUTHOR
+    ======================================
     */
-
-    ctx.fillStyle =
-        "rgba(0,0,0,.28)";
-
-
-    const boxHeight =
-        totalHeight + 80;
-
-
-    const boxY =
-        startY - 50;
-
-
-    ctx.beginPath();
-
-
-    roundRect(
-        ctx,
-        70,
-        boxY,
-        width - 140,
-        boxHeight,
-        30
-    );
-
-
-    ctx.fill();
-
-
-    /*
-    Quote text
-    */
-
-    ctx.fillStyle =
-        "white";
-
-
-    ctx.font =
-        "bold " +
-        fontSize +
-        "px Arial";
-
-
-    lines.forEach(
-        function(line,index){
-
-            ctx.fillText(
-                line,
-                width / 2,
-                startY +
-                (index * lineHeight)
-            );
-
-        }
-    );
-
-
-    /*
-    Author
-    */
-
-    ctx.font =
-        "24px Arial";
-
 
     ctx.fillStyle =
         "#eeeeee";
 
 
+    ctx.font =
+        "24px Arial";
+
+
     ctx.fillText(
+
         "— " +
         (
             quote.author ||
             "Tehalka Quotes"
         ),
+
         width / 2,
-        height - 100
+        height - 85
+
     );
 
 
     /*
-    Title
+    ======================================
+    DOWNLOAD
+    ======================================
     */
-
-    ctx.font =
-        "20px Arial";
-
-
-    ctx.fillStyle =
-        "#dddddd";
-
-
-    ctx.fillText(
-        quote.title ||
-        "Tehalka Quote",
-        width / 2,
-        height - 55
-    );
-
-}
-
-
-/*
-==========================================
-ROUND RECTANGLE
-==========================================
-*/
-
-function roundRect(
-    ctx,
-    x,
-    y,
-    width,
-    height,
-    radius
-){
-
-    ctx.moveTo(
-        x + radius,
-        y
-    );
-
-
-    ctx.arcTo(
-        x + width,
-        y,
-        x + width,
-        y + height,
-        radius
-    );
-
-
-    ctx.arcTo(
-        x + width,
-        y + height,
-        x,
-        y + height,
-        radius
-    );
-
-
-    ctx.arcTo(
-        x,
-        y + height,
-        x,
-        y,
-        radius
-    );
-
-
-    ctx.arcTo(
-        x,
-        y,
-        x + width,
-        y,
-        radius
-    );
-
-
-    ctx.closePath();
-
-}
-
-
-/*
-==========================================
-WRAP TEXT
-==========================================
-*/
-
-function wrapText(
-    ctx,
-    text,
-    maxWidth,
-    fontSize
-){
-
-    ctx.font =
-        "bold " +
-        fontSize +
-        "px Arial";
-
-
-    const words =
-        String(
-            text || ""
-        ).split(/\s+/);
-
-
-    const lines = [];
-
-    let line = "";
-
-
-    words.forEach(
-        function(word){
-
-            const test =
-                line
-                ? line + " " + word
-                : word;
-
-
-            if(
-                ctx.measureText(
-                    test
-                ).width >
-                maxWidth &&
-                line
-            ){
-
-                lines.push(
-                    line
-                );
-
-
-                line =
-                    word;
-
-            }else{
-
-                line =
-                    test;
-
-            }
-
-        }
-    );
-
-
-    if(line){
-
-        lines.push(
-            line
-        );
-
-    }
-
-
-    return lines;
-
-}
-
-
-/*
-==========================================
-SAVE CANVAS
-==========================================
-*/
-
-function saveCanvas(
-    canvas,
-    title
-){
 
     canvas.toBlob(
         function(blob){
@@ -1635,35 +1729,31 @@ function saveCanvas(
                 );
 
 
-            const link =
+            const a =
                 document.createElement(
                     "a"
                 );
 
 
-            link.href =
-                url;
+            a.href = url;
 
 
-            link.download =
+            a.download =
                 safeFileName(
-                    title ||
+                    quote.title ||
                     "tehalka-quote"
-                ) +
+                )
+                +
                 ".png";
 
 
-            document.body.appendChild(
-                link
-            );
+            document.body.appendChild(a);
 
 
-            link.click();
+            a.click();
 
 
-            document.body.removeChild(
-                link
-            );
+            a.remove();
 
 
             setTimeout(
@@ -1679,7 +1769,7 @@ function saveCanvas(
 
 
             showToast(
-                "Quote Image Download हो गई! ⬇️"
+                "Quote Download हो गया! ⬇️"
             );
 
         },
@@ -1689,58 +1779,12 @@ function saveCanvas(
 }
 
 
-/*
-==========================================
-SAFE FILE NAME
-==========================================
-*/
-
-function safeFileName(name){
-
-    return String(name)
-        .toLowerCase()
-        .replace(
-            /[^a-z0-9]+/gi,
-            "-"
-        )
-        .replace(
-            /^-+|-+$/g,
-            ""
-        )
-        .substring(
-            0,
-            60
-        )
-        ||
-        "tehalka-quote";
-
-}
-
-
-/*
-==========================================
-INITIAL LOAD
-==========================================
-*/
+/* ==========================================
+   INITIAL LOAD
+========================================== */
 
 renderQuotes(
     quotesData
-);
-
-
-/*
-==========================================
-PAGE READY
-==========================================
-*/
-
-console.log(
-    "Tehalka Quotes loaded successfully."
-);
-
-console.log(
-    "Total Quotes:",
-    quotesData.length
 );
 
 </script>
